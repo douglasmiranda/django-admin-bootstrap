@@ -2,9 +2,16 @@
 {% load i18n admin_static %}
 {% load url from future %}
 
-{% block extrastyle %}{{ block.super }}<link rel="stylesheet" type="text/css" href="{% static "admin/css/login.css" %}" />{% endblock %}
+{% block css_commons %}{% endblock css_commons %}
+
+{% block extrastyle %}
+    {{ block.super }}
+    <link rel="stylesheet" type="text/css" href="{% static "css/login.css" %}" />
+{% endblock %}
 
 {% block bodyclass %}login{% endblock %}
+
+{% block branding %}{% endblock %}
 
 {% block nav-global %}{% endblock %}
 
@@ -13,45 +20,90 @@
 {% block breadcrumbs %}{% endblock %}
 
 {% block content %}
-{% if form.errors and not form.non_field_errors and not form.this_is_the_login_form.errors %}
-<p class="errornote">
-{% blocktrans count counter=form.errors.items|length %}Please correct the error below.{% plural %}Please correct the errors below.{% endblocktrans %}
-</p>
-{% endif %}
-
-{% if form.non_field_errors or form.this_is_the_login_form.errors %}
-{% for error in form.non_field_errors|add:form.this_is_the_login_form.errors %}
-<p class="errornote">
-    {{ error }}
-</p>
-{% endfor %}
-{% endif %}
-
 <div id="content-main">
-<form action="{{ app_path }}" method="post" id="login-form">{% csrf_token %}
-  <div class="form-row">
-    {% if not form.this_is_the_login_form.errors %}{{ form.username.errors }}{% endif %}
-    <label for="id_username" class="required">{% trans 'Username:' %}</label> {{ form.username }}
-  </div>
-  <div class="form-row">
-    {% if not form.this_is_the_login_form.errors %}{{ form.password.errors }}{% endif %}
-    <label for="id_password" class="required">{% trans 'Password:' %}</label> {{ form.password }}
-    <input type="hidden" name="this_is_the_login_form" value="1" />
-    <input type="hidden" name="next" value="{{ next }}" />
-  </div>
-  {% url 'admin_password_reset' as password_reset_url %}
-  {% if password_reset_url %}
-  <div class="password-reset-link">
-    <a href="{{ password_reset_url }}">{% trans 'Forgotten your password or username?' %}</a>
-  </div>
-  {% endif %}
-  <div class="submit-row">
-    <label>&nbsp;</label><input type="submit" value="{% trans 'Log in' %}" />
-  </div>
-</form>
+    <div class="row">
+        <div class="span6 offset3 well">
+            <form class="form-horizontal" action="{{ app_path }}" method="post"  id="login-form">
+                {% csrf_token %}
+                <fieldset>
+                    <legend>
+                        <h1>
+                            {% trans 'Django administration' %} - {{ title }}
+                        </h1>
+                    </legend>
+                    {% if form.errors and not form.non_field_errors and not form.this_is_the_login_form.errors %}
+                    <p class="errornote alert alert-error fade in">
+                    <a href="#" data-dismiss="alert" class="close">×</a>
+                    {% blocktrans count form.errors.items|length as counter %}Please correct the error below.{% plural %}Please correct the errors below.{% endblocktrans %}
+                    </p>
+                    {% endif %}
 
-<script type="text/javascript">
-document.getElementById('id_username').focus()
-</script>
+                    {% if form.non_field_errors or form.this_is_the_login_form.errors %}
+                    {% for error in form.non_field_errors|add:form.this_is_the_login_form.errors %}
+                    <p class="errornote alert alert-error fade in">
+                    <a href="#" data-dismiss="alert" class="close">×</a>
+                        {{ error }}
+                    </p>
+                    {% endfor %}
+                    {% endif %}
+                    <div class="control-group {% if form.username.errors %}error{% endif %}">
+                        <label for="id_{{ form.username.html_name }}" class="control-label">
+                            {% trans 'Username:' %}{{ form.username. }}
+                        </label>
+                        <div class="controls">
+                            <input type="text" name="{{ form.username.html_name }}" id="{{ form.username.html_name }}" class="input-xlarge focused">
+                        </div>
+                    </div>
+                    <div class="control-group {% if form.password.errors %}error{% endif %}">
+                        <label for="id_{{ form.password.html_name }}" class="control-label">
+                            {% trans 'Password:' %}{{ form.password. }}
+                        </label>
+                        <div class="controls">
+                            <input type="text" name="{{ form.password.html_name }}" id="{{ form.password.html_name }}" class="input-xlarge focused">
+                            <input type="hidden" name="this_is_the_login_form" value="1" />
+                            <input type="hidden" name="next" value="{{ next }}" />
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button class="btn btn-primary" type="submit">{% trans 'Log in' %}</button>
+                        <a class="btn" href="http://{{ site }}">
+                            {{ site.name }}
+                        </a>
+                        {% url 'admin_password_reset' as password_reset_url %}
+                        {% if password_reset_url %}
+                            <p class="forgotten-password">
+                                <a href="{{ password_reset_url }}">
+                                    {% trans 'Forgotten your password or username?' %}
+                                </a>
+                            </p>
+                        {% endif %}
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
 </div>
 {% endblock %}
+
+{% block js_footer %}
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#id_username').focus();
+            {% if not form.this_is_the_login_form.errors %}
+                {% if form.username.errors %}
+                    $("#username").popover({
+                        'placement' : 'left',
+                        'title' : '<i class="icon-user"></i> {% trans 'Username:' %}',
+                        'content' : '{{ form.username.errors }}',
+                    }).popover('show');
+                {% endif %}
+                {% if form.password.errors %}
+                    $("#password").popover({
+                        'title' : '<i class="icon-lock"></i> {% trans 'Password:' %}',
+                        'content' : '{{ form.password.errors }}',
+                    }).popover('show');
+                {% endif %}
+            {% endif %}
+        });
+    </script>
+{% endblock js_footer %}

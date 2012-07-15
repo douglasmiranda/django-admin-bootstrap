@@ -1,0 +1,20 @@
+body{
+    padding-top: 120px;
+}
+#login-form{
+    float: none;
+    margin: 0 auto;
+}
+.submit{
+    display: block;
+    margin: 0 auto 0 auto !important;
+}
+.errornote{
+    margin-bottom: 35px;
+}
+.icon-user, .icon-lock{
+    margin-top: 4px;
+}
+.forgotten-password{
+    margin-top: 5px;
+}
