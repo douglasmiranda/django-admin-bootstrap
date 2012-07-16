@@ -29,48 +29,48 @@
 {% if not is_popup %}
     <!-- Header -->
     <div id="header" class="navbar navbar-fixed-top">
-        <div class="navbar-inner" id="nav-menu-top-bar">
-            {% block branding %}{% endblock %}
-            {% block nav-global %}{% endblock %}
-            {% if user.is_active and user.is_staff %}
-                <div id="user-tools" class="pull-right">
-                    <div class="btn-group pull-right">
-                        <a href="{% if perms.user.change_user %}{% url 'admin:auth_user_change' user.pk %}{% else %}#{% endif %}" class="btn btn-primary">
-                        <i class="icon white user"></i>
-                         @{{ user.username }}
-                        </a>
-                        <a href="#" data-toggle="dropdown" class="btn btn-primary dropdown-toggle"><span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            {% block userlinks %}
-                                {% url 'django-admindocs-docroot' as docsroot %}
-                                {% if docsroot %}
+        {% if user.is_active and user.is_staff %}
+            <div class="navbar-inner" id="nav-menu-top-bar">
+                    {% block branding %}{% endblock %}
+                    {% block nav-global %}{% endblock %}
+                    <div id="user-tools" class="pull-right">
+                        <div class="btn-group pull-right">
+                            <a href="{% if perms.user.change_user %}{% url 'admin:auth_user_change' user.pk %}{% else %}#{% endif %}" class="btn btn-primary">
+                            <i class="icon white user"></i>
+                             @{{ user.username }}
+                            </a>
+                            <a href="#" data-toggle="dropdown" class="btn btn-primary dropdown-toggle"><span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                {% block userlinks %}
+                                    {% url 'django-admindocs-docroot' as docsroot %}
+                                    {% if docsroot %}
+                                        <li>
+                                            <a href="{{ docsroot }}"><i class="icon-pencil"></i> {% trans 'Documentation' %}</a>
+                                        </li>
+                                    {% endif %}
+                                        <li>
+                                            <a href="{{ password_change_url }}">
+                                                <i class="icon-pencil"></i> 
+                                                {% trans 'Change password' %}
+                                            </a>
+                                        </li>
                                     <li>
-                                        <a href="{{ docsroot }}"><i class="icon-pencil"></i> {% trans 'Documentation' %}</a>
-                                    </li>
-                                {% endif %}
-                                    <li>
-                                        <a href="{{ password_change_url }}">
-                                            <i class="icon-pencil"></i> 
-                                            {% trans 'Change password' %}
+                                        <a href="{% url 'admin:logout' %}">
+                                            <i class="icon-off"></i> 
+                                            {% trans 'Log out' %}
                                         </a>
                                     </li>
-                                <li>
-                                    <a href="{% url 'admin:logout' %}">
-                                        <i class="icon-off"></i> 
-                                        {% trans 'Log out' %}
-                                    </a>
-                                </li>
-                            {% endblock %}
-                        </ul>
+                                {% endblock %}
+                            </ul>
+                        </div>
                     </div>
                     <p class="welcome-message pull-right">
                         <i class="icon-user icon-white"></i>
                         {% trans 'Welcome,' %}
                         <strong>{% filter force_escape %}{% firstof user.first_name user.username %}{% endfilter %}</strong>.
                     </p>
-                </div>
-            {% endif %}
-        </div>
+            </div>
+        {% endif %}
     </div>
     <!-- END Header -->
 {% endif %}

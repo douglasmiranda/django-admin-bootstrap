@@ -2,15 +2,14 @@ body{
     padding-top: 55px;
 }
 #nav-menu-top-bar{
+    height: 40px;
     padding-left: 10px;
     padding-right: 10px;
 }
 #site-name:hover{
     color: #fff;
 }
-#user-tools{
-}
-#user-tools .welcome-message{
+.welcome-message{
     margin-right:10px;
     margin-top:10px;
 }
