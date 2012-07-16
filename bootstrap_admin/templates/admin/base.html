@@ -48,12 +48,12 @@
                                             <a href="{{ docsroot }}"><i class="icon-pencil"></i> {% trans 'Documentation' %}</a>
                                         </li>
                                     {% endif %}
-                                        <li>
-                                            <a href="{{ password_change_url }}">
-                                                <i class="icon-pencil"></i> 
-                                                {% trans 'Change password' %}
-                                            </a>
-                                        </li>
+                                    <li>
+                                        <a href="{% url 'admin:password_change' %}">
+                                            <i class="icon-pencil"></i>
+                                            {% trans 'Change password' %}
+                                        </a>
+                                    </li>
                                     <li>
                                         <a href="{% url 'admin:logout' %}">
                                             <i class="icon-off"></i> 
