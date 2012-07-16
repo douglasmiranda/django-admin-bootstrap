@@ -31,6 +31,7 @@
     <div id="header" class="navbar navbar-fixed-top">
         {% if user.is_active and user.is_staff %}
             <div class="navbar-inner" id="nav-menu-top-bar">
+                <div class="container">
                     {% block branding %}{% endblock %}
                     {% block nav-global %}{% endblock %}
                     <div id="user-tools" class="pull-right">
@@ -69,21 +70,29 @@
                         {% trans 'Welcome,' %}
                         <strong>{% filter force_escape %}{% firstof user.first_name user.username %}{% endfilter %}</strong>.
                     </p>
+                </div>
             </div>
         {% endif %}
     </div>
     <!-- END Header -->
 {% endif %}
 <!-- Container -->
-<div id="container" class='container'>
+<div id="main-container" class='container'>
 
     {% if not is_popup %}
-    {% block breadcrumbs %}
-    <div class="breadcrumbs">
-    <a href="{% url 'admin:index' %}">{% trans 'Home' %}</a>
-    {% if title %} &rsaquo; {{ title }}{% endif %}
-    </div>
-    {% endblock %}
+        {% block breadcrumbs %}
+            <ul class="breadcrumb">
+                <li>
+                    <a href="/">
+                        {% trans 'Home' %}
+                    </a>
+                    <span class="divider"> &rsaquo; </span>
+                </li>
+                <li class="active">
+                    {% if title %}{{ title }}{% endif %}
+                </li>
+            </ul>
+        {% endblock %}
     {% endif %}
 
     {% block messages %}
