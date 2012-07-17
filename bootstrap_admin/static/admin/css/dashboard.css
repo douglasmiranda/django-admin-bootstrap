@@ -1,0 +1,14 @@
+.recent-actions ul {
+    list-style: none outside none;
+    margin-left: 15px;
+}
+.recent-actions h3 {
+}
+.action-list li {
+    margin-top: 12px;
+    border-bottom: 1px dashed #E5E5E5;
+    padding-bottom: 2px;
+}
+.dashboard-tools{
+    margin-top: 20px;
+}
