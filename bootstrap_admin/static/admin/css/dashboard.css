@@ -12,3 +12,12 @@
 .dashboard-tools{
     margin-top: 20px;
 }
+.app-list{
+    margin-top: 20px;
+}
+.model-name{
+    width: 100%;
+}
+.app-list h3{
+    margin-bottom: 12px;
+}
