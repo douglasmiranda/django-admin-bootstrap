@@ -22,8 +22,8 @@
 
 
 
-<div class="container-fluid dashboard-tools">
-    <div class="row-fluid">
+<div class="container-fluid">
+    <div class="row-fluid dashboard-tools">
         <div class="span3 recent-actions well">
             <h3>{% trans 'My Actions' %}</h3>
             {% load log %}
@@ -115,3 +115,28 @@
 </div>
 
 {% endblock %}
+
+{% block js_footer %}
+    <script type="text/javascript">
+        swap_containers = function(container){
+            container = $(container);
+            container.remove();
+            
+            $('.dashboard-tools').append(container.prop('outerHTML'));
+        }
+
+        swap_if_necessary = function(){
+            width = Math.max( $(window).innerWidth(), window.innerWidth)
+            if(width < '767' && $('.recent-actions').isBefore('.app-list')){
+                swap_containers('.recent-actions');
+            } 
+            else if(width > '767' && $('.recent-actions').isAfter('.app-list')){
+                swap_containers('.app-list');
+            }
+        }
+
+        $(window).resize(function(){
+            swap_if_necessary();
+        });
+    </script>
+{% endblock js_footer %}
