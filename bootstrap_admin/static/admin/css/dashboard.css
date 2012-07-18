@@ -21,3 +21,17 @@
 .app-list h3{
     margin-bottom: 12px;
 }
+.app-list .form-search{
+    margin-bottom: 0px;
+    width:246px;
+}
+@media (max-width: 767px) {
+    .app-list .form-search{
+        width:159px;
+    }
+}
+@media (max-width: 480px) {
+    .app-list .search-in-this-model{
+        display: none;
+    }
+}

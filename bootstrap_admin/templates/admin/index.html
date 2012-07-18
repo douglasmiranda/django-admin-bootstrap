@@ -66,33 +66,45 @@
                         <thead>
                           <tr>
                             <th>
-                                <a href="{{ app.app_url }}" class="section">
-                                    {% blocktrans with name=app.name %}{{ name }}{% endblocktrans %}
-                                </a>
+                                <h4>
+                                    <a href="{{ app.app_url }}" class="section">
+                                        {% blocktrans with name=app.name %}{{ name }}{% endblocktrans %}
+                                    </a>
+                                </h4>
                             </th>
                           </tr>
                         </thead>
 
-                    {% for model in app.models %}
-                        <tr>
-                        {% if model.admin_url %}
-                            <td class="model-name"><a href="{{ model.admin_url }}">{{ model.name }}</a></td>
-                        {% else %}
-                            <td class="model-name">{{ model.name }}</td>
-                        {% endif %}
+                        <tbody>
+                            {% for model in app.models %}
+                                <tr>
+                                {% if model.admin_url %}
+                                    <td class="model-name"><a href="{{ model.admin_url }}">{{ model.name }}</a></td>
+                                {% else %}
+                                    <td class="model-name">{{ model.name }}</td>
+                                {% endif %}
 
-                        <td>
-                            {% if model.add_url %}
-                                <a href="{{ model.add_url }}" class="btn btn-primary pull-right">{% trans 'Add' %}</a>
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if model.admin_url %}
-                                <a href="{{ model.admin_url }}" class="btn btn-info pull-right">{% trans 'Change' %}</a>
-                            {% endif %}
-                        </td>
-                        </tr>
-                    {% endfor %}
+                                <td class="search-in-this-model">
+                                    <form class="form-search" method="get" action="{{ model.admin_url }}">
+                                      <div class="input-prepend">
+                                        <span class="add-on"><i class="icon-search"></i></span><input type="text" name="q" size="16" id="prependedInput" class="input-large search-query" placeholder='{% trans 'Search' %} "{{ model.name }}"'>
+                                      </div>
+                                    </form>
+                                </td>   
+
+                                <td>
+                                    {% if model.add_url %}
+                                        <a href="{{ model.add_url }}" class="btn btn-primary pull-right">{% trans 'Add' %}</a>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    {% if model.admin_url %}
+                                        <a href="{{ model.admin_url }}" class="btn btn-info pull-right">{% trans 'Change' %}</a>
+                                    {% endif %}
+                                </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
                     </table>
                 {% endfor %}
             {% else %}
