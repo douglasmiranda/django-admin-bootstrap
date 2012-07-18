@@ -135,8 +135,8 @@
             }
         }
 
-        $(window).resize(function(){
-            swap_if_necessary();
-        });
+        $(window).resize(swap_if_necessary);
+        $(document).ready(swap_if_necessary);
+
     </script>
 {% endblock js_footer %}
