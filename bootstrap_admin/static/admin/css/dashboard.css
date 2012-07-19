@@ -15,8 +15,9 @@
 .app-list{
     margin-top: 20px;
 }
-.model-name{
+.table .model-name{
     width: 100%;
+    vertical-align: middle;
 }
 .app-list h3{
     margin-bottom: 12px;
