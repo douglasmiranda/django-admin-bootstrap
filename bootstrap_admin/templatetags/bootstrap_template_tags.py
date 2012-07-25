@@ -7,7 +7,6 @@ Copyright (c) 2011 Mikhail Korobov
 LICENSE: https://github.com/kmike/django-widget-tweaks/blob/master/LICENSE
 """
 
-import re
 from django.template import Library
 register = Library()
 
