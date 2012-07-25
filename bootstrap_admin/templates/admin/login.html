@@ -33,7 +33,7 @@
                     </legend>
                     {% if form.errors and not form.non_field_errors and not form.this_is_the_login_form.errors %}
                     <p class="errornote alert alert-error fade in">
-                    <a href="#" data-dismiss="alert" class="close">×</a>
+                    <button data-dismiss="alert" class="close" type="button">×</button>
                     {% blocktrans count form.errors.items|length as counter %}Please correct the error below.{% plural %}Please correct the errors below.{% endblocktrans %}
                     </p>
                     {% endif %}
