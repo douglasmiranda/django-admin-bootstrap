@@ -1,0 +1,46 @@
+#content-main{
+    margin-top: 20px;
+}
+.object-tools{
+    text-align: right;
+}
+.object-tools li{
+    display: inline;
+}
+.form-actions{
+    padding:10px 0px  0px  0px !important;
+}
+.radiolist{
+    list-style: none;
+    margin: 3px auto;
+}
+.inline li{
+    margin-right: 5px;
+}
+.inline li, .inline label{
+    display: inline;
+}
+.datetime br{
+    clear: both;
+    display: block;
+    margin: 5px;
+}
+
+@media (max-width: 767px) {
+    .form-actions .container{
+        margin: 10px;
+    }
+    .delete-link-box, .save-options-box{
+        float: none;
+    }
+    .save-options-box input{
+        width: 100%;
+        margin-bottom: 9px !important;
+    }
+    .delete-link-box a{
+        display: block !important;
+    }
+    .navbar .btn {
+        margin: 0px;
+    }
+}

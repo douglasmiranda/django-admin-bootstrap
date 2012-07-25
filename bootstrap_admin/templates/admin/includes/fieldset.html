@@ -1,10 +1,11 @@
+{% load bootstrap_template_tags %}
 <fieldset class="module aligned {{ fieldset.classes }}">
     {% if fieldset.name %}<h2>{{ fieldset.name }}</h2>{% endif %}
     {% if fieldset.description %}
         <div class="description">{{ fieldset.description|safe }}</div>
     {% endif %}
     {% for line in fieldset %}
-            {% if line.fields|length_is:'1' %}{{ line.errors }}{% endif %}
+            
             {% for field in line %}
                 <div class="control-group{% if field.errors %} error{% endif %} {% if field.field.name %} field-{{ field.field.name }}{% endif %}">
                     {% if not line.fields|length_is:'1' and not field.is_readonly %}{{ field.errors }}{% endif %}
@@ -25,26 +26,47 @@
                                 {% endif %}
                             </div>
                         {% else %}
-                            <div class="control-label">{{ field.label_tag }}</div>
+                            {% if field.field|widget_type == 'adminsplitdatetime' %}
+                                <div class="control-label">{{ field.label_tag }}</div>
+                                <div class="controls">
+                                    {% if field.is_readonly %}
+                                        <p>{{ field.contents }}</p>
+                                    {% else %}
+                                        {{ field.field }}
+                                    {% endif %}
 
-                            <div class="controls">
-                                {% if field.is_readonly %}
-                                    <p>{{ field.contents }}</p>
+                                    {% for error in field.field.errors %}
+                                        <span class="help-inline">{{ error }}</span>
+                                    {% endfor %}
+
+                                    {% if field.field.help_text %}
+                                        <p class="help-block">
+                                            {{ field.field.help_text|safe }}
+                                        </p>
+                                    {% endif %}
+                                </div>
                                 {% else %}
-                                    {{ field.field }}
-                                {% endif %}
+                                <div class="control-label">{{ field.label_tag }}</div>
+                                <div class="controls">
+                                    {% if field.is_readonly %}
+                                        <p>{{ field.contents }}</p>
+                                    {% else %}
+                                        {{ field.field|add_class:"span8" }}
+                                        
+                                    {% endif %}
 
-                                {% for error in field.field.errors %}
-                                    <span class="help-inline">{{ error }}</span>
-                                {% endfor %}
+                                    {% for error in field.field.errors %}
+                                        <span class="help-inline">{{ error }}</span>
+                                    {% endfor %}
 
-                                {% if field.field.help_text %}
-                                    <p class="help-block">
-                                        {{ field.field.help_text|safe }}
-                                    </p>
-                                {% endif %}
+                                    {% if field.field.help_text %}
+                                        <p class="help-block">
+                                            {{ field.field.help_text|safe }}
+                                        </p>
+                                    {% endif %}
 
-                            </div>
+                                </div>
+                            {% endif %}
                         {% endif %}
 
                 </div>

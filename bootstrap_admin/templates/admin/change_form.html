@@ -35,7 +35,7 @@
     {% block object-tools %}
         {% if change %}
             {% if not is_popup %}
-              <ul class="object-tools pull-right">
+              <ul class="object-tools">
                 {% block object-tools-items %}
                 <li>
                     <a href="history/" class="btn">{% trans "History" %}</a>
@@ -52,15 +52,16 @@
             {% endif %}
         {% endif %}
     {% endblock %}
-    <form {% if has_file_field %}enctype="multipart/form-data" {% endif %}action="{{ form_url }}" method="post" id="{{ opts.module_name }}_form" class="form-horizontal">{% csrf_token %}{% block form_top %}{% endblock %}
+    <form {% if has_file_field %}enctype="multipart/form-data" {% endif %}action="{{ form_url }}" method="post" id="{{ opts.module_name }}_form" class="form-horizontal well">{% csrf_token %}{% block form_top %}{% endblock %}
 
     {% if is_popup %}<input type="hidden" name="_popup" value="1" />{% endif %}
     {% if save_on_top %}{% block submit_buttons_top %}{% submit_row %}{% endblock %}{% endif %}
     {% if errors %}
-        <p class="errornote">
-        {% blocktrans count counter=errors|length %}Please correct the error below.{% plural %}Please correct the errors below.{% endblocktrans %}
+        <p class="errornote alert alert-error fade in">
+            <a href="#" data-dismiss="alert" class="close">×</a>
+            {% blocktrans count counter=errors|length %}Please correct the error below.{% plural %}Please correct the errors below.{% endblocktrans %}
+            {{ adminform.form.non_field_errors }}
         </p>
-        {{ adminform.form.non_field_errors }}
     {% endif %}
 
     {% block field_sets %}
