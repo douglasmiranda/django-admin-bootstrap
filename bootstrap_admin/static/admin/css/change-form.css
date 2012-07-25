@@ -25,16 +25,26 @@
     display: block;
     margin: 5px;
 }
+/* advanced options */
 .collapse{
-    /* fix: overriding the original style from bootstrap */
     height: auto;
 }
-.collapse h2{
+.collapse h2, .inline-group h2{
     margin-bottom: 20px;
     border-top: 1px solid #E5E5E5;
 }
 .collapsed .control-group{
     display: none;
+}
+/* StackedInline */
+.inline-deletelink, .delete .vCheckboxLabel{
+    background-image: url(../img/glyphicons-halflings.png);
+    background-position: -456px 0;
+    display: inline-block;
+    height: 14px;
+    line-height: 14px;
+    text-indent: -9999px;
+    width: 14px;
 }
 
 @media (max-width: 767px) {
