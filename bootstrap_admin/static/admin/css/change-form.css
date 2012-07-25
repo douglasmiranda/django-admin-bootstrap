@@ -17,10 +17,10 @@
 .inline li{
     margin-right: 5px;
 }
-.inline li, .inline label{
+.inline li, .inline label, .clearable-file-input label{
     display: inline;
 }
-.datetime br{
+.datetime br, .file-upload br{
     clear: both;
     display: block;
     margin: 5px;
