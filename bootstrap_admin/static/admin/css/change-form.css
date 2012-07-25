@@ -1,3 +1,6 @@
+.required{
+    font-weight: bold;
+}
 #content-main{
     margin-top: 20px;
 }
