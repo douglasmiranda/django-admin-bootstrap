@@ -25,6 +25,17 @@
     display: block;
     margin: 5px;
 }
+.collapse{
+    /* fix: overriding the original style from bootstrap */
+    height: auto;
+}
+.collapse h2{
+    margin-bottom: 20px;
+    border-top: 1px solid #E5E5E5;
+}
+.collapsed .control-group{
+    display: none;
+}
 
 @media (max-width: 767px) {
     .form-actions .container{
