@@ -46,8 +46,16 @@
 .inline-deletelink .icon-minus-sign{
     margin: 5px;
 }
+.tabular .inline-deletelink .icon-minus-sign{
+    margin: 2px;
+}
 .delete .icon-trash{
     margin-top: 7px;
+}
+/* TabularInline */
+.tabular .delete input{
+    display: block;
+    margin: 0 auto;
 }
 
 @media (max-width: 767px) {
