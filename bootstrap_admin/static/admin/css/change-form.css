@@ -40,14 +40,14 @@
     display: none;
 }
 /* StackedInline */
-.inline-deletelink, .delete .vCheckboxLabel{
-    background-image: url(../img/glyphicons-halflings.png);
-    background-position: -456px 0;
-    display: inline-block;
-    height: 14px;
-    line-height: 14px;
-    text-indent: -9999px;
-    width: 14px;
+.delete label{
+    display: inline;
+}
+.inline-deletelink .icon-minus{
+    margin: 5px;
+}
+.delete .icon-trash{
+    margin-top: 7px;
 }
 
 @media (max-width: 767px) {
