@@ -43,7 +43,7 @@
 .delete label{
     display: inline;
 }
-.inline-deletelink .icon-minus{
+.inline-deletelink .icon-minus-sign{
     margin: 5px;
 }
 .delete .icon-trash{
