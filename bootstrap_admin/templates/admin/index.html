@@ -117,7 +117,9 @@
 {% endblock %}
 
 {% block js_footer %}
+    
     <script type="text/javascript">
+    (function ($) {
         swap_containers = function(container){
             container = $(container);
             container.remove();
@@ -137,6 +139,6 @@
 
         $(window).resize(swap_if_necessary);
         $(document).ready(swap_if_necessary);
-
+    })(django.jQuery);
     </script>
 {% endblock js_footer %}

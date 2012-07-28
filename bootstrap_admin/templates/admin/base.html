@@ -123,8 +123,7 @@
 </div>
 <!-- END Container -->
 {% block js_footer_commons %}
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="{% static "admin/js/jquery.js" %}">\x3C/script>')</script>
+    <script>window.django || document.write('<script src="{% static "admin/js/jquery.js" %}">\x3C/script><script src="{% static "admin/js/jquery.init.js" %}">\x3C/script>')</script>
     <script type="text/javascript" src="{% static "admin/js/bootstrap.min.js" %}"></script>
     <script type="text/javascript" src="{% static "admin/js/commons.js" %}"></script>
 {% endblock js_footer_commons %}

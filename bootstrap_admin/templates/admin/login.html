@@ -87,6 +87,7 @@
 
 {% block js_footer %}
     <script type="text/javascript">
+    (function ($) {
         $(document).ready(function(){
             $('#id_username').focus();
             {% if not form.this_is_the_login_form.errors %}
@@ -105,5 +106,6 @@
                 {% endif %}
             {% endif %}
         });
+    })(django.jQuery);
     </script>
 {% endblock js_footer %}
