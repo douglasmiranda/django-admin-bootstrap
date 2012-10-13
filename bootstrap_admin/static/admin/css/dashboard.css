@@ -7,6 +7,7 @@
 .action-list li {
     margin-top: 12px;
     border-bottom: 1px dashed #E5E5E5;
+    overflow: hidden;
     padding-bottom: 2px;
 }
 .dashboard-tools{
@@ -24,15 +25,9 @@
 }
 .app-list .form-search{
     margin-bottom: 0px;
-    width:246px;
 }
 @media (max-width: 767px) {
     .app-list .form-search{
         width:159px;
-    }
-}
-@media (max-width: 480px) {
-    .app-list .search-in-this-model{
-        display: none;
     }
 }

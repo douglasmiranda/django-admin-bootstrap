@@ -84,10 +84,11 @@
                                     <td class="model-name">{{ model.name }}</td>
                                 {% endif %}
 
-                                <td class="search-in-this-model">
+                                <td class="search-in-this-model hidden-phone">
                                     <form class="form-search" method="get" action="{{ model.admin_url }}">
-                                      <div class="input-prepend">
-                                        <span class="add-on"><i class="icon-search"></i></span><input type="text" name="q" size="16" id="prependedInput" class="input-large search-query" placeholder='{% trans 'Search' %} "{{ model.name }}"'>
+                                      <div class="input-append">
+                                        <input type="text" name="q" size="16" id="prependedInput" class="search-query input-medium" placeholder='{% trans 'Search' %} "{{ model.name }}"'>
+                                        <button class="btn" type="submit"><i class="icon-search"></i></button>
                                       </div>
                                     </form>
                                 </td>   
@@ -117,7 +118,6 @@
 {% endblock %}
 
 {% block js_footer %}
-    
     <script type="text/javascript">
     (function ($) {
         swap_containers = function(container){

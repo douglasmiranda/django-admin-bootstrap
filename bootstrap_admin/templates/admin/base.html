@@ -3,10 +3,11 @@
 <head>
 <title>{% block title %}{% endblock %}</title>
 {# bootstrap #}
-<link rel="stylesheet" type="text/css" href="{% static "admin/css/bootstrap.min.css" %}" />
 {% block css_commons %}
     <link rel="stylesheet" type="text/css" href="{% static "admin/css/commons.css" %}" />
 {% endblock css_commons %}
+<link rel="stylesheet" type="text/css" href="{% static "admin/css/bootstrap.min.css" %}" />
+<link rel="stylesheet" type="text/css" href="{% static "admin/css/bootstrap-responsive.min.css" %}" />
 
 {% block extrastyle %}{% endblock %}
 
@@ -28,10 +29,10 @@
 
 {% if not is_popup %}
     <!-- Header -->
-    <div id="header" class="navbar navbar-fixed-top">
+    <div id="header" class="navbar navbar-inverse navbar-fixed-top">
         {% if user.is_active and user.is_staff %}
             <div class="navbar-inner" id="nav-menu-top-bar">
-                <div class="container">
+                <div class="container-fluid">
                     {% block branding %}{% endblock %}
                     {% block nav-global %}{% endblock %}
                     <div id="user-tools" class="pull-right">
@@ -77,7 +78,7 @@
     <!-- END Header -->
 {% endif %}
 <!-- Container -->
-<div id="main-container" class='container'>
+<div id="main-container" class='container-fluid'>
 
     {% if not is_popup %}
         {% block breadcrumbs %}
