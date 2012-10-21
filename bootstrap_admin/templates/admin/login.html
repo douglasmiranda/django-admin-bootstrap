@@ -23,7 +23,7 @@
 <div id="content-main">
     <div class="row-fluid">
         <div class="well span6 well-wrapper-form">
-            <img class="img-circle logo-admin" src="http://placehold.it/140x140">
+            <img class="img-circle logo-admin" src="{% static "admin/img/logo-140x140.png" %}" alt="{{ site.name }}">
             <form class="bs-docs-example form-inline" id="login-form" action="{{ app_path }}" method="post">
                 {% csrf_token %}
                 <fieldset>
@@ -82,7 +82,7 @@
                     user = $("#username");
                     user.popover({
                         'placement' : 'top',
-                        'title' : '<i class="icon-user"></i> {% trans 'Username:' %}',
+                        'title' : '<i class="icon-user"></i> {% trans 'Username' %}',
                         'content' : '{{ form.username.errors }}',
                         'trigger': 'focus'
                     }).keydown(function(){user.popover('hide');});
@@ -91,7 +91,7 @@
                     pass = $("#password");
                     pass.popover({
                         'placement' : 'bottom',
-                        'title' : '<i class="icon-lock"></i> {% trans 'Password:' %}',
+                        'title' : '<i class="icon-lock"></i> {% trans 'Password' %}',
                         'content' : '{{ form.password.errors }}',
                         'trigger': 'focus'
                     }).keydown(function(){pass.popover('hide');});

@@ -42,3 +42,6 @@ body{
     right: 5px;
     bottom: -8px;
 }
+#login-form legend{
+    color: #888;
+}
