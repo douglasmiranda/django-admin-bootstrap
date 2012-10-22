@@ -66,7 +66,7 @@
                             </ul>
                         </div>
                     </div>
-                    <p class="welcome-message pull-right">
+                    <p class="welcome-message pull-right hidden-phone">
                         <i class="icon-user icon-white"></i>
                         {% trans 'Welcome,' %}
                         <strong>{% filter force_escape %}{% firstof user.first_name user.username %}{% endfilter %}</strong>.
