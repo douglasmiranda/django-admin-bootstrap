@@ -76,3 +76,19 @@
         margin: 0px;
     }
 }
+
+.calendar table{
+    background: #fff;
+}
+.calendar table td{
+    text-align: center;
+}
+.calendarbox .controls{
+    position: relative;
+    top: 20px;
+}
+.calendarbox .calendar-shortcuts{
+    position: relative;
+    top: -15px;
+    text-align: center;
+}

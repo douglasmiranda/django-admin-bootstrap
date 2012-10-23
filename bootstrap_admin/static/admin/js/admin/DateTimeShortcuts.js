@@ -178,10 +178,14 @@ var DateTimeShortcuts = {
 
         // next-prev links
         var cal_nav = quickElement('div', cal_box, '');
+        cal_nav.className = 'controls';
         var cal_nav_prev = quickElement('a', cal_nav, '<', 'href', 'javascript:DateTimeShortcuts.drawPrev('+num+');');
         cal_nav_prev.className = 'calendarnav-previous';
-        var cal_nav_next = quickElement('a', cal_nav, '>', 'href', 'javascript:DateTimeShortcuts.drawNext('+num+');');
+        cal_nav_prev.innerHTML = '<i class="icon-chevron-left"></i>';
+        var cal_nav_next = quickElement('a', cal_nav, '', 'href', 'javascript:DateTimeShortcuts.drawNext('+num+');');
         cal_nav_next.className = 'calendarnav-next';
+        cal_nav_next.innerHTML = '<i class="icon-chevron-right pull-right"></i>';
+
 
         // main box
         var cal_main = quickElement('div', cal_box, '', 'id', DateTimeShortcuts.calendarDivName2 + num);
@@ -197,11 +201,12 @@ var DateTimeShortcuts = {
         quickElement('a', shortcuts, gettext('Today'), 'href', 'javascript:DateTimeShortcuts.handleCalendarQuickLink(' + num + ', 0);');
         shortcuts.appendChild(document.createTextNode('\240|\240'));
         quickElement('a', shortcuts, gettext('Tomorrow'), 'href', 'javascript:DateTimeShortcuts.handleCalendarQuickLink(' + num + ', +1);');
+        shortcuts.appendChild(document.createTextNode('\240|\240'));
 
         // cancel bar
-        var cancel_p = quickElement('p', cal_box, '');
-        cancel_p.className = 'calendar-cancel';
-        quickElement('a', cancel_p, gettext('Cancel'), 'href', 'javascript:DateTimeShortcuts.dismissCalendar(' + num + ');');
+        // var cancel_p = quickElement('p', cal_box, '');
+        cancel_a = quickElement('a', shortcuts, gettext('Cancel'), 'href', 'javascript:DateTimeShortcuts.dismissCalendar(' + num + ');');
+        cancel_a.className = 'calendar-cancel';
         django.jQuery(document).bind('keyup', function(event) {
             if (event.which == 27) {
                 // ESC key closes popup
