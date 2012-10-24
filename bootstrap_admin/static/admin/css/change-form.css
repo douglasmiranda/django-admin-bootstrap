@@ -23,6 +23,9 @@
 .inline li, .inline label, .clearable-file-input label{
     display: inline;
 }
+.datetime input{
+    width: 80px;
+}
 .datetime br, .file-upload br{
     clear: both;
     display: block;
