@@ -92,3 +92,18 @@
     top: -15px;
     text-align: center;
 }
+.clockbox {
+    width: auto;
+}
+.clockbox .btn-group {
+    margin: 5px;
+}
+.clockbox .timelist {
+    margin: 0;
+}
+.clockbox .calendar-cancel {
+    text-align: center;
+}
+.clockbox .arrow {
+    top: 37px !important;
+}

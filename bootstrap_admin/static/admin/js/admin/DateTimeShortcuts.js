@@ -73,19 +73,36 @@ var DateTimeShortcuts = {
         var clock_box = document.createElement('div');
         clock_box.style.display = 'none';
         clock_box.style.position = 'absolute';
-        clock_box.className = 'clockbox module';
+        clock_box.className = 'clockbox module popover right';
         clock_box.setAttribute('id', DateTimeShortcuts.clockDivName + num);
         document.body.appendChild(clock_box);
         addEvent(clock_box, 'click', DateTimeShortcuts.cancelEventPropagation);
 
-        quickElement('h2', clock_box, gettext('Choose a time'));
-        var time_list = quickElement('ul', clock_box, '');
+        quickElement('h3', clock_box, gettext('Choose a time')).className = 'popover-title'; 
+        quickElement('div', clock_box, '').className = 'arrow';
+        popover_content = quickElement('div', clock_box, '');
+        popover_content.className = 'popover-content';
+        var time_list = quickElement('ul', popover_content, '');
         time_list.className = 'timelist';
         var time_format = get_format('TIME_INPUT_FORMATS')[0];
-        quickElement("a", quickElement("li", time_list, ""), gettext("Now"), "href", "javascript:DateTimeShortcuts.handleClockQuicklink(" + num + ", new Date().strftime('" + time_format + "'));");
-        quickElement("a", quickElement("li", time_list, ""), gettext("Midnight"), "href", "javascript:DateTimeShortcuts.handleClockQuicklink(" + num + ", new Date(1970,1,1,0,0,0,0).strftime('" + time_format + "'));");
-        quickElement("a", quickElement("li", time_list, ""), gettext("6 a.m."), "href", "javascript:DateTimeShortcuts.handleClockQuicklink(" + num + ", new Date(1970,1,1,6,0,0,0).strftime('" + time_format + "'));");
-        quickElement("a", quickElement("li", time_list, ""), gettext("Noon"), "href", "javascript:DateTimeShortcuts.handleClockQuicklink(" + num + ", new Date(1970,1,1,12,0,0,0).strftime('" + time_format + "'));");
+
+        var btn_groups = [];
+        var clock_counter = 0;
+        for (var _i = 0; _i < 8; _i++) {
+            btn_groups[_i] = quickElement('ul', time_list, '');
+            btn_groups[_i].className = 'btn-group';
+
+            for (var _x = 0; _x < 3; _x++) {
+                hour = String(clock_counter);
+                if(hour.length == 1){
+                    hour = '0' + hour;
+                }
+                ;
+                quickElement("a", quickElement("li", btn_groups[_i], '', 'class', 'btn btn-mini'), hour + ':00', "href", "javascript:DateTimeShortcuts.handleClockQuicklink(" + num + ", new Date(1970,1,1,"+ clock_counter +",0,0,0).strftime('" + time_format + "'));");
+                quickElement("a", quickElement("li", btn_groups[_i], '', 'class', 'btn btn-mini'), hour + ':30', "href", "javascript:DateTimeShortcuts.handleClockQuicklink(" + num + ", new Date(1970,1,1,"+ clock_counter +",30,0,0).strftime('" + time_format + "'));");
+                clock_counter++;
+            };
+        };
 
         var cancel_p = quickElement('p', clock_box, '');
         cancel_p.className = 'calendar-cancel';
