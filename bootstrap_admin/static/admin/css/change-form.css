@@ -77,23 +77,32 @@
     }
 }
 
+.calendarbox, .clockbox {
+    width: auto;
+}
 .calendar table{
     background: #fff;
 }
 .calendar table td{
     text-align: center;
 }
-.calendarbox .controls{
-    position: relative;
-    top: 20px;
+.calendar table caption{
+    left: 0;
+    position: absolute;
+    top: 8px;
+    width: 100%;
 }
 .calendarbox .calendar-shortcuts{
     position: relative;
     top: -15px;
     text-align: center;
 }
-.clockbox {
-    width: auto;
+.calendarbox .arrow {
+    top: 83px !important;
+}
+.calendarnav-previous, .calendarnav-next{
+    position: relative;
+    z-index: 9999;
 }
 .clockbox .btn-group {
     margin: 5px;

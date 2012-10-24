@@ -185,28 +185,30 @@ var DateTimeShortcuts = {
         //     </div>
         //     <p class="calendar-cancel"><a href="#">Cancel</a></p>
         // </div>
+
         var cal_box = document.createElement('div');
         cal_box.style.display = 'none';
         cal_box.style.position = 'absolute';
-        cal_box.className = 'calendarbox module';
+        cal_box.className = 'calendarbox module popover right';
         cal_box.setAttribute('id', DateTimeShortcuts.calendarDivName1 + num);
         document.body.appendChild(cal_box);
         addEvent(cal_box, 'click', DateTimeShortcuts.cancelEventPropagation);
 
+        quickElement('div', cal_box, '').className = 'arrow';
         // next-prev links
         var cal_nav = quickElement('div', cal_box, '');
-        cal_nav.className = 'controls';
+        cal_nav.className = 'controls popover-title';
         var cal_nav_prev = quickElement('a', cal_nav, '<', 'href', 'javascript:DateTimeShortcuts.drawPrev('+num+');');
         cal_nav_prev.className = 'calendarnav-previous';
         cal_nav_prev.innerHTML = '<i class="icon-chevron-left"></i>';
         var cal_nav_next = quickElement('a', cal_nav, '', 'href', 'javascript:DateTimeShortcuts.drawNext('+num+');');
-        cal_nav_next.className = 'calendarnav-next';
-        cal_nav_next.innerHTML = '<i class="icon-chevron-right pull-right"></i>';
+        cal_nav_next.className = 'calendarnav-next pull-right';
+        cal_nav_next.innerHTML = '<i class="icon-chevron-right"></i>';
 
 
         // main box
         var cal_main = quickElement('div', cal_box, '', 'id', DateTimeShortcuts.calendarDivName2 + num);
-        cal_main.className = 'calendar';
+        cal_main.className = 'calendar popover-content';
         DateTimeShortcuts.calendars[num] = new Calendar(DateTimeShortcuts.calendarDivName2 + num, DateTimeShortcuts.handleCalendarCallback(num));
         DateTimeShortcuts.calendars[num].drawCurrent();
 
