@@ -51,7 +51,11 @@
                                     {% if field.is_readonly %}
                                         <p>{{ field.contents }}</p>
                                     {% else %}
-                                        {{ field.field|add_class:"span8" }}
+                                        {% if field.field|widget_type == 'adminradioselect'  %}
+                                            {{ field.field }}
+                                        {% else %}
+                                            {{ field.field|add_class:"span8" }}
+                                        {% endif %}
                                         
                                     {% endif %}
 
