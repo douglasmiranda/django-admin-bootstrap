@@ -48,7 +48,7 @@
                         <input type="text" placeholder="{% trans 'Username' %}" class="span4" name="{{ form.username.html_name }}" id="{{ form.username.html_name }}" class=" focused" value="{% firstof form.username.value "" %}">
                     </div>
                     <div class="control-group {% if form.password.errors %}error{% endif %}">
-                        <input type="password" placeholder="{% trans 'Password' %}" class="span4" name="{{ form.password.html_name }}" id="{{ form.password.html_name }}" value="{% firstof form.password.value "" %}">
+                        <input type="password" placeholder="{% trans 'Password' %}" class="span4" name="{{ form.password.html_name }}" id="{{ form.password.html_name }}" value="">
                     </div>
                     <input type="hidden" name="this_is_the_login_form" value="1" />
                     <input type="hidden" name="next" value="{{ next }}" />
