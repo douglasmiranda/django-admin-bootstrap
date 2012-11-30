@@ -1,0 +1,204 @@
+#content h1{
+    display: inline-block;
+}
+.object-tools{
+    list-style: none;
+    text-align: right;
+    margin-left: 15px;
+    margin-top: 15px;
+}
+#changelist .nav-collapse .nav > li.active > a,
+#changelist .nav-collapse .dropdown-menu li.active a{
+    color: #fff;
+}
+#changelist .affix.navbar-fixed-top{
+    top: 42px;
+}
+.pagination{
+    margin: 0;
+}
+.pagination ul > li > a, .pagination ul > li > span{
+    background: transparent;
+    border-top: none;
+    border-bottom: none;
+    line-height: 40px;
+}
+#filters .dropdown-filters {
+    padding: 10px 5px;
+}
+.affix-top.subnav{
+    position: relative;
+    z-index: 1;
+}
+@media (max-width: 979px) {
+    .nav-collapse .pull-left,
+    .nav-collapse .pull-right{
+        float: none;
+    }
+    .navbar-search{
+        text-align: center;
+    }
+    .dropdown-menu li > a:hover,
+    .dropdown-menu li > a:focus,
+    .dropdown-submenu:hover > a{
+        color: #fff;
+    }
+}
+@media (max-width: 768px) {
+    #content h1 {
+        font-size: 25px;
+    }
+    .pagination ul > li > a,
+    .pagination ul > li > span{
+        padding: 0 10px;
+    }
+    #changelist-form .actions{
+        float: left;
+    }
+    #changelist-form .well .actions>:first-child{
+        margin-right: 10px;
+    }
+    #changelist-form .results {
+        padding-top: 20px;
+    }
+}
+@media (min-width: 767px) and (max-width: 768px) {
+    #changelist > .affix.subnav{
+        position: fixed;
+        top: 0;
+    }
+}
+@media (max-width: 480px) {
+    #content h1 {
+        display: block;
+        font-size: 20px;
+        text-align: center;
+    }
+    .object-tools{
+        float: none;
+        margin-top: 0;
+        text-align: center;
+    }
+    .pagination{
+        height: auto;
+    }
+    .pagination ul > li > a,
+    .pagination ul > li > span {
+        border: 1px solid #D4D4D4;
+        border-radius: 3px 3px 3px 3px;
+        margin: 5px;
+        padding: 0 10px;
+        text-align: center;
+        width: 16px;
+    }
+    .pagination ul > li:first-child > a,
+    .pagination ul > li:first-child > span,
+    .pagination ul > li:last-child > a,
+    .pagination ul > li:last-child > span{
+        border-radius: 3px;
+    }
+    .pagination .disabled a{
+        border-color: transparent;
+    }
+    .pagination ul{
+        box-shadow: none;
+    }
+    #filters{
+        width: 100%;
+    }
+    .affix{
+        position: relative;
+        z-index: 1;
+    }
+    #changelist-form .results {
+        padding-top: 40px;
+    }
+    #changelist .well{
+        padding-top: 40px;
+    }
+    #changelist-form .all,
+    #changelist-form .action-counter{
+        position: absolute;
+        right: 20px;
+        top: 15px;
+    }
+    #changelist-form .info-counter {
+        left: 20px;
+        position: absolute;
+        top: 10px;
+    }
+    #changelist .well .divider{
+        display: none;
+    }
+    #changelist-form .actions{
+        float: none;
+        height: auto !important;
+        text-align: center;
+    }
+}
+@media (max-width: 320px) {
+    #content h1 {
+        font-size: 17px;
+    }
+    #search-change-list .input-append .btn{
+        border-radius: 3px 3px 3px 3px;
+        display: block;
+        margin: 5px auto;
+    }
+    #searchbar{
+        border-radius: 3px;
+    }
+}
+#changelist-form{
+    background-color: #FFFFFF;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px 4px 4px 4px;
+    margin: 15px 0;
+    padding: 39px 19px 14px;
+    position: relative;
+    top: -25px;
+}
+#changelist-form .table .selected td,
+#changelist-form .table .selected th {
+    background-color: #FCF8E3;
+}
+#changelist-form .actions{
+    height: 30px;
+    padding-bottom: 10px;
+}
+#changelist-form .actions .all,
+#changelist-form .actions .action-counter,
+#changelist-form .actions .clear,
+#changelist-form .actions .question{
+    display: none;
+}
+#changelist .well{
+    left: -1px;
+    padding-bottom: 0px;
+    position: absolute;
+    right: -1px;
+    top: -3px;
+}
+#changelist .well .divider{
+    border-left: 1px solid #E3E3E3;
+    border-right: 1px solid #F2F2F2;
+    float: left;
+    height: 59px;
+    margin: -19px 9px;
+}
+#changelist .actions label{
+    display: inline-block;
+}
+#changelist .actions label span{
+    display: inline-block;
+    margin-top: 5px;
+}
+#changelist-form .actions .btn{
+    display: inline-block;
+}
+#changelist-form .results{
+    margin-top: 20px;
+}
+#changelist-form .info-counter{
+    margin-top: 5px;
+}
