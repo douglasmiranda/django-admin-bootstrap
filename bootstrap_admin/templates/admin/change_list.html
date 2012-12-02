@@ -118,7 +118,7 @@
           </div>
         </div><!-- /navbar-inner -->
       </div>
-      <form id="changelist-form" action="" method="post"{% if cl.formset.is_multipart %} enctype="multipart/form-data"{% endif %}>{% csrf_token %}
+      <form id="changelist-form" action="" method="post"{% if cl.formset.is_multipart %} enctype="multipart/form-data"{% endif %} {% if action_form and actions_on_top and cl.full_result_count %}class="with-top-actions"{% endif %}>{% csrf_token %}
           {% if cl.formset %}
               <div>{{ cl.formset.management_form }}</div>
           {% endif %}
@@ -144,7 +144,26 @@
                   </div>
               {% endif %}
               {% result_list cl %}
-              {% if action_form and actions_on_bottom and cl.full_result_count %}{% admin_actions %}{% endif %}
+                {% if action_form and actions_on_bottom and cl.full_result_count %}
+                    <div class="well bottom-actions">
+                      <span class="label label-inverse pull-left info-counter">
+                          {{ cl.result_count }}
+                          {% ifequal cl.result_count 1 %}
+                              {{ cl.opts.verbose_name }}
+                          {% else %}
+                              {{ cl.opts.verbose_name_plural }}
+                          {% endifequal %}
+                          {% if show_all_url %}
+                              &nbsp;&nbsp;
+                              <a href="{{ show_all_url }}" class="showall">
+                                  {% trans 'Show all' %}
+                              </a>
+                          {% endif %}
+                      </span>
+                      <div class="divider"></div>
+                      {% admin_actions %}
+                    </div>
+                {% endif %}
           {% endblock %}
       </form>
     </div>

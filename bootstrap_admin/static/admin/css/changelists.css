@@ -30,6 +30,102 @@
     position: relative;
     z-index: 1;
 }
+#changelist-form{
+    background-color: #FFFFFF;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+    margin: 15px 0;
+    padding-top: 5px;
+    position: relative;
+    top: -25px;
+}
+#changelist-form.with-top-actions{
+    padding: 39px 0 0 0;
+}
+#changelist-form .table .selected td,
+#changelist-form .table .selected th {
+    background-color: #FCF8E3;
+}
+#changelist-form .actions{
+    height: 30px;
+    padding-bottom: 10px;
+}
+#changelist-form .actions .all,
+#changelist-form .actions .action-counter,
+#changelist-form .actions .clear,
+#changelist-form .actions .question{
+    display: none;
+}
+#changelist .well{
+    border-radius: 0;
+    left: -1px;
+    padding-bottom: 0px;
+    position: absolute;
+    right: -1px;
+    top: -3px;
+}
+#changelist .well .divider{
+    border-left: 1px solid #E3E3E3;
+    border-right: 1px solid #F2F2F2;
+    float: left;
+    height: 59px;
+    margin: -19px 9px;
+}
+#changelist .actions label{
+    display: inline-block;
+}
+#changelist .actions label span{
+    display: inline-block;
+    margin-top: 5px;
+}
+#changelist-form .actions .btn{
+    display: inline-block;
+}
+#changelist-form.with-top-actions .results{
+    margin-top: 19px;
+}
+#changelist-form.with-top-actions .info-counter{
+    margin-top: 5px;
+}
+#result_list .action-checkbox-column,
+#result_list .action-checkbox{
+    text-align: center;
+}
+#result_list thead{
+    background-color: #FAFAFA;
+    background-image: -moz-linear-gradient(top, #ffffff, #f2f2f2);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#f2f2f2));
+    background-image: -webkit-linear-gradient(top, #ffffff, #f2f2f2);
+    background-image: -o-linear-gradient(top, #ffffff, #f2f2f2);
+    background-image: linear-gradient(to bottom, #ffffff, #f2f2f2);
+    background-repeat: repeat-x;
+    filter: progid:dximagetransform.microsoft.gradient(startColorstr='#ffffffff', endColorstr='#fff2f2f2', GradientType=0);
+}
+#result_list .row1:first-child td,
+#result_list .row1:first-child th{
+    border-top-style:dotted;
+}
+#changelist .bottom-actions{
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-left: 0 none;
+    border-right: 0 none;
+    height: 40px;
+    left: 0;
+    margin-bottom: -4px;
+    position: relative;
+}
+.datetime input{
+    width: 80px;
+}
+.radiolist{
+    list-style: none;
+    margin: 0;
+}
+.radiolist.inline li,
+.radiolist.inline label{
+    display: inline;
+}
 @media (max-width: 979px) {
     .nav-collapse .pull-left,
     .nav-collapse .pull-right{
@@ -52,14 +148,28 @@
     .pagination ul > li > span{
         padding: 0 10px;
     }
-    #changelist-form .actions{
-        float: left;
+    #changelist .well{
+        text-align: center;
+    }
+    #changelist .well .info-counter,
+    #changelist .well .actions,
+    #changelist .well .divider{
+        float: none;
+    }
+    #changelist .well .actions{
+        display: inline-block;
+    }
+    #changelist .well .divider{
+        display: inline;
     }
     #changelist-form .well .actions>:first-child{
         margin-right: 10px;
     }
-    #changelist-form .results {
+    #changelist-form.with-top-actions .results {
         padding-top: 20px;
+    }
+    #changelist .bottom-actions{
+        height: auto;
     }
 }
 @media (min-width: 767px) and (max-width: 768px) {
@@ -110,8 +220,8 @@
         position: relative;
         z-index: 1;
     }
-    #changelist-form .results {
-        padding-top: 40px;
+    #changelist-form.with-top-actions .results {
+        padding-top: 50px;
     }
     #changelist .well{
         padding-top: 40px;
@@ -148,57 +258,4 @@
     #searchbar{
         border-radius: 3px;
     }
-}
-#changelist-form{
-    background-color: #FFFFFF;
-    border: 1px solid #DDDDDD;
-    border-radius: 4px 4px 4px 4px;
-    margin: 15px 0;
-    padding: 39px 19px 14px;
-    position: relative;
-    top: -25px;
-}
-#changelist-form .table .selected td,
-#changelist-form .table .selected th {
-    background-color: #FCF8E3;
-}
-#changelist-form .actions{
-    height: 30px;
-    padding-bottom: 10px;
-}
-#changelist-form .actions .all,
-#changelist-form .actions .action-counter,
-#changelist-form .actions .clear,
-#changelist-form .actions .question{
-    display: none;
-}
-#changelist .well{
-    left: -1px;
-    padding-bottom: 0px;
-    position: absolute;
-    right: -1px;
-    top: -3px;
-}
-#changelist .well .divider{
-    border-left: 1px solid #E3E3E3;
-    border-right: 1px solid #F2F2F2;
-    float: left;
-    height: 59px;
-    margin: -19px 9px;
-}
-#changelist .actions label{
-    display: inline-block;
-}
-#changelist .actions label span{
-    display: inline-block;
-    margin-top: 5px;
-}
-#changelist-form .actions .btn{
-    display: inline-block;
-}
-#changelist-form .results{
-    margin-top: 20px;
-}
-#changelist-form .info-counter{
-    margin-top: 5px;
 }
