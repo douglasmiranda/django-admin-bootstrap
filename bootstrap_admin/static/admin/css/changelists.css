@@ -56,6 +56,9 @@
 #changelist-form .actions .question{
     display: none;
 }
+#result_list thead a{
+    color: #333;
+}
 #changelist .well{
     border-radius: 0;
     left: -1px;
