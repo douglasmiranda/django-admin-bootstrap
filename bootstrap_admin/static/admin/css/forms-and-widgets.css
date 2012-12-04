@@ -1,3 +1,16 @@
+/* form elements */
+.radiolist label input {
+    margin-top: 0;
+}
+.radiolist{
+    list-style: none;
+    margin: 0;
+}
+.radiolist.inline li,
+.radiolist.inline label{
+    display: inline;
+}
+
 /* SELECTOR (FILTER INTERFACE) */
 
 .selector {
@@ -446,4 +459,3 @@ ul.orderer li.deleted:hover, ul.orderer li.deleted a.selector:hover {
     font-size: 11px;
     border-top: 1px solid #ddd;
 }
-

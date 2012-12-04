@@ -121,14 +121,6 @@
 .datetime input{
     width: 80px;
 }
-.radiolist{
-    list-style: none;
-    margin: 0;
-}
-.radiolist.inline li,
-.radiolist.inline label{
-    display: inline;
-}
 @media (max-width: 979px) {
     .nav-collapse .pull-left,
     .nav-collapse .pull-right{
