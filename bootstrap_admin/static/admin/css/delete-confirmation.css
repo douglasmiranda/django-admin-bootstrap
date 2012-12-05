@@ -1,0 +1,9 @@
+@media (max-width: 480px) {
+    .form-actions .btn {
+        display: block;
+        float: none;
+    }
+    .form-actions input.btn {
+        width:100%;
+    }
+}

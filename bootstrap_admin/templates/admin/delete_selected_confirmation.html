@@ -1,20 +1,10 @@
 {% extends "admin/base_site.html" %}
-{% load i18n l10n %}
+{% load i18n admin_static l10n %}
 {% load url from future %}
 {% load admin_urls %}
 
 {% block extrahead %}{{ block.super }}
-    <style type="text/css">
-        @media (max-width: 480px) {
-            .form-actions .btn {
-                display: block;
-                float: none;
-            }
-            .form-actions input.btn {
-                width:100%;
-            }
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="{% static "admin/css/delete-confirmation.css" %}" />
 {% endblock %}
 
 {% block breadcrumbs %}
