@@ -61,6 +61,26 @@
     margin: 0 auto;
 }
 
+@media (max-width: 1024px) {
+    .form-horizontal .control-label{
+        width: 120px;
+    }
+    .form-horizontal .controls{
+        margin-left: 140px;
+    }
+}
+/* 800px referring the popup width  */
+@media (max-width: 800px){
+    .form-horizontal .control-label{
+        clear: both;
+        display: block;
+        width: auto;
+    }
+    .form-horizontal .controls{
+        clear: both;
+        margin-left: 0;
+    }
+}
 @media (max-width: 767px) {
     .form-actions .container{
         margin: 10px;

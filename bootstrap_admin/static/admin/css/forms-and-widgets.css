@@ -21,6 +21,7 @@
 .selector select {
     width: 270px;
     height: 17.2em;
+    border-radius: 0;
 }
 
 .selector-available, .selector-chosen {
@@ -36,10 +37,19 @@
 
 .selector-available h2, .selector-chosen h2 {
     border: 1px solid #ccc;
+    font-size: 14px;
+    margin-bottom: 0;
 }
 
 .selector .selector-available h2 {
-    background: white url(../img/nav-bg.gif) bottom left repeat-x;
+    background-color: #FAFAFA;
+    background-image: -moz-linear-gradient(top, #ffffff, #f2f2f2);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#f2f2f2));
+    background-image: -webkit-linear-gradient(top, #ffffff, #f2f2f2);
+    background-image: -o-linear-gradient(top, #ffffff, #f2f2f2);
+    background-image: linear-gradient(to bottom, #ffffff, #f2f2f2);
+    background-repeat: repeat-x;
+    filter: progid:dximagetransform.microsoft.gradient(startColorstr='#ffffffff', endColorstr='#fff2f2f2', GradientType=0);
     color: #666;
 }
 
@@ -60,14 +70,15 @@
 }
 
 .selector .selector-available input {
-    width: 230px;
+    background: url(../img/selector-search.gif) 8px 7px no-repeat;
+    padding-left: 28px;
+    width: 218px;
 }
 
 .selector ul.selector-chooser {
     float: left;
     width: 22px;
     height: 50px;
-    background: url(../img/chooser-bg.gif) top center no-repeat;
     margin: 10em 5px 0 5px;
     padding: 0;
 }
@@ -87,28 +98,23 @@
     width: 16px;
     height: 16px;
     display: block;
-    text-indent: -3000px;
     overflow: hidden;
 }
 
 .selector-add {
-    background: url(../img/selector-icons.gif) 0 -161px no-repeat;
     cursor: default;
     margin-bottom: 2px;
 }
 
 .active.selector-add {
-    background: url(../img/selector-icons.gif) 0 -187px no-repeat;
     cursor: pointer;
 }
 
 .selector-remove {
-    background: url(../img/selector-icons.gif) 0 -109px no-repeat;
     cursor: default;
 }
 
 .active.selector-remove {
-    background: url(../img/selector-icons.gif) 0 -135px no-repeat;
     cursor: pointer;
 }
 
@@ -134,22 +140,18 @@ a.active.selector-chooseall:hover, a.active.selector-clearall:hover {
 }
 
 a.selector-chooseall {
-    background: url(../img/selector-icons.gif) right -263px no-repeat;
     cursor: default;
 }
 
 a.active.selector-chooseall {
-    background: url(../img/selector-icons.gif) right -289px no-repeat;
     cursor: pointer;
 }
 
 a.selector-clearall {
-    background: url(../img/selector-icons.gif) left -211px no-repeat;
     cursor: default;
 }
 
 a.active.selector-clearall {
-    background: url(../img/selector-icons.gif) left -237px no-repeat;
     cursor: pointer;
 }
 
