@@ -29,3 +29,9 @@ INSTALLED_APPS = (
 Works with django>=1.4
 
 Fork if you want to contribute, [open an issue](https://github.com/douglasmiranda/django-admin-bootstrap/issues/new) if you find a bug or want something more.
+
+**TODO:**
+
+* Customize another form widgets
+* ~~Test on IE :P~~
+* Maybe write an app that makes use of all django widgets for better tests
