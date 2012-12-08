@@ -49,9 +49,6 @@
 .inline-deletelink .icon-minus-sign{
     margin: 5px;
 }
-.tabular .inline-deletelink .icon-minus-sign{
-    margin: 2px;
-}
 .delete .icon-trash{
     margin-top: 7px;
 }
@@ -59,6 +56,18 @@
 .tabular .delete input{
     display: block;
     margin: 0 auto;
+}
+.tabular .inline-deletelink .icon-minus-sign{
+    margin: 2px;
+}
+.tabular .original p{
+    display: block;
+    word-wrap:break-word;
+}
+.tabular .vTextField{
+    display: block;
+    margin: 0 auto;
+    width: 85%;
 }
 
 @media (max-width: 1024px) {

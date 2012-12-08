@@ -1,4 +1,5 @@
 {% load i18n admin_static admin_modify %}
+{% load bootstrap_template_tags %}
 <div class="inline-group" id="{{ inline_admin_formset.formset.prefix }}-group">
     <div class="tabular inline-related {% if forloop.last %}last-related{% endif %}">
     {{ inline_admin_formset.formset.management_form }}
@@ -35,7 +36,7 @@
                      id="{{ inline_admin_formset.formset.prefix }}-{% if not forloop.last %}{{ forloop.counter0 }}{% else %}empty{% endif %}">
                     <td class="original">
                         {% if inline_admin_form.original or inline_admin_form.show_url %}
-                            <p>
+                            <p class="span3">
                                 {% if inline_admin_form.original %} 
                                     {{ inline_admin_form.original }}
                                 {% endif %}
