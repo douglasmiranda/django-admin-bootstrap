@@ -30,6 +30,7 @@
     clear: both;
     display: block;
     margin: 5px;
+    line-height: 35px;
 }
 /* advanced options */
 .collapse{
