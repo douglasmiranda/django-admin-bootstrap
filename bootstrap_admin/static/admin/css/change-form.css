@@ -101,6 +101,9 @@
         width: 100%;
         margin-bottom: 9px !important;
     }
+    .form-actions .btn-danger{
+        margin-bottom: 9px !important;
+    }
     .delete-link-box a{
         display: block !important;
     }
