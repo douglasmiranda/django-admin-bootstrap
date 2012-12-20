@@ -7,6 +7,13 @@ I once had to code my own **Custom Responsible Skin for Django Admin**, so I did
 <img src="https://raw.github.com/douglasmiranda/django-admin-bootstrap/master/static/screenshot-github.jpg">
 
 ## Install
+
+from latest version on pypi
+```
+>>> pip install bootstrap-admin
+```
+
+from github master branch
 ```
 >>> pip install git+https://github.com/douglasmiranda/django-admin-bootstrap
 ```
