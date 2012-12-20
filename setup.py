@@ -27,7 +27,4 @@ setup(
     license='GPL',
     include_package_data=True,
     zip_safe=False,
-    install_requires=[
-        'django-bootstrap-form==2.0.3',
-    ],
 )
