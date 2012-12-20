@@ -88,27 +88,31 @@
               <span class="icon-bar"></span>
             </a>
             <a href="#" title="{{ cl.opts.verbose_name_plural|capfirst }}" class="brand"><i class="icon-th-list pull-left"></i></a>
-            <div class="nav-collapse collapse navbar-responsive-collapse pull-left" id="filters">
-              <div class="pull-right">
-                <ul class="nav">
-                  <li class="dropdown">
-                    <a data-toggle="dropdown" class="dropdown-toggle dropdown-filters" href="#">
-                      {% trans 'Filters' %} <b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu">
-                      {% block date_hierarchy %}{% date_hierarchy cl %}{% endblock %}
-                      <li class="divider divider-date-hierarchy"></li>
-                      {% block filters %}
-                        {% if cl.has_filters %}
-                          <li class="nav-header">{% trans 'Filter' %}</li>
-                          {% for spec in cl.filter_specs %}{% admin_list_filter cl spec %}{% endfor %}
+            {% if cl.date_hierarchy or cl.has_filters %}
+              <div class="nav-collapse collapse navbar-responsive-collapse pull-left" id="filters">
+                <div class="pull-right">
+                  <ul class="nav">
+                    <li class="dropdown">
+                      <a data-toggle="dropdown" class="dropdown-toggle dropdown-filters" href="#">
+                        {% trans 'Filters' %} <b class="caret"></b>
+                      </a>
+                      <ul class="dropdown-menu">
+                        {% block date_hierarchy %}{% date_hierarchy cl %}{% endblock %}
+                        {% if cl.date_hierarchy and cl.has_filters %}
+                          <li class="divider divider-date-hierarchy"></li>
                         {% endif %}
-                      {% endblock %}
-                    </ul>
-                  </li>
-                </ul>
-              </div>
-            </div><!-- /.nav-collapse -->
+                        {% block filters %}
+                          {% if cl.has_filters %}
+                            <li class="nav-header">{% trans 'Filter' %}</li>
+                            {% for spec in cl.filter_specs %}{% admin_list_filter cl spec %}{% endfor %}
+                          {% endif %}
+                        {% endblock %}
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div><!-- /.nav-collapse -->
+            {% endif %}
             {% block pagination %}{% pagination cl %}{% endblock %}
             <div class="nav-collapse collapse navbar-responsive-collapse">
               <div class="pull-right">
