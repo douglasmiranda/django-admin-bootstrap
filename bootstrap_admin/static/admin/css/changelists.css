@@ -7,6 +7,13 @@
     margin-left: 15px;
     margin-top: 15px;
 }
+.object-tools li {
+    float: left;
+    margin-left: 5px;
+}
+.object-tools:after {
+    clear: both;
+}
 #changelist .nav-collapse .nav > li.active > a,
 #changelist .nav-collapse .dropdown-menu li.active a{
     color: #fff;
