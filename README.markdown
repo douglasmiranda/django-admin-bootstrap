@@ -44,6 +44,4 @@ Fork if you want to contribute, [open an issue](https://github.com/douglasmirand
 
 **TODO:**
 
-* Customize another form widgets
 * ~~Test on IE :P~~
-* Maybe write an app that makes use of all django widgets for better tests
