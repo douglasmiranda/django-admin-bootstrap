@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 import os
 from setuptools import setup, find_packages
-from bootstrap_admin import __version__
 
 f = open(os.path.join(os.path.dirname(__file__), 'README.markdown'))
 readme = f.read()
@@ -9,7 +8,7 @@ f.close()
 
 setup(
     name='bootstrap_admin',
-    version=__version__,
+    version='0.1.3',
     description='Twitter Bootstrap Responsive Skin for Django Admin.',
     long_description=readme,
     author='Douglas Miranda',
