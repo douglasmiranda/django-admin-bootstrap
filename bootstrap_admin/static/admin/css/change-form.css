@@ -40,6 +40,9 @@
     margin-bottom: 20px;
     border-top: 1px solid #E5E5E5;
 }
+.inline-group h3{
+    font-size: 21px;
+}
 .collapsed .control-group{
     display: none;
 }
@@ -51,7 +54,10 @@
     margin: 5px;
 }
 .delete .icon-trash{
-    margin-top: 7px;
+    vertical-align: baseline;
+}
+.inline-related .delete input{
+    margin-top: 0;
 }
 /* TabularInline */
 .tabular .delete input{
