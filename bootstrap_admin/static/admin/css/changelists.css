@@ -247,6 +247,9 @@
         height: auto !important;
         text-align: center;
     }
+    #changelist .brand{
+        display: none;
+    }
 }
 @media (max-width: 320px) {
     #content h1 {
