@@ -29,8 +29,25 @@
 .app-list .form-search{
     margin-bottom: 0px;
 }
+.action-list li a {
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
 @media (max-width: 767px) {
     .app-list .form-search{
         width:159px;
+    }
+}
+@media (max-width: 768px) {
+    .recent-actions ul {
+        margin-left: 0;
+    }
+    #content .dashboard-tools h2{
+        font-size: 17px;
+        text-align: center;
     }
 }
