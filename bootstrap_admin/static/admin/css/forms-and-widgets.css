@@ -35,7 +35,7 @@
     border-top: none;
 }
 
-.selector-available h2, .selector-chosen h2 {
+#content .selector-available h2, #content .selector-chosen h2 {
     border: 1px solid #ccc;
     font-size: 14px;
     margin-bottom: 0;
