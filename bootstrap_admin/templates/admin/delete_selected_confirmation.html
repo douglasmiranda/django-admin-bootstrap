@@ -68,8 +68,8 @@
                 <input type="hidden" name="action" value="delete_selected" />
                 <input type="hidden" name="post" value="yes" />
                 <div class="form-actions navbar navbar-fixed-bottom">
-                    <a class="btn btn-danger pull-left" href="{% url opts|admin_urlname:'changelist' %}">{% trans "Back to" %} "{{ opts.verbose_name_plural|capfirst }}"</a>
-                    <input class="pull-right btn btn-primary" type="submit" value="{% trans "Yes, I'm sure" %}" />
+                    <a class="btn btn-primary pull-left" href="{% url opts|admin_urlname:'changelist' %}">{% trans "Back to" %} "{{ opts.verbose_name_plural|capfirst }}"</a>
+                    <input class="pull-right btn btn-danger" type="submit" value="{% trans "Yes, I'm sure" %}" />
                 </div>
             </div>
         </form>
