@@ -1,4 +1,4 @@
-{% load admin_static %}{% load url from future %}<!DOCTYPE html>
+{% load admin_static %}<!DOCTYPE html>
 <html lang="{{ LANGUAGE_CODE|default:"en-us" }}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
 <head>
 <title>{% block title %}{% endblock %}</title>
@@ -50,12 +50,14 @@
                                             <a href="{{ docsroot }}"><i class="icon-pencil"></i> {% trans 'Documentation' %}</a>
                                         </li>
                                     {% endif %}
-                                    <li>
-                                        <a href="{% url 'admin:password_change' %}">
-                                            <i class="icon-pencil"></i>
-                                            {% trans 'Change password' %}
-                                        </a>
-                                    </li>
+                                    {% if user.has_usable_password %}
+                                        <li>
+                                            <a href="{% url 'admin:password_change' %}">
+                                                <i class="icon-pencil"></i>
+                                                {% trans 'Change password' %}
+                                            </a>
+                                        </li>
+                                    {% endif %}
                                     <li>
                                         <a href="{% url 'admin:logout' %}">
                                             <i class="icon-off"></i>
@@ -69,7 +71,7 @@
                     <p class="welcome-message pull-right hidden-phone">
                         <i class="icon-user icon-white"></i>
                         {% trans 'Welcome,' %}
-                        <strong>{% filter force_escape %}{% firstof user.first_name user.username %}{% endfilter %}</strong>.
+                        <strong>{% filter force_escape %}{% firstof user.get_short_name user.get_username %}{% endfilter %}</strong>.
                     </p>
                 </div>
             </div>
