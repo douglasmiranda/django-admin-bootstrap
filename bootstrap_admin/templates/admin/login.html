@@ -45,7 +45,7 @@
                         {% endfor %}
                     {% endif %}
                     <div class="control-group {% if form.username.errors %}error{% endif %}">
-                        <input type="text" placeholder="{% trans 'Username' %}" class="span4" name="{{ form.username.html_name }}" id="{{ form.username.html_name }}" class=" focused" value="{% firstof form.username.value "" %}">
+                        <input type="text" placeholder="{{ form.username.label }}" class="span4" name="{{ form.username.html_name }}" id="{{ form.username.html_name }}" class=" focused" value="{% firstof form.username.value "" %}">
                     </div>
                     <div class="control-group {% if form.password.errors %}error{% endif %}">
                         <input type="password" placeholder="{% trans 'Password' %}" class="span4" name="{{ form.password.html_name }}" id="{{ form.password.html_name }}" value="">
@@ -82,7 +82,7 @@
                     user = $("#username");
                     user.popover({
                         'placement' : 'top',
-                        'title' : '<i class="icon-user"></i> {% trans 'Username' %}',
+                        'title' : '<i class="icon-user"></i> {{ form.username.label }}',
                         'content' : '{{ form.username.errors }}',
                         'trigger': 'focus'
                     }).keydown(function(){user.popover('hide');});
