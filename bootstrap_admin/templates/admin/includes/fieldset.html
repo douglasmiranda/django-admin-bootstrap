@@ -30,7 +30,7 @@
                                 <div class="control-label">{{ field.label_tag }}</div>
                                 <div class="controls">
                                     {% if field.is_readonly %}
-                                        <p>{{ field.contents }}</p>
+                                        <p>{{ field.contents|linebreaksbr }}</p>
                                     {% else %}
                                         {{ field.field }}
                                     {% endif %}
@@ -49,7 +49,7 @@
                                 <div class="control-label">{{ field.label_tag }}</div>
                                 <div class="controls">
                                     {% if field.is_readonly %}
-                                        <p>{{ field.contents }}</p>
+                                        <p>{{ field.contents|linebreaksbr }}</p>
                                     {% else %}
                                         {% if field.field|widget_type == 'adminradioselect'  %}
                                             {{ field.field }}
