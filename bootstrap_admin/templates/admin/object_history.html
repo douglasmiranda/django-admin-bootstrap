@@ -1,6 +1,5 @@
 {% extends "admin/base_site.html" %}
 {% load i18n %}
-{% load url from future %}
 {% load admin_urls %}
 
 {% block breadcrumbs %}
@@ -15,7 +14,7 @@
             <a href="{% url opts|admin_urlname:'changelist' %}">{{ module_name }}</a> <span class="divider">/</span>
         </li>
         <li>
-            <a href="{% url opts|admin_urlname:'changelist' %}{{ object.pk }}">{{ object|truncatewords:"18" }}</a> <span class="divider">/</span>
+            <a href="{% url opts|admin_urlname:'change' object.pk|admin_urlquote %}">{{ object|truncatewords:"18" }}</a> <span class="divider">/</span>
         </li>
         <li class="active">{% trans 'History' %}</li>
     </ul>
@@ -37,7 +36,7 @@
                     {% for action in action_list %}
                     <tr>
                         <th scope="row">{{ action.action_time|date:"DATETIME_FORMAT" }}</th>
-                        <td>{{ action.user.username }}{% if action.user.get_full_name %} ({{ action.user.get_full_name }}){% endif %}</td>
+                        <td>{{ action.user.get_username }}{% if action.user.get_full_name %} ({{ action.user.get_full_name }}){% endif %}</td>
                         <td>{{ action.change_message }}</td>
                     </tr>
                     {% endfor %}
