@@ -9,6 +9,6 @@ def paginator_number(cl, i):
     if i == DOT:
         return u'<li class="disabled"><a href="#">...</a></li>'
     elif i == cl.page_num:
-        return mark_safe(u'<li class="active"><a href="#">%d</a></li> ' % (i + 1))
+        return format_html(u'<li class="active"><a href="#">{0}</a></li> ', i+1)
     else:
-        return mark_safe(u'<li><a href="%s">%d</a></li>' % (escape(cl.get_query_string({PAGE_VAR: i})), i + 1))
+        return format_html(u'<li><a href="{0}"{1}>{2}</a></li>', cl.get_query_string({PAGE_VAR: i}), mark_safe(' class="end"' if i == cl.paginator.num_pages-1 else ''), i+1)
