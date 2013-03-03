@@ -8,7 +8,7 @@ I once had to code my own **Custom Responsible Skin for Django Admin**, so I did
 
 ## Install
 
-from latest version on pypi
+from latest version on pypi (fully compatible with django1.5)
 ```
 >>> pip install bootstrap-admin
 ```
@@ -38,7 +38,11 @@ INSTALLED_APPS = (
 
 ## Last but not least
 
-Works with django>=1.4
+If you using Django >=1.4.* and <1.5
+
+```
+>>> pip install bootstrap-admin==0.1.5
+```
 
 Fork if you want to contribute, [open an issue](https://github.com/douglasmiranda/django-admin-bootstrap/issues/new) if you find a bug or want something more.
 
