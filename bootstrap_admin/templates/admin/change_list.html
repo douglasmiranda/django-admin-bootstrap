@@ -93,7 +93,7 @@
                   <ul class="nav">
                     <li class="dropdown">
                       <a data-toggle="dropdown" class="dropdown-toggle dropdown-filters" href="#">
-                        {% trans 'Filters' %} <b class="caret"></b>
+                        {% trans 'Filter' %} <b class="caret"></b>
                       </a>
                       <ul class="dropdown-menu">
                         {% block date_hierarchy %}{% date_hierarchy cl %}{% endblock %}
@@ -102,7 +102,7 @@
                         {% endif %}
                         {% block filters %}
                           {% if cl.has_filters %}
-                            <li class="nav-header">{% trans 'Filter' %}</li>
+                            <li class="nav-header">{% trans 'Filter' %} +</li>
                             {% for spec in cl.filter_specs %}{% admin_list_filter cl spec %}{% endfor %}
                           {% endif %}
                         {% endblock %}
