@@ -20,14 +20,26 @@
 
 {% block content %}
 
-
-
 <div class="container-fluid">
     <div class="row-fluid dashboard-tools">
         <div class="span3 recent-actions well">
-            <h2>{% trans 'My Actions' %}</h2>
-            {% load log %}
-            {% get_admin_log 10 as admin_log for_user user %}
+            <h2>
+                {% trans 'My Actions' %} 
+                {% if is_app_index %}
+                    <small>
+                        {% for app in app_list %}
+                            ({% blocktrans with app.name as name %}{{ name }}{% endblocktrans %})
+                        {% endfor %}
+                    </small>
+                {% endif %}
+            </h2>
+            {% if is_app_index %}
+                {% load bootstrap_template_tags %}
+                {% get_admin_log_for_app 10 as admin_log for_user user %}
+            {% else %}
+                {% load log %}
+                {% get_admin_log 10 as admin_log for_user user %}
+            {% endif %}
             {% if not admin_log %}
                 <p>{% trans 'None available' %}</p>
             {% else %}
@@ -51,7 +63,7 @@
                     {% if entry.is_deletion or not entry.get_admin_url %}
                         {{ entry.object_repr }}
                     {% else %}
-                        <a href="{{ entry.get_admin_url }}">{{ entry.object_repr }}</a>
+                        <a href="{{ admin_root_url }}{{ entry.get_admin_url }}">{{ entry.object_repr }}</a>
                     {% endif %}
                     </li>
                 {% endfor %}
