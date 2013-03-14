@@ -136,3 +136,12 @@ def get_admin_log_for_app(parser, token):
             raise template.TemplateSyntaxError(
                 "Fourth argument to 'get_admin_log_for_app' must be 'for_user'")
     return AdminLogNode(limit=tokens[1], varname=tokens[3], user=(len(tokens) > 5 and tokens[5] or None))
+
+
+@register.filter
+def user_admin_urlname(value, arg):
+    '''
+    Providing a link to change the user
+    (for working better with auth custom user)
+    '''
+    return 'admin:%s_%s_%s' % (value._meta.app_label, value._meta.module_name, arg)
