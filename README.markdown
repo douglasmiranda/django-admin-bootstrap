@@ -6,6 +6,12 @@ I once had to code my own **Custom Responsible Skin for Django Admin**, so I did
 
 <img src="https://raw.github.com/douglasmiranda/django-admin-bootstrap/master/static/screenshot-github.jpg">
 
+## Features (beyond what you already know)
+
+* a bit of responsiveness
+* search directly from the apps list
+* sidebar logs for specific app (on app index)
+
 ## Install
 
 from latest version on pypi (fully compatible with django1.5)
