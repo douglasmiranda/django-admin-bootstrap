@@ -41,6 +41,15 @@
     margin-bottom: 0;
 }
 
+
+#content .error .selector-available h2, #content .error .selector-chosen h2 {
+    border: 1px solid #B94A48;
+    color: #B94A48;
+}
+.error .selector .selector-filter{
+    border-color: #B94A48;
+}
+
 .selector .selector-available h2 {
     background-color: #FAFAFA;
     background-image: -moz-linear-gradient(top, #ffffff, #f2f2f2);
