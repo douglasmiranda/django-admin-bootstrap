@@ -51,7 +51,3 @@ If you using Django >=1.4.* and <1.5
 ```
 
 Fork if you want to contribute, [open an issue](https://github.com/douglasmiranda/django-admin-bootstrap/issues/new) if you find a bug or want something more.
-
-**TODO:**
-
-* ~~Test on IE :P~~
