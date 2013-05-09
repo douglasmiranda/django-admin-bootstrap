@@ -19,7 +19,8 @@
     color: #fff;
 }
 #changelist .affix.navbar-fixed-top{
-    top: 42px;
+    top: 40px;
+    z-index: 1029;
 }
 .pagination{
     margin: 0;
