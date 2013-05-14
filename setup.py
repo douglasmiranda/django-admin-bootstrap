@@ -8,7 +8,7 @@ f.close()
 
 setup(
     name='bootstrap_admin',
-    version='0.1.9',
+    version='0.2.0',
     description='Twitter Bootstrap Responsive Skin for Django Admin.',
     long_description=readme,
     author='Douglas Miranda',
