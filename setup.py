@@ -2,13 +2,13 @@
 import os
 from setuptools import setup, find_packages
 
-f = open(os.path.join(os.path.dirname(__file__), 'README.markdown'))
+f = open(os.path.join(os.path.dirname(__file__), 'README.md'))
 readme = f.read()
 f.close()
 
 setup(
     name='bootstrap_admin',
-    version='0.1.9',
+    version='0.2.0',
     description='Twitter Bootstrap Responsive Skin for Django Admin.',
     long_description=readme,
     author='Douglas Miranda',
