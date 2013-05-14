@@ -42,15 +42,6 @@ INSTALLED_APPS = (
 )
 ```
 
-## Last but not least
-
-If you using Django >=1.4.* and <1.5
-
-```
->>> pip install bootstrap-admin==0.1.5
-```
-**NOTE:** bootstrap-admin==0.1.5 is not so much stable, so the recommended use is with django >=1.5.* and bootstrap-admin>=0.2.*
-
 ## Contributing
 
 1. Fork it!
@@ -60,3 +51,21 @@ If you using Django >=1.4.* and <1.5
 5. Submit a pull request =]
 
 [Open an issue](https://github.com/douglasmiranda/django-admin-bootstrap/issues/new) if you find a bug or want something more.
+
+## History
+
+* 0.2.0 May 14, 2013
+    * Final touches
+    * Show the search input properly considering the permissions
+    * Fix: z-index nav-bar bug
+* early versions
+    * Have some little bugs, it is usable, but I recommend the latest version
+
+## Last but not least
+
+If you using Django >=1.4.* and <1.5
+
+```
+>>> pip install bootstrap-admin==0.1.5
+```
+**NOTE:** bootstrap-admin==0.1.5 is not so much stable, so the recommended use is with django >=1.5.* and bootstrap-admin>=0.2.*
