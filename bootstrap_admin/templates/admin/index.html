@@ -22,53 +22,53 @@
 
 <div class="container-fluid">
     <div class="row-fluid dashboard-tools">
-        <div class="span3 recent-actions well">
-            <h2>
-                {% trans 'My Actions' %} 
+        <div class="span3 recent-actions">
+            <h2>{% trans 'My Actions' %}</h2>
+            <div class="well">
                 {% if is_app_index %}
-                    <small>
+                    <p class="app-name">
                         {% for app in app_list %}
                             ({% blocktrans with app.name as name %}{{ name }}{% endblocktrans %})
                         {% endfor %}
-                    </small>
+                    </p>
                 {% endif %}
-            </h2>
-            {% if is_app_index %}
-                {% load bootstrap_template_tags %}
-                {% get_admin_log_for_app 10 as admin_log for_user user %}
-            {% else %}
-                {% load log %}
-                {% get_admin_log 10 as admin_log for_user user %}
-            {% endif %}
-            {% if not admin_log %}
-                <p>{% trans 'None available' %}</p>
-            {% else %}
-                <ul class="action-list">
-                {% for entry in admin_log %}
-                    <li>
-                    {% if entry.is_addition %}
-                        <i class="icon-plus"></i>
-                    {% elif entry.is_change %}
-                        <i class="icon-pencil"></i>
-                    {% elif entry.is_deletion %}
-                        <i class="icon-minus"></i>
-                    {% endif %}
+                {% if is_app_index %}
+                    {% load bootstrap_template_tags %}
+                    {% get_admin_log_for_app 10 as admin_log for_user user %}
+                {% else %}
+                    {% load log %}
+                    {% get_admin_log 10 as admin_log for_user user %}
+                {% endif %}
+                {% if not admin_log %}
+                    <p>{% trans 'None available' %}</p>
+                {% else %}
+                    <ul class="action-list">
+                    {% for entry in admin_log %}
+                        <li>
+                        {% if entry.is_addition %}
+                            <i class="icon-plus"></i>
+                        {% elif entry.is_change %}
+                            <i class="icon-pencil"></i>
+                        {% elif entry.is_deletion %}
+                            <i class="icon-minus"></i>
+                        {% endif %}
 
-                    {% if entry.content_type %}
-                        <span class="mini quiet">{% filter capfirst %}{% trans entry.content_type.name %}{% endfilter %}</span>
-                    {% else %}
-                        <span class="mini quiet">{% trans 'Unknown content' %}</span>
-                    {% endif %}<br/>
+                        {% if entry.content_type %}
+                            <span class="mini quiet">{% filter capfirst %}{% trans entry.content_type.name %}{% endfilter %}</span>
+                        {% else %}
+                            <span class="mini quiet">{% trans 'Unknown content' %}</span>
+                        {% endif %}<br/>
 
-                    {% if entry.is_deletion or not entry.get_admin_url %}
-                        {{ entry.object_repr }}
-                    {% else %}
-                        <a href="{{ admin_root_url }}{{ entry.get_admin_url }}">{{ entry.object_repr }}</a>
-                    {% endif %}
-                    </li>
-                {% endfor %}
-                </ul>
-            {% endif %}
+                        {% if entry.is_deletion or not entry.get_admin_url %}
+                            {{ entry.object_repr }}
+                        {% else %}
+                            <a href="{{ admin_root_url }}{{ entry.get_admin_url }}">{{ entry.object_repr }}</a>
+                        {% endif %}
+                        </li>
+                    {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
         </div>
         <div class="span9 app-list">
             {% if app_list %}
