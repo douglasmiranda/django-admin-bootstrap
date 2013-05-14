@@ -30,9 +30,7 @@
     margin-bottom: 0px;
 }
 .action-list li a {
-    display: -webkit-box;
-    display: -moz-box;
-    display: box;
+    display: block;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
