@@ -19,6 +19,11 @@
     margin-top: 20px;
     margin-top: 0;
 }
+.table td:empty{
+    border-left: 0;
+    border-right: 0;
+    padding: 0;
+}
 .table .model-name{
     width: 100%;
     vertical-align: middle;

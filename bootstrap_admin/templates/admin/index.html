@@ -101,16 +101,12 @@
                                     </form>
                                 </td>   
 
-                                <td>
-                                    {% if model.add_url %}
+                                <td>{% if model.add_url %}
                                         <a href="{{ model.add_url }}" class="btn btn-primary pull-right">{% trans 'Add' %}</a>
-                                    {% endif %}
-                                </td>
-                                <td>
-                                    {% if model.admin_url %}
+                                    {% endif %}</td>
+                                <td>{% if model.admin_url %}
                                         <a href="{{ model.admin_url }}" class="btn btn-info pull-right">{% trans 'Change' %}</a>
-                                    {% endif %}
-                                </td>
+                                    {% endif %}</td>
                                 </tr>
                             {% endfor %}
                         </tbody>
