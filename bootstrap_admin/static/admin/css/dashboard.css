@@ -1,6 +1,3 @@
-#content h1{
-    padding-left: 20px;
-}
 .recent-actions ul {
     list-style: none outside none;
     margin-left: 15px;
@@ -46,9 +43,6 @@
 @media (max-width: 768px) {
     .recent-actions ul {
         margin-left: 0;
-    }
-    #content h1{
-        text-align: center;
     }
     #content .dashboard-tools h2{
         font-size: 17px;
