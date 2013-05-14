@@ -92,14 +92,14 @@
                                     <td class="model-name">{{ model.name }}</td>
                                 {% endif %}
 
-                                <td class="search-in-this-model hidden-phone">
+                                <td class="search-in-this-model hidden-phone">{% if model.perms.change %}
                                     <form class="form-search" method="get" action="{{ model.admin_url }}">
                                       <div class="input-append">
                                         <input type="text" name="q" size="16" id="prependedInput" class="search-query input-medium" placeholder='{% trans 'Search' %} "{{ model.name }}"'>
                                         <button class="btn" type="submit"><i class="icon-search"></i></button>
                                       </div>
                                     </form>
-                                </td>   
+                                    {% endif %}</td>
 
                                 <td>{% if model.add_url %}
                                         <a href="{{ model.add_url }}" class="btn btn-primary pull-right">{% trans 'Add' %}</a>
