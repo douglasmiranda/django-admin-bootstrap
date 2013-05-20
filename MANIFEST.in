@@ -1,4 +1,4 @@
-include README.markdown
+include README.md
 recursive-include bootstrap_admin *
 recursive-include bootstrap_admin/static *
 recursive-include bootstrap_admin/templates *
