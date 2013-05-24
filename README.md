@@ -54,6 +54,8 @@ INSTALLED_APPS = (
 
 ## History
 
+* 0.2.1 May 23, 2013
+    * Fix: the issue #17 (about the MANIFEST.in)
 * 0.2.0 May 14, 2013
     * Final touches
     * Show the search input properly considering the permissions
