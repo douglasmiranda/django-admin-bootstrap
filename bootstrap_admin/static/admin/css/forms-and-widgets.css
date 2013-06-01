@@ -165,6 +165,11 @@ a.active.selector-clearall {
     cursor: pointer;
 }
 
+.add-another {
+    display: inline-block;
+    margin: 5px;
+}
+
 /* STACKED SELECTORS */
 
 .stacked {
