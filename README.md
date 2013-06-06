@@ -5,6 +5,7 @@ I once had to code my own **Custom Responsible Skin for Django Admin**, so I did
 ## Screenshots
 
 <img src="https://raw.github.com/douglasmiranda/django-admin-bootstrap/master/static/screenshot-github.jpg">
+PS: the wysiwyg editor you see on the screenshot is the [django-wysiwyg-redactor](https://github.com/douglasmiranda/django-wysiwyg-redactor)
 
 ## Features (beyond what you already know)
 
