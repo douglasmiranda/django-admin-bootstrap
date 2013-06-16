@@ -1,6 +1,6 @@
 # Twitter Bootstrap Skin for Django Admin 
 
-I once had to code my own **Custom Responsible Skin for Django Admin**, so I did it with the Twitter Bootstrap framework. I hope you like and help me make it better.
+django-admin-bootstrap is a **Custom Responsible Skin for Django Admin**. I hope you like and help me make it better.
 
 ## Screenshots
 
