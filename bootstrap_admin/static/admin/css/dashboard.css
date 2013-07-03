@@ -34,6 +34,9 @@
 .app-list .form-search{
     margin-bottom: 0px;
 }
+.form-search input{
+    text-overflow: ellipsis;
+}
 .action-list li a {
     display: block;
     overflow: hidden;
