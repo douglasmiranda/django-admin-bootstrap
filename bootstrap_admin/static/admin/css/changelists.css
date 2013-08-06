@@ -145,6 +145,9 @@
     .dropdown-submenu:hover > a{
         color: #fff;
     }
+    #searchbar{
+        width: 300px;
+    }
 }
 @media (max-width: 768px) {
     #content h1 {
@@ -182,6 +185,11 @@
     #changelist > .affix.subnav{
         position: fixed;
         top: 0;
+    }
+}
+@media (min-width: 480px) and (max-width: 768px) {
+    #searchbar{
+        width: 200px;
     }
 }
 @media (max-width: 480px) {
@@ -253,6 +261,9 @@
     }
     #changelist .brand{
         display: none;
+    }
+    #searchbar{
+        width: auto;
     }
 }
 @media (max-width: 320px) {
