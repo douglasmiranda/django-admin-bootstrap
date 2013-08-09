@@ -205,8 +205,10 @@
                             }
                             if($(window).scrollTop() >= $top){
                                 $subnav.addClass('navbar-fixed-top');
+                                $('#changelist-form').css('margin-top', '42px');
                             }else{
                                 $subnav.removeClass('navbar-fixed-top');
+                                $('#changelist-form').css('margin-top', 0);
                             }
                         }
                         return $top;
