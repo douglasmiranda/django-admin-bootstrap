@@ -18,18 +18,18 @@ PS: the wysiwyg editor you see on the screenshot is the [django-wysiwyg-redactor
 ## Install
 
 from latest version on pypi (fully compatible with django1.5)
-```
->>> pip install bootstrap-admin
+```shell
+$ pip install bootstrap-admin
 ```
 
 from github master branch
-```
->>> pip install git+https://github.com/douglasmiranda/django-admin-bootstrap
+```shell
+$ pip install git+https://github.com/douglasmiranda/django-admin-bootstrap
 ```
 
 or clone the master branch in your machine
-```
->>> git clone https://github.com/douglasmiranda/django-admin-bootstrap
+```shell
+$ git clone https://github.com/douglasmiranda/django-admin-bootstrap
 ```
 **NOTE:** I'm assuming you use [pip](http://www.pip-installer.org/) to install the Python Packages.
 
@@ -70,7 +70,7 @@ INSTALLED_APPS = (
 
 If you using Django >=1.4.* and <1.5
 
-```
->>> pip install bootstrap-admin==0.1.5
+```shell
+$ pip install bootstrap-admin==0.1.5
 ```
 **NOTE:** bootstrap-admin==0.1.5 is not so much stable, so the recommended use is with django >=1.5.* and bootstrap-admin>=0.2.*
