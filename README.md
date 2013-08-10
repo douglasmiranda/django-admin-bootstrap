@@ -1,6 +1,6 @@
 # Twitter Bootstrap Skin for Django Admin 
 
-django-admin-bootstrap is a **Custom Responsible Skin for Django Admin**. I hope you like and help me make it better.
+django-admin-bootstrap is a __Custom Responsible Skin for Django Admin 1.5.*__. I hope you like and help me make it better.
 
 <a href="https://crate.io/packages/bootstrap_admin/"><img src="https://pypip.in/d/bootstrap_admin/badge.png"></a>
 
@@ -33,7 +33,7 @@ $ git clone https://github.com/douglasmiranda/django-admin-bootstrap
 ```
 **NOTE:** I'm assuming you use [pip](http://www.pip-installer.org/) to install the Python Packages.
 
-And don't forget it to add *bootstrap_admin* in **INSTALLED_APPS** before the *django.contrib.admin*.
+And don't forget to add *bootstrap_admin* in **INSTALLED_APPS** before the *django.contrib.admin*.
 
 Example:
 ```python
@@ -65,12 +65,3 @@ INSTALLED_APPS = (
     * Fix: z-index nav-bar bug
 * early versions
     * Have some little bugs, it is usable, but I recommend the latest version
-
-## Last but not least
-
-If you using Django >=1.4.* and <1.5
-
-```shell
-$ pip install bootstrap-admin==0.1.5
-```
-**NOTE:** bootstrap-admin==0.1.5 is not so much stable, so the recommended use is with django >=1.5.* and bootstrap-admin>=0.2.*
