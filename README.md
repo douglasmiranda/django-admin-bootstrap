@@ -57,6 +57,11 @@ INSTALLED_APPS = (
 
 ## History
 
+* 0.2.1 Aug 11, 2013
+    * Fix: "shaking" effect that nav-bar causes when is affixed on top.
+    * Fix: search input width (responsive)
+    * Fix: adding overflow ellipsis on the form search input
+    * Fix: margin for "add-another" option
 * 0.2.1 May 23, 2013
     * Fix: the issue #17 (about the MANIFEST.in)
 * 0.2.0 May 14, 2013
