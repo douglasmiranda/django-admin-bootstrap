@@ -8,7 +8,6 @@
             
             {% for field in line %}
                 <div class="control-group{% if field.errors %} error{% endif %} {% if field.field.name %} field-{{ field.field.name }}{% endif %}">
-                    {% if not line.fields|length_is:'1' and not field.is_readonly %}{{ field.errors }}{% endif %}
                         {% if field.is_checkbox %}
                             <div class="controls">
                                 <label class="checkbox">
