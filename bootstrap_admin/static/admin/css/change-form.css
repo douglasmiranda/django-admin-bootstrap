@@ -77,6 +77,24 @@
     width: 85%;
 }
 
+/* Temporary solution for .errorlist errors */
+
+.errorlist {
+    background-color: #F2DEDE;
+    border: 1px solid #EED3D7;
+    border-radius: 4px 4px 4px 4px;
+    color: #B94A48;
+    margin-left: 0;
+    margin-bottom: 20px;
+    padding: 8px 35px 8px 14px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.errorlist li {
+    list-style: none;
+}
+
+
 @media (max-width: 1024px) {
     .form-horizontal .control-label{
         width: 120px;
