@@ -2,7 +2,12 @@
 <div class="inline-group" id="{{ inline_admin_formset.formset.prefix }}-group">
     <h2>{{ inline_admin_formset.opts.verbose_name_plural|title }}</h2>
     {{ inline_admin_formset.formset.management_form }}
-    {{ inline_admin_formset.formset.non_form_errors }}
+    {% for error in inline_admin_formset.formset.non_form_errors %}
+        <p class="errornote alert alert-error fade in">
+        <a href="#" data-dismiss="alert" class="close">×</a>
+            {{ error }}
+        </p>
+    {% endfor %}
 
     {% for inline_admin_form in inline_admin_formset %}
         <div class="inline-related{% if forloop.last %} empty-form last-related{% endif %}" id="{{ inline_admin_formset.formset.prefix }}-{% if not forloop.last %}{{ forloop.counter0 }}{% else %}empty{% endif %}">
@@ -28,7 +33,14 @@
                     </span>
                 {% endif %}
             </h3>
-            {% if inline_admin_form.form.non_field_errors %}{{ inline_admin_form.form.non_field_errors }}{% endif %}
+            {% if inline_admin_form.form.non_field_errors %}
+                {% for error in inline_admin_form.form.non_field_errors %}
+                    <p class="errornote alert alert-error fade in">
+                    <a href="#" data-dismiss="alert" class="close">×</a>
+                        {{ error }}
+                    </p>
+                {% endfor %}
+            {% endif %}
             {% for fieldset in inline_admin_form %}
             {% include "admin/includes/fieldset.html" %}
             {% endfor %}
