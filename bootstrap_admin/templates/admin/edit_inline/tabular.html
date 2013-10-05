@@ -68,7 +68,14 @@
                                     {% if field.is_readonly %}
                                         <p>{{ field.contents|linebreaksbr }}</p>
                                     {% else %}
-                                        {{ field.field.errors.as_ul }}
+                                        {% if field.field.errors %}
+                                            <p class="errornote alert alert-error fade in">
+                                                <button data-dismiss="alert" class="close" type="button">×</button>
+                                                {% for error in field.field.errors %}
+                                                    {{ error }}
+                                                {% endfor %}
+                                            </p>
+                                        {% endif %}
                                         {{ field.field }}
                                     {% endif %}
                                 </td>
