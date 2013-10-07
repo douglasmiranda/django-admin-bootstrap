@@ -57,7 +57,10 @@ INSTALLED_APPS = (
 
 ## History
 
-* 0.2.1 Aug 11, 2013
+* 0.2.3 Oct 7, 2013
+    * Fix: Style for errors list on tabular inline.
+    * Fix: issue #22
+* 0.2.2 Aug 11, 2013
     * Fix: "shaking" effect that nav-bar causes when is affixed on top.
     * Fix: search input width (responsive)
     * Fix: adding overflow ellipsis on the form search input
