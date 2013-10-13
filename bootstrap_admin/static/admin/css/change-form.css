@@ -77,6 +77,20 @@
     width: 85%;
 }
 
+/* For checkbox select multiple */
+
+.controls li {
+    list-style: none;
+}
+
+.controls li input {
+    margin-right: 8px;
+}
+
+.controls ul {
+    margin-left: 0;
+}
+
 /* Temporary solution for .errorlist errors */
 
 .errorlist {
