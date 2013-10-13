@@ -49,7 +49,7 @@
                             {% if field.is_readonly %}
                                 <p>{{ field.contents|linebreaksbr }}</p>
                             {% else %}
-                                {% if field.field|widget_type == 'adminradioselect'  %}
+                                {% if field.field|widget_type == 'adminradioselect' or field.field|widget_type == 'checkboxselectmultiple' %}
                                     {{ field.field }}
                                 {% else %}
                                     {{ field.field|add_class:"span8" }}
