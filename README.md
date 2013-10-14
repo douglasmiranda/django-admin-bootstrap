@@ -57,6 +57,10 @@ INSTALLED_APPS = (
 
 ## History
 
+* 0.2.5 Oct 14, 2013
+    * Enhancement: Separate field template to allow easy customizations. ( pull #26 )
+* 0.2.4 Oct 13, 2013
+    * Fix: Do not add span8 class to inputs of CheckboxSelectMultiple. ( pull #24 )
 * 0.2.3 Oct 7, 2013
     * Fix: Style for errors list on tabular inline.
     * Fix: issue #22
