@@ -1,0 +1,66 @@
+{% load bootstrap_template_tags %}
+            <div class="control-group{% if field.errors %} error{% endif %} {% if field.field.name %} field-{{ field.field.name }}{% endif %}">
+                {% if field.is_checkbox %}
+                    <div class="controls">
+                        <label class="checkbox">
+                            {{ field.field }} <span>{{ field.label_tag }}</span>
+                        </label>
+
+                        {% for error in field.field.errors %}
+                            <span class="help-inline">{{ error }}</span>
+                        {% endfor %}
+
+                        {% if field.field.help_text %}
+                            <p class="help-block">
+                                {{ field.field.help_text|safe }}
+                            </p>
+                        {% endif %}
+                    </div>
+                {% else %}
+                    {% if field.field|widget_type == 'adminsplitdatetime' %}
+                        <div class="control-label">{{ field.label_tag }}</div>
+                        <div class="controls">
+                            {% if field.is_readonly %}
+                                <p>{{ field.contents|linebreaksbr }}</p>
+                            {% else %}
+                                {{ field.field }}
+                            {% endif %}
+
+                            {% for error in field.field.errors %}
+                                <span class="help-inline">{{ error }}</span>
+                            {% endfor %}
+
+                            {% if field.field.help_text %}
+                                <p class="help-block">
+                                    {{ field.field.help_text|safe }}
+                                </p>
+                            {% endif %}
+                        </div>
+                        {% else %}
+                        <div class="control-label">{{ field.label_tag }}</div>
+                        <div class="controls">
+                            {% if field.is_readonly %}
+                                <p>{{ field.contents|linebreaksbr }}</p>
+                            {% else %}
+                                {% if field.field|widget_type == 'adminradioselect'  %}
+                                    {{ field.field }}
+                                {% else %}
+                                    {{ field.field|add_class:"span8" }}
+                                {% endif %}
+                                
+                            {% endif %}
+
+                            {% for error in field.field.errors %}
+                                <span class="help-inline">{{ error }}</span>
+                            {% endfor %}
+
+                            {% if field.field.help_text %}
+                                <p class="help-block">
+                                    {{ field.field.help_text|safe }}
+                                </p>
+                            {% endif %}
+
+                        </div>
+                    {% endif %}
+                {% endif %}
+            </div>
