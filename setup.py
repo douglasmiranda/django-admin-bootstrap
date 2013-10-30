@@ -14,7 +14,7 @@ setup(
     author='Douglas Miranda',
     author_email='douglasmirandasilva@gmail.com',
     url='https://github.com/douglasmiranda/django-admin-bootstrap',
-    license='MIT',
+    license='BSD',
     packages=find_packages(),
     include_package_data=True,
     zip_safe=False,
