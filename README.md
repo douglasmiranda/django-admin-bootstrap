@@ -1,4 +1,4 @@
-# Twitter Bootstrap Skin for Django Admin 
+# Responsible Skin for Django Admin 
 
 django-admin-bootstrap is a __Custom Responsible Skin for Django Admin 1.5.*__. I hope you like and help me make it better.
 
