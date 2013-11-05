@@ -58,6 +58,8 @@ INSTALLED_APPS = (
 
 ## History
 
+* 0.2.6 Nov 05, 2013
+    * django-mptt templates ( pull #30 )
 * 0.2.5 Oct 14, 2013
     * Enhancement: Separate field template to allow easy customizations. ( pull #26 )
 * 0.2.4 Oct 13, 2013
