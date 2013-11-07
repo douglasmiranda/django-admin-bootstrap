@@ -4,11 +4,15 @@ Responsible Skin for Django Admin
 django-admin-bootstrap is a **Custom Responsible Skin for Django Admin
 1.5.\***. I hope you like and help me make it better.
 
+.. image:: https://pypip.in/d/bootstrap_admin/badge.png
+    :target: https://crate.io/packages/bootstrap_admin/
+
 Screenshots
 -----------
 
- PS: the wysiwyg editor you see on the screenshot is the
-`django-wysiwyg-redactor <https://github.com/douglasmiranda/django-wysiwyg-redactor>`_
+.. image:: https://raw.github.com/douglasmiranda/django-admin-bootstrap/master/static/screenshot-github.jpg
+
+PS: the wysiwyg editor you see on the screenshot is the `django-wysiwyg-redactor <https://github.com/douglasmiranda/django-wysiwyg-redactor>`_
 
 Features (beyond what you already know)
 ---------------------------------------
@@ -23,20 +27,29 @@ Install
 **NOTE:** I'm assuming you use `pip <http://www.pip-installer.org/>`_ to
 install the Python Packages.
 
-from latest version on pypi (fully compatible with django1.5)
-``shell $ pip install bootstrap-admin``
+from latest version on pypi (fully compatible with django1.5) ::
 
-from github master branch
-``shell $ pip install git+https://github.com/douglasmiranda/django-admin-bootstrap``
+    $ pip install bootstrap-admin
 
-or clone the master branch in your machine
-``shell $ git clone https://github.com/douglasmiranda/django-admin-bootstrap``
+from github master branch ::
+
+    $ pip install git+https://github.com/douglasmiranda/django-admin-bootstrap
+
+or clone the master branch in your machine ::
+
+    $ git clone https://github.com/douglasmiranda/django-admin-bootstrap
 
 And don't forget to add *bootstrap\_admin* in **INSTALLED\_APPS** before
 the *django.contrib.admin*.
 
-Example:
-``python INSTALLED_APPS = (     # ...     'bootstrap_admin',     'django.contrib.admin',     # ... )``
+Example: :: 
+
+   INSTALLED_APPS = (     
+       # ...       
+       'bootstrap_admin',       
+       'django.contrib.admin',      
+       # ...   
+    )
 
 Contributing
 ------------
