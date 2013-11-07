@@ -103,7 +103,7 @@
     {% block messages %}
         {% if messages %}
             {% for message in messages %}
-                <div class="alert alert-{% if message.tags == 'info' %}success{% else %}message.tags{% endif %}">
+                <div class="alert alert-{% if message.tags == 'info' %}success{% else %}{{ message.tags }}{% endif %}">
                     <button data-dismiss="alert" class="close" type="button">×</button>
                     {{ message }}
                 </div>
