@@ -66,6 +66,11 @@ if you find a bug or want something more.
 
 History
 -------
+-  0.2.6 Nov 05, 2013
+
+   -   django-mptt templates ( pull #30 )
+
+
 
 -  0.2.5 Oct 14, 2013
 
