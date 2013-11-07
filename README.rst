@@ -66,6 +66,10 @@ if you find a bug or want something more.
 
 History
 -------
+-  0.2.8 Nov 07, 2013
+
+   -   Fix: Forgot to add README.rst on MANIFEST.in (shame on me)
+
 -  0.2.7 Nov 07, 2013
 
    -   Fix: bug when retrieving message.tags ( pull #32 )
