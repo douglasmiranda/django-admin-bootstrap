@@ -9,6 +9,7 @@ Project Lead
 Developers
 ----------
 
+* Gustavo Soares (@gustavosoares)
 * @alrusdi
 * Evan Borgstrom (@borgstrom)
 * James Pic (@jpic)
