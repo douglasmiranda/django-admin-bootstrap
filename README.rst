@@ -66,6 +66,10 @@ if you find a bug or want something more.
 
 History
 -------
+-  0.2.9 Nov 13, 2013
+
+   -   Fix: Use "/" divider in breadcrumbs where "&rsaquo;" remains. ( pull #33 )
+
 -  0.2.8 Nov 07, 2013
 
    -   Fix: Forgot to add README.rst on MANIFEST.in (shame on me)
