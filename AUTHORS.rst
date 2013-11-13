@@ -9,6 +9,7 @@ Project Lead
 Developers
 ----------
 
+* Stéphane Angel (@twidi)
 * Gustavo Soares (@gustavosoares)
 * @alrusdi
 * Evan Borgstrom (@borgstrom)
