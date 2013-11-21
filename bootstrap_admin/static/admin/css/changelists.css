@@ -132,6 +132,24 @@
 .datetime input{
     width: 80px;
 }
+.sortoptions a.sortremove:hover{
+    text-decoration: none;
+}
+.sortoptions a.sortremove:after{
+    content: "\2717";
+}
+.sortoptions a.toggle:hover{
+    text-decoration: none;
+}
+.sortoptions a.toggle.ascending:after{
+    content: "\25BC";
+}
+.sortoptions a.toggle.descending:after{
+    content: "\25B2";
+}
+.sortoptions .sortpriority{
+    display: none;
+}
 @media (max-width: 979px) {
     .nav-collapse .pull-left,
     .nav-collapse .pull-right{
