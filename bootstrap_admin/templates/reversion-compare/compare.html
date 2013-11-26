@@ -1,0 +1,73 @@
+{% extends "admin/base_site.html" %}
+{% load i18n %}
+{% load admin_urls %}
+
+{% block extrastyle %}{{ block.super }}
+<style type="text/css">
+    /* minimal style for the diffs */
+    del, ins {
+        color: #000;
+        text-decoration: none;
+    }
+    del { background-color: #ffe6e6; }
+    ins { background-color: #e6ffe6; }
+    sup.follow { color: #5555ff; }
+</style>
+{% endblock %}
+
+{% block breadcrumbs %}
+    <ul class="breadcrumb">
+        <li>
+            <a href="{% url 'admin:index' %}">{% trans 'Home' %}</a> <span class="divider">/</span>
+        </li>
+        <li>
+            <a href="{% url 'admin:app_list' app_label=app_label %}">{{ app_label|capfirst|escape }}</a> <span class="divider">/</span>
+        </li>
+        <li>
+            <a href="{% url opts|admin_urlname:'changelist' %}">{{ opts.verbose_name_plural|capfirst }}</a> <span class="divider">/</span>
+        </li>
+        <li>
+            <a href="{% url opts|admin_urlname:'change' original.pk|admin_urlquote %}">{{ original|truncatewords:"18" }}</a> <span class="divider">/</span>
+        </li>
+        <li>
+            <a href="{% url opts|admin_urlname:'history' original.pk|admin_urlquote %}">{% trans "History" %}</a> <span class="divider">/</span>
+        </li>
+        <li class="active">{% blocktrans with opts.verbose_name_plural|escape as name %}Compare {{name}}{% endblocktrans %}</li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+    <div id="content-main">
+        <p class="help">
+            {% blocktrans with date1=version1.revision.date_created|date:_("DATETIME_FORMAT") date2=version2.revision.date_created|date:_("DATETIME_FORMAT") %}
+                Compare <strong>{{ date1 }}</strong> with <strong>{{ date2 }}</strong>:
+            {% endblocktrans %}
+        </p>
+        <h3 class="follow">{% trans "Fields:" %}</h3>
+        {% for field_diff in compare_data %}
+            <h4>{{ field_diff.field.verbose_name }}{% if field_diff.is_related and not field_diff.follow %}<sup class="follow">*</sup>{% endif %}</h4>
+            <div class="module">
+                <p>{{ field_diff.diff }}</p>
+            </div>
+        {% empty %}
+            <div class="module">
+                <p><strong>There are no differences.</strong></p>
+            </div>
+        {% endfor %}
+        
+        <h3>{% trans "Edit comment:" %}</h3>
+        <blockquote>{{ version2.revision.comment|default:"(there exist not comment)" }}</blockquote>
+        
+        {% if has_unfollowed_fields %}
+        <h3 class="follow">{% trans "Note:" %}</h3>
+        <p class="follow">
+            {% blocktrans %}
+            Fields/entries marked with <sup class="follow">*</sup> are not under reversion control.
+            It may be that not all marked information are correct.
+            {% endblocktrans %}
+        </p>
+        {% endif %}
+
+        &lsaquo; <a href="{{history_url}}">{% trans "Go back to history list" %}</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends "admin/object_history.html" %}
+{% load i18n %}
+
+{% block content %}
+    <div id="content-main">
+    
+        <p>{% blocktrans %}Choose a date from the list below to revert to a previous version of this object.{% endblocktrans %}</p>
+    
+        <div class="module">
+            {% if action_list %}
+                {% if compare_view %}<form method="GET" action="../history/compare/">{% endif %}
+                <table id="change-history" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            {% if compare_view %}
+                                <th scope="col" colspan="2">
+                                    {% if comparable %}
+                                        <input type="submit" value="{% trans 'compare' %}" class="btn btn-primary">
+                                    {% else %}
+                                       <i>{% trans 'compare' %}</i>
+                                    {% endif %}
+                                </th>
+                            {% endif %}
+                            <th scope="col">{% trans 'Date/time' %}</th>
+                            <th scope="col">{% trans 'User' %}</th>
+                            <th scope="col">{% trans 'Comment' %}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for action in action_list %}
+                            <tr>
+                                {% if compare_view %}
+                                <td scope="row">
+                                    {% if comparable %}
+                                       <input type="radio" name="version_id1" value="{{ action.version.pk }}" {% if action.first %}style="visibility:hidden" {% endif %}{% if action.second %}checked="checked" {% endif %}>
+                                    {% else %}
+                                       <i>-</i>
+                                    {% endif %}
+                                </td>
+                                <td scope="row">
+                                    {% if comparable %}
+                                       <input type="radio" name="version_id2" value="{{ action.version.pk }}" {% if action.first == 1 %}checked="checked" {% endif %}>
+                                    {% else %}
+                                       <i>-</i>
+                                    {% endif %}
+                                </td>
+                                {% endif %}
+                                <th scope="row"><a href="{{action.url}}">{{action.revision.date_created|date:_("DATETIME_FORMAT")}}</a></th>
+                                <td>
+                                    {% if action.revision.user %}
+                                        {{action.revision.user.username}}
+                                        {% if action.revision.user.first_name %} ({{action.revision.user.first_name}} {{action.revision.user.last_name}}){% endif %}
+                                    {% endif %}
+                                </td>
+                                <td>{{action.revision.comment|default:""}}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% if compare_view %}</form>{% endif %}
+            {% else %}
+                <p>{% trans "This object doesn't have a change history. It probably wasn't added via this admin site." %}</p>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
