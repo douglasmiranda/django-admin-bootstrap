@@ -1,4 +1,4 @@
-{% load i18n admin_static admin_modify %}
+{% load i18n admin_static admin_modify bootstrap_inline_forms_fix %}
 {% load bootstrap_template_tags %}
 <div class="inline-group" id="{{ inline_admin_formset.formset.prefix }}-group">
     <div class="tabular inline-related {% if forloop.last %}last-related{% endif %}">
@@ -58,7 +58,7 @@
                                 {% endif %}
                             </p>
                         {% endif %}
-                        {% if inline_admin_form.has_auto_field %}
+                        {% if inline_admin_form|needs_explicit_pk_field%}
                             {{ inline_admin_form.pk_field.field }}
                         {% endif %}
                         {{ inline_admin_form.fk_field.field }}
