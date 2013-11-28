@@ -1,4 +1,4 @@
-{% load i18n admin_static %}
+{% load i18n admin_static bootstrap_inline_forms_fix %}
 <div class="inline-group" id="{{ inline_admin_formset.formset.prefix }}-group">
     <h2>{{ inline_admin_formset.opts.verbose_name_plural|title }}</h2>
     {{ inline_admin_formset.formset.management_form }}
@@ -44,7 +44,7 @@
             {% for fieldset in inline_admin_form %}
             {% include "admin/includes/fieldset.html" %}
             {% endfor %}
-            {% if inline_admin_form.has_auto_field %}{{ inline_admin_form.pk_field.field }}{% endif %}
+            {% if inline_admin_form|needs_explicit_pk_field %}{{ inline_admin_form.pk_field.field }}{% endif %}
             {{ inline_admin_form.fk_field.field }}
         </div>
     {% endfor %}
