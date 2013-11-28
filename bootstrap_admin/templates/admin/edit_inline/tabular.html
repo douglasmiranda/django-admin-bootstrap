@@ -58,7 +58,7 @@
                                 {% endif %}
                             </p>
                         {% endif %}
-                        {% if inline_admin_form|needs_explicit_pk_field%}
+                        {% if inline_admin_form|needs_explicit_pk_field %}
                             {{ inline_admin_form.pk_field.field }}
                         {% endif %}
                         {{ inline_admin_form.fk_field.field }}
