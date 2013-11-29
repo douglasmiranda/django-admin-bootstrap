@@ -2,7 +2,7 @@ Responsible Skin for Django Admin
 =================================
 
 django-admin-bootstrap is a **Custom Responsible Skin for Django Admin
-1.5.\***. I hope you like and help me make it better.
+1.5.\* and 1.6.\***. I hope you like and help me make it better.
 
 .. image:: https://pypip.in/d/bootstrap_admin/badge.png
     :target: https://crate.io/packages/bootstrap_admin/
@@ -20,6 +20,8 @@ Features (beyond what you already know)
 -  a bit of responsiveness
 -  search directly from the apps list
 -  sidebar logs for specific app (on app index)
+-  django-mptt custom templates
+-  django-reversion and django-reversion-compare custom templates
 
 Install
 -------
@@ -27,7 +29,7 @@ Install
 **NOTE:** I'm assuming you use `pip <http://www.pip-installer.org/>`_ to
 install the Python Packages.
 
-from latest version on pypi (fully compatible with django1.5) ::
+from latest version on pypi ::
 
     $ pip install bootstrap-admin
 
@@ -59,6 +61,8 @@ Contributing
 3. Commit your changes: ``git commit -am 'Add some feature'``
 4. Push to the branch: ``git push origin my-new-feature``
 5. Submit a pull request =]
+
+See the `full list <https://github.com/douglasmiranda/django-admin-bootstrap/blob/master/AUTHORS.rst>`_ of contributors.
 
 `Open an
 issue <https://github.com/douglasmiranda/django-admin-bootstrap/issues/new>`_
