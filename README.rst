@@ -70,6 +70,12 @@ if you find a bug or want something more.
 
 History
 -------
+-  0.3.0 Nov 29, 2013
+
+   -   Fix: Fix to allow use inline forms with non editable custom pk in models ( pull #36 )
+   -   Add/Fix: custom django-reversion and django-reversion-compare templates and other fixes ( pull #35 )
+   -   Add: .sortoptions styling in changelist. ( pull #34 )
+
 -  0.2.9 Nov 13, 2013
 
    -   Fix: Use "/" divider in breadcrumbs where "&rsaquo;" remains. ( pull #33 )
