@@ -27,5 +27,5 @@ setup(
         'Operating System :: OS Independent',
         'Programming Language :: Python',
     ],
-    keywords='django,admin,skin,theme',
+    keywords='django,admin,skin,theme,bootstrap,responsive',
 )
