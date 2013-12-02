@@ -14,8 +14,8 @@ Screenshots
 
 PS: the wysiwyg editor you see on the screenshot is the `django-wysiwyg-redactor <https://github.com/douglasmiranda/django-wysiwyg-redactor>`_
 
-Features (beyond what you already know)
----------------------------------------
+Features
+--------
 
 -  a bit of responsiveness
 -  search directly from the apps list
