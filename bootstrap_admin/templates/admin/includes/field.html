@@ -37,7 +37,10 @@
                             {% endif %}
                         </div>
                         {% else %}
+                        {# only show the label for visible fields #}
+                        {% if not field.field.is_hidden %}
                         <div class="control-label">{{ field.label_tag }}</div>
+                        {% endif %}
                         <div class="controls">
                             {% if field.is_readonly %}
                                 <p>{{ field.contents|linebreaksbr }}</p>
