@@ -121,9 +121,9 @@ History
    -  Show the search input properly considering the permissions
    -  Fix: z-index nav-bar bug
 
--  early versions
+-  previous versions
 
-   -  Have some little bugs, it is usable, but I recommend the latest
-      version
+   -  Has some bugs, you can use, but I recommend the latest
+      version.
 
 
