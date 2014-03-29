@@ -1,6 +1,10 @@
 Responsible Skin for Django Admin
 =================================
 
+.. image:: https://pypip.in/download/bootstrap_admin/badge.png
+    :target: https://pypi.python.org/pypi/bootstrap_admin/
+    :alt: Downloads
+
 django-admin-bootstrap is a **Custom Responsible Skin for Django Admin
 1.5.\* and 1.6.\***. I hope you like and help me make it better.
 
