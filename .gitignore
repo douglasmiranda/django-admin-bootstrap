@@ -1,5 +1,4 @@
 *.pyc
 build/*
 dist/*
-django.mo
 bootstrap_admin.egg-info/*
