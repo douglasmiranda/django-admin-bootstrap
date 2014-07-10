@@ -1,0 +1,40 @@
+body {
+    padding-top: 120px;
+}
+#login-form {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    width: 600px;
+}
+.logo-admin {
+    margin:0 auto 20px auto;
+    display: block;
+}
+#login-form legend {
+    color: #888;
+}
+.password-reset-link {
+    margin-top: 20px;
+}
+.toggle-password:hover {
+    cursor: pointer;
+    background-color: #ddd;
+}
+.errornote {
+    text-align: left;
+}
+
+@media (max-width: 767px) {
+    body {
+        padding-top: 60px;
+    }
+    .form-row .password {
+        margin-top: 15px;
+    }
+    #login-form {
+        margin: 0 30px;
+        width: auto;
+    }
+}
+
