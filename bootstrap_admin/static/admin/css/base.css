@@ -1,3 +1,14 @@
 #container a {
     text-decoration: none;
 }
+
+.welcome-msg {
+    color: #fff;
+    margin-top: 16px;
+}
+
+@media (max-width: 767px) {
+    #navbar-global-links {
+        float: none !important;
+    }
+}

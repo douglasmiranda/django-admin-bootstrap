@@ -4,25 +4,32 @@
 <title>{% block title %}{% endblock %}</title>
 
 {% block bootstrap_admin_css %}
-  <link rel="stylesheet" type="text/css" href="{% static "bootstrap_admin/css/bootstrap.min.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'bootstrap_admin/css/bootstrap.min.css' %}" />
 {% endblock bootstrap_admin_css %}
 
 {% block bootstrap_admin_css_theme %}
-  <link rel="stylesheet" type="text/css" href="{% static "bootstrap_admin/css/bootstrap-theme.min.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'bootstrap_admin/css/bootstrap-theme.min.css' %}" />
 {% endblock bootstrap_admin_css_theme %}
 
-<link rel="stylesheet" type="text/css" href="{% block stylesheet %}{% static "admin/css/base.css" %}{% endblock %}" />
+<link rel="stylesheet" type="text/css" href="{% block stylesheet %}{% static 'admin/css/base.css' %}{% endblock %}" />
 
 {% block extrastyle %}{% endblock %}
 
 {% if LANGUAGE_BIDI %}
-    {# PUT HERE YOUR CUSTOM RTL STYLESHEET #}
-    {% comment %}
-    <link rel="stylesheet" type="text/css" href="{% block stylesheet_rtl %}{% static "admin/css/rtl.css" %}{% endblock %}" />
-    {% endcomment %}
+  {# PUT HERE YOUR CUSTOM RTL STYLESHEET #}
+  {% comment %}
+  <link rel="stylesheet" type="text/css" href="{% block stylesheet_rtl %}{% static "admin/css/rtl.css" %}{% endblock %}" />
+  {% endcomment %}
 {% endif %}
+
+{% block jquery %}
+  <script type="text/javascript" src="{% static "admin/js/jquery.js" %}"></script>
+  <script type="text/javascript" src="{% static "admin/js/jquery.init.js" %}"></script>
+{% endblock jquery %}
+
 <script type="text/javascript">window.__admin_media_prefix__ = "{% filter escapejs %}{% static "admin/" %}{% endfilter %}";</script>
 <script type="text/javascript">window.__admin_utc_offset__ = "{% filter escapejs %}{% now "Z" %}{% endfilter %}";</script>
+
 {% block extrahead %}{% endblock %}
 {% block blockbots %}<meta name="robots" content="NONE,NOARCHIVE" />{% endblock %}
 </head>
@@ -30,68 +37,97 @@
 
 <body class="{% if is_popup %}popup {% endif %}{% block bodyclass %}{% endblock %}">
 
-<!-- Container -->
-<div id="container" class="{% block container_class %}container{% endblock %}" >
-
-    {% if not is_popup %}
+  {% if not is_popup %}
     <!-- Header -->
     <div id="header">
-        <div id="branding">
-        {% block branding %}{% endblock %}
-        </div>
-        {% if user.is_active and user.is_staff %}
-        <div id="user-tools">
-            {% block welcome-msg %}
-                {% trans 'Welcome,' %}
-                <strong>{% firstof user.get_short_name user.get_username %}</strong>.
+      <nav role="navigation" class="navbar navbar-inverse navbar-static-top">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button data-target="#navbar-global-links" data-toggle="collapse" class="navbar-toggle" type="button">
+              <span class="sr-only">{% trans "Toggle navigation" %}</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            {% block branding %}
+              <a href="{% url 'admin:index' %}" class="navbar-brand" id="branding">{{ site_header|default:_('Django administration') }}</a>
             {% endblock %}
+            {% if user.is_active and user.is_staff %}
+              {% block welcome-msg %}
+                <p class="pull-left welcome-msg hidden-xs">
+                  <span class="glyphicon glyphicon-user"></span>
+                  {% trans 'Welcome,' %}
+                  <strong>{% firstof user.get_short_name user.get_username %}</strong>.
+                </p>
+              {% endblock %}
+            {% endif %}
+          </div>
+
+          {% block nav-global %}{% endblock %}
+
+          <div id="navbar-global-links" class="collapse navbar-collapse pull-right">
             {% block userlinks %}
-                {% url 'django-admindocs-docroot' as docsroot %}
+              {% url 'django-admindocs-docroot' as docsroot %}
+              <ul id="user-tools" class="nav navbar-nav">
                 {% if docsroot %}
-                    <a href="{{ docsroot }}">{% trans 'Documentation' %}</a> /
+                  <li>
+                    <a href="{{ docsroot }}">{% trans 'Documentation' %}</a>
+                  </li>
                 {% endif %}
                 {% if user.has_usable_password %}
-                <a href="{% url 'admin:password_change' %}">{% trans 'Change password' %}</a> /
+                  <li>
+                    <a href="{% url 'admin:password_change' %}">{% trans 'Change password' %}</a>
+                  </li>
                 {% endif %}
-                <a href="{% url 'admin:logout' %}">{% trans 'Log out' %}</a>
+                <li>
+                  <a href="{% url 'admin:logout' %}">{% trans 'Log out' %}</a>
+                </li>
+              </ul>
             {% endblock %}
-        </div>
-        {% endif %}
-        {% block nav-global %}{% endblock %}
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>
     </div>
     <!-- END Header -->
-    {% block breadcrumbs %}
-    <div class="breadcrumbs">
-    <a href="{% url 'admin:index' %}">{% trans 'Home' %}</a>
-    {% if title %} &rsaquo; {{ title }}{% endif %}
-    </div>
-    {% endblock %}
-    {% endif %}
+  {% endif %}
 
-    {% block messages %}
-        {% if messages %}
-        <ul class="messagelist">{% for message in messages %}
-          <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message|capfirst }}</li>
-        {% endfor %}</ul>
-        {% endif %}
-    {% endblock messages %}
+<!-- Container -->
+<div id="container" class="{% block container_class %}container{% endblock %}" >
+  {% block breadcrumbs %}
+  <div class="breadcrumbs">
+  <a href="{% url 'admin:index' %}">{% trans 'Home' %}</a>
+  {% if title %} &rsaquo; {{ title }}{% endif %}
+  </div>
+  {% endblock %}
 
-    <!-- Content -->
-    <div id="content" class="{% block coltype %}colM{% endblock %}">
-        {% block pretitle %}{% endblock %}
-        {% block content_title %}{% if title %}<h1>{{ title }}</h1>{% endif %}{% endblock %}
-        {% block content %}
-        {% block object-tools %}{% endblock %}
-        {{ content }}
-        {% endblock %}
-        {% block sidebar %}{% endblock %}
-        <br class="clear" />
-    </div>
-    <!-- END Content -->
+  {% block messages %}
+      {% if messages %}
+      <ul class="messagelist">{% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message|capfirst }}</li>
+      {% endfor %}</ul>
+      {% endif %}
+  {% endblock messages %}
 
-    {% block footer %}<div id="footer"></div>{% endblock %}
+  <!-- Content -->
+  <div id="content" class="{% block coltype %}colM{% endblock %}">
+      {% block pretitle %}{% endblock %}
+      {% block content_title %}{% if title %}<h1>{{ title }}</h1>{% endif %}{% endblock %}
+      {% block content %}
+      {% block object-tools %}{% endblock %}
+      {{ content }}
+      {% endblock %}
+      {% block sidebar %}{% endblock %}
+      <br class="clear" />
+  </div>
+  <!-- END Content -->
+
+  {% block footer %}<div id="footer"></div>{% endblock %}
 </div>
 <!-- END Container -->
+
+{% block bootstrap_admin_js %}
+  <script src="{% static 'bootstrap_admin/js/bootstrap.min.js' %}"></script>
+{% endblock bootstrap_admin_js %}
 
 </body>
 </html>
