@@ -1,0 +1,20 @@
+{% load i18n %}
+{% if app_list %}
+  {% for app in app_list %}
+    <ul class="nav nav-sidebar app-{{ app.app_label }} module">
+      <li>
+        <a href="{{ app.app_url }}" class="section" title="{% blocktrans with name=app.name %}Models in the {{ name }} application{% endblocktrans %}"><span class="glyphicon glyphicon-chevron-left"></span>
+          {{ app.name }}
+          <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+      </li>
+      {% for model in app.models %}
+        <li>
+          <a href="{% firstof model.admin_url model.add_url '#' %}" title="{% if not model.admin_url and not model.add_url %}{% trans "You don't have permission to edit anything." %}{% endif %}">{{ model.name }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endfor %}
+{% else %}
+  <p class="permission-warning">{% trans "You don't have permission to edit anything." %}</p>
+{% endif %}

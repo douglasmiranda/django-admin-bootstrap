@@ -1,17 +1,15 @@
-{% load admin_static %}{% load firstof from future %}<!DOCTYPE html>
+{% load admin_static bootstrap_admin_template_tags %}{% load firstof from future %}<!DOCTYPE html>
 <html lang="{{ LANGUAGE_CODE|default:"en-us" }}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
 <head>
-<title>{% block title %}{% endblock %}</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}{% endblock %}</title>
 
-{% block bootstrap_admin_css %}
-  <link rel="stylesheet" type="text/css" href="{% static 'bootstrap_admin/css/bootstrap.min.css' %}" />
-{% endblock bootstrap_admin_css %}
+  {% block bootstrap_admin_css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap_admin/css/bootstrap.min.css' %}" />
+  {% endblock bootstrap_admin_css %}
 
-{% block bootstrap_admin_css_theme %}
-  <link rel="stylesheet" type="text/css" href="{% static 'bootstrap_admin/css/bootstrap-theme.min.css' %}" />
-{% endblock bootstrap_admin_css_theme %}
-
-<link rel="stylesheet" type="text/css" href="{% block stylesheet %}{% static 'admin/css/base.css' %}{% endblock %}" />
+  <link rel="stylesheet" type="text/css" href="{% block stylesheet %}{% static 'admin/css/base.css' %}{% endblock %}" />
 
 {% block extrastyle %}{% endblock %}
 
@@ -27,106 +25,131 @@
   <script type="text/javascript" src="{% static "admin/js/jquery.init.js" %}"></script>
 {% endblock jquery %}
 
-<script type="text/javascript">window.__admin_media_prefix__ = "{% filter escapejs %}{% static "admin/" %}{% endfilter %}";</script>
-<script type="text/javascript">window.__admin_utc_offset__ = "{% filter escapejs %}{% now "Z" %}{% endfilter %}";</script>
+  <script type="text/javascript">window.__admin_media_prefix__ = "{% filter escapejs %}{% static "admin/" %}{% endfilter %}";</script>
+  <script type="text/javascript">window.__admin_utc_offset__ = "{% filter escapejs %}{% now "Z" %}{% endfilter %}";</script>
 
 {% block extrahead %}{% endblock %}
 {% block blockbots %}<meta name="robots" content="NONE,NOARCHIVE" />{% endblock %}
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
 </head>
 {% load i18n %}
 
 <body class="{% if is_popup %}popup {% endif %}{% block bodyclass %}{% endblock %}">
 
-  {% if not is_popup %}
-    <!-- Header -->
-    <div id="header">
-      <nav role="navigation" class="navbar navbar-inverse navbar-static-top">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <button data-target="#navbar-global-links" data-toggle="collapse" class="navbar-toggle" type="button">
-              <span class="sr-only">{% trans "Toggle navigation" %}</span>
+  <div id="overlay">
+    <div class="spinner">
+      <div class="bounce1"></div>
+      <div class="bounce2"></div>
+      <div class="bounce3"></div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row">
+      <!-- <div class="col-sm-3 col-md-2 sidebar"> -->
+      {% if not is_popup %}
+      {% block sidebar_menu %}
+        <div id="sidebar-menu" class="col-xs-6 col-sm-3 col-md-2 sidebar-menu">
+          {% block branding %}
+            <a href="{% url 'admin:index' %}" class="django-admin-title">
+              <!-- Django Administration -->
+              <img src="{% static "bootstrap_admin/img/logo-header-140x60.png" %}" alt="{{ site_header|default:_('Django administration') }}">
+            </a>
+          {% endblock branding %}
+
+          {% render_menu_app_list %}
+        </div>
+      {% endblock sidebar_menu %}
+      {% endif %}
+
+      {% block content_container %}
+        <div id="content" class="col-xs-9 col-xs-offset-6 col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main {% block coltype %}colM{% endblock %}">
+          <div class="main-header">
+            <button type="button" class="show-hide-sidebar-menu">
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            {% block branding %}
-              <a href="{% url 'admin:index' %}" class="navbar-brand" id="branding">{{ site_header|default:_('Django administration') }}</a>
+            {% block pretitle %}{% endblock %}
+            {% block content_title %}
+              <h1>
+              {% if title %}
+                {{ title }}
+              {% else %}
+                {{ site_header|default:_('Django administration') }}
+              {% endif %}
+              </h1>
             {% endblock %}
-            {% if user.is_active and user.is_staff %}
-              {% block welcome-msg %}
-                <p class="pull-left welcome-msg hidden-xs">
-                  <span class="glyphicon glyphicon-user"></span>
-                  {% trans 'Welcome,' %}
-                  <strong>{% firstof user.get_short_name user.get_username %}</strong>.
-                </p>
-              {% endblock %}
-            {% endif %}
+            <div id="user-tools" class="btn-group">
+              <div class="btn-group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                  {% if user.is_active and user.is_staff %}
+                    {% block welcome-msg %}
+                      {% firstof user.get_short_name user.get_username %}
+                    {% endblock %}
+                  {% endif %}
+                  <span class="caret"></span>
+                </button>
+
+                {% url 'django-admindocs-docroot' as docsroot %}
+                <ul class="dropdown-menu pull-right" role="menu">
+                  {% if docsroot %}
+                    <li class="hidden-sm">
+                      <a href="{{ docsroot }}">{% trans 'Documentation' %}</a>
+                    </li>
+                  {% endif %}
+                  {% if user.has_usable_password %}
+                    <li>
+                      <a href="{% url 'admin:password_change' %}">{% trans 'Change password' %}</a>
+                    </li>
+                  {% endif %}
+                  <li>
+                    <a href="{% url 'admin:logout' %}">{% trans 'Log out' %}</a>
+                  </li>
+                </ul>
+              </div>
+              {% if docsroot %}
+                <a href="{{ docsroot }}" title="{% trans 'Documentation' %}" class="btn btn-default hidden-sm"><span class="glyphicon glyphicon-book"></span></a>
+              {% endif %}
+              <a href="{% url 'admin:logout' %}" title="{% trans 'Log out' %}" class="btn btn-default hidden-xs">
+                <span class="glyphicon glyphicon-off"></span>
+              </a>
+            </div>
           </div>
+          {% block breadcrumbs %}
+            <ol class="breadcrumb">
+              <li class="home">
+                <a href="{% url 'admin:index' %}" title="{% trans 'Home' %}"><span class="glyphicon glyphicon-home"></span></a>
+              </li>
+              <li class="active">{% if title %}{{ title }}{% endif %}</li>
+            </ol>
+          {% endblock %}
 
-          {% block nav-global %}{% endblock %}
+          {% block messages %}
+            {% if messages %}
+            <ul class="messagelist">{% for message in messages %}
+              <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message|capfirst }}</li>
+            {% endfor %}</ul>
+            {% endif %}
+          {% endblock messages %}
 
-          <div id="navbar-global-links" class="collapse navbar-collapse pull-right">
-            {% block userlinks %}
-              {% url 'django-admindocs-docroot' as docsroot %}
-              <ul id="user-tools" class="nav navbar-nav">
-                {% if docsroot %}
-                  <li>
-                    <a href="{{ docsroot }}">{% trans 'Documentation' %}</a>
-                  </li>
-                {% endif %}
-                {% if user.has_usable_password %}
-                  <li>
-                    <a href="{% url 'admin:password_change' %}">{% trans 'Change password' %}</a>
-                  </li>
-                {% endif %}
-                <li>
-                  <a href="{% url 'admin:logout' %}">{% trans 'Log out' %}</a>
-                </li>
-              </ul>
-            {% endblock %}
-          </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-      </nav>
+          {% block content %}
+            {% block object-tools %}{% endblock %}
+            {{ content }}
+          {% endblock %}
+        </div>
+      {% endblock content_container %}
     </div>
-    <!-- END Header -->
-  {% endif %}
-
-<!-- Container -->
-<div id="container" class="{% block container_class %}container{% endblock %}" >
-  {% block breadcrumbs %}
-  <div class="breadcrumbs">
-  <a href="{% url 'admin:index' %}">{% trans 'Home' %}</a>
-  {% if title %} &rsaquo; {{ title }}{% endif %}
   </div>
-  {% endblock %}
-
-  {% block messages %}
-      {% if messages %}
-      <ul class="messagelist">{% for message in messages %}
-        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message|capfirst }}</li>
-      {% endfor %}</ul>
-      {% endif %}
-  {% endblock messages %}
-
-  <!-- Content -->
-  <div id="content" class="{% block coltype %}colM{% endblock %}">
-      {% block pretitle %}{% endblock %}
-      {% block content_title %}{% if title %}<h1>{{ title }}</h1>{% endif %}{% endblock %}
-      {% block content %}
-      {% block object-tools %}{% endblock %}
-      {{ content }}
-      {% endblock %}
-      {% block sidebar %}{% endblock %}
-      <br class="clear" />
-  </div>
-  <!-- END Content -->
-
-  {% block footer %}<div id="footer"></div>{% endblock %}
-</div>
-<!-- END Container -->
 
 {% block bootstrap_admin_js %}
   <script src="{% static 'bootstrap_admin/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'bootstrap_admin/js/base.js' %}"></script>
 {% endblock bootstrap_admin_js %}
 
 </body>
