@@ -34,11 +34,11 @@
       if (hidden_menu) {
         $('.main').addClass(main_classes).removeClass('col-sm-12');
         $('.sidebar-menu').css('left', '0').data('hidden', false);
-        $.removeCookie('hidden_sidebar_menu');
+        $.removeCookie('hidden_sidebar_menu', {path: '/'});
       } else {
         $('.main').removeClass(main_classes).addClass('col-sm-12');
         $('.sidebar-menu').css('left', '-50%').data('hidden', true);
-        $.cookie('hidden_sidebar_menu', true);
+        $.cookie('hidden_sidebar_menu', true, {path: '/'});
       }
     };
     if ($.cookie('hidden_sidebar_menu')) {
