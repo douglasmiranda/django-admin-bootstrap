@@ -41,14 +41,15 @@
         $.cookie('hidden_sidebar_menu', true, {path: '/'});
       }
     };
-    if ($.cookie('hidden_sidebar_menu')) {
-      show_hide_sidebar_menu();
+    if ($('body').hasClass('popup')) {
+      if ($.cookie('hidden_sidebar_menu')) {
+        show_hide_sidebar_menu();
+      }
+      $('.show-hide-sidebar-menu').on('click', function(e){
+        show_hide_sidebar_menu();
+        e.preventDefault();
+      });
     }
-    $('.show-hide-sidebar-menu').on('click', function(e){
-      show_hide_sidebar_menu();
-      e.preventDefault();
-    });
-
     // list models
     $('.nav-sidebar li:first-child a').on('click', function () {
       var nav_sidebar = $(this).closest('.nav-sidebar');
