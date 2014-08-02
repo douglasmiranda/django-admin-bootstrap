@@ -1,0 +1,146 @@
+{% extends "admin/base_site.html" %}
+{% load i18n admin_static %}
+
+{% block extrastyle %}{{ block.super }}<link rel="stylesheet" type="text/css" href="{% static "admin/css/dashboard.css" %}" />{% endblock %}
+
+{% block coltype %}colMS{% endblock %}
+
+{% block bodyclass %}{{ block.super }} dashboard{% endblock %}
+
+{# {% block breadcrumbs %}{% endblock %} #}
+
+{% block content %}
+<div id="content-main">
+  {% if app_list %}
+    <div class="panel panel-default" id="apps">
+      <div class="panel-heading">
+        <div class="btn-group apps-recent-actions">
+          <button class="btn btn-default" title="{% trans "Apps" %}">
+            <span class="glyphicon glyphicon-star-empty"></span>
+          </button>
+          <a href="#timeline" class="btn btn-default" title="{% trans "Recent Actions" %}">
+            <span class="glyphicon glyphicon-tasks"></span> {% trans "Recent Actions" %}
+          </a>
+        </div>
+      </div>
+      <div class="table-responsive table-apps">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th class="title-head-apps">
+                {% trans "Apps" %}
+              </th>
+              <th class="search-apps-models">
+                <form action="" method="get">
+                  <div class="wrapper">
+                    <span class="glyphicon glyphicon-search"></span>
+                    <input placeholder="{% trans "Search" %}" class="search form-control input-sm" type="input" name="q">
+                    <span class="remove-this label label-info"><span class="glyphicon glyphicon-remove"></span> <span class="text"></span></span>
+                  </div>
+                </form>
+              </th>
+              <th class="title-head-actions">{% trans "Action" %}</th>
+            </tr>
+          </thead>
+          <tbody class="list">
+            {% for app in app_list %}
+              {% cycle ' bg-colored' '' as rowcolors silent %}
+              {% for model in app.models %}
+                <tr class="app-{{ app.app_label }}{{ rowcolors }}">
+                {% if forloop.first %}
+                  <td rowspan="{{ app.models|length }}" class="app-name {% if forloop.parentloop.last %}last-app{% endif %}">
+                    <a href="{{ app.app_url }}" class="section" title="{% blocktrans with name=app.name %}Models in the {{ name }} application{% endblocktrans %}">{{ app.name }}</a>
+                  </td>
+                {% endif %}
+
+                <td class="model-name model-{{ model.object_name|lower }}">
+                  {% if forloop.first %}
+                    <a href="{{ app.app_url }}" class="extra-app-name" title="{% blocktrans with name=app.name %}Models in the {{ name }} application{% endblocktrans %}">{{ app.name }}</a>
+                  {% endif %}
+                  <a href="{% if model.admin_url %}{{ model.admin_url }}{% else %}#{% endif %}" title="{{ app.name }} &raquo; {{ model.name }}" {% if not model.admin_url %}class="disabled"{% endif %}>{{ model.name }}</a>
+                </td>
+
+                <td class="model-{{ model.object_name|lower }} actions">
+                  <div class="btn-group btn-group-justified btn-group-actions">
+                    <a href="{% if model.add_url %}{{ model.add_url }}{% endif %}" role="button" class="addlink btn {% if not model.add_url %}disabled{% endif %}" data-toggle="tooltip" data-placement="left" title="{% trans 'Add' %}"><span class="glyphicon glyphicon-plus"></span></a>
+                    <a href="{% if model.admin_url %}{{ model.admin_url }}{% endif %}" role="button" class="changelink btn {% if not model.admin_url %}disabled{% endif %}" title="{% trans 'Change' %}" data-toggle="tooltip" data-placement="left"><span class="glyphicon glyphicon-pencil"></span></a>
+                    <a href="#" class="btn search-in-model" data-toggle="tooltip" data-placement="left" title="{% trans 'Search' %}" data-model-name="{{ model.name }}" data-url-model-name="{{ model.admin_url }}"><span class="glyphicon glyphicon-search"></span></a>
+                  </div>
+                </td>
+              </tr>
+              {% endfor %}
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% block recent_actions %}
+        <div id="content-related" class="recent-actions panel-body">
+          <div class="module" id="recent-actions-module">
+            <div class="page-header">
+              <h2 id="timeline" class="h3">{% trans 'Recent Actions' %} <small>({% trans 'My Actions' %})</small></h2>
+            </div>
+            {% load log %}
+            {% get_admin_log 10 as admin_log for_user user %}
+            {% if not admin_log %}
+              <p class="none-available">{% trans 'None available' %}</p>
+            {% else %}
+              <ul class="timeline">
+                {% for entry in admin_log %}
+                  {% if entry.is_addition %}
+                  <li>
+                    <span class="timeline-badge add">
+                      <i class="glyphicon glyphicon-plus"></i>
+                    </span>
+                  {% elif entry.is_change %}
+                  <li>
+                    <span class="timeline-badge change">
+                      <i class="glyphicon glyphicon-pencil"></i>
+                    </span>
+                  {% else %}
+                  <li class="timeline-inverted">
+                    <span class="timeline-badge delete">
+                      <i class="glyphicon glyphicon-minus"></i>
+                    </span>
+                  {% endif %}
+                    <span class="timeline-panel">
+                      <span class="timeline-heading">
+                        <h3 class="timeline-title h4">
+                          {% if entry.content_type %}
+                            {% filter capfirst %}{% trans entry.content_type.name %}{% endfilter %}
+                          {% else %}
+                            {% trans 'Unknown content' %}
+                          {% endif %}
+                        </h3>
+                        <p>
+                          <small class="text-muted">
+                            <i class="glyphicon glyphicon-time"></i> {{ entry.action_time }}
+                          </small>
+                        </p>
+                      </span>
+                      <span class="timeline-body">
+                        <p>
+                          {% if entry.is_deletion or not entry.get_admin_url %}
+                            {{ entry.object_repr }}
+                          {% else %}
+                            <a href="{{ admin_root_url }}{{ entry.get_admin_url }}">{{ entry.object_repr }}</a>
+                          {% endif %}
+                        </p>
+                      </span>
+                    </span>
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div>
+        </div>
+      {% endblock recent_actions %}
+    </div>
+  {% else %}
+    <p>{% trans "You don't have permission to edit anything." %}</p>
+  {% endif %}
+</div>
+{% endblock %}
+
+{% block js %}
+  <script src="{% static "bootstrap_admin/js/dashboard.js" %}"></script>
+{% endblock js %}
