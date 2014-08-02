@@ -41,7 +41,7 @@
         $.cookie('hidden_sidebar_menu', true, {path: '/'});
       }
     };
-    if ($('body').hasClass('popup')) {
+    if (!$('body').hasClass('popup')) {
       if ($.cookie('hidden_sidebar_menu')) {
         show_hide_sidebar_menu();
       }
