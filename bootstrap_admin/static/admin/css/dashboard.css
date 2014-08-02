@@ -18,9 +18,12 @@
   left: 10px;
 }
 #apps .search-apps-models .remove-this {
+  max-width: 45%;
+  overflow: hidden;
   position: absolute;
   right: 10px;
   top: 10px;
+  text-overflow: ellipsis;
   transition: background .3s ease-in-out;
   display: none;
 }
