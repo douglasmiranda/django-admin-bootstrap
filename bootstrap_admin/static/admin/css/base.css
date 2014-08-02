@@ -281,7 +281,7 @@ body {
 }
 .breadcrumb {
   background: #efefef;
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 2px solid #e5e5e5;
   border-radius: 0;
   height: 26px;
   margin: 0 -15px 15px;
