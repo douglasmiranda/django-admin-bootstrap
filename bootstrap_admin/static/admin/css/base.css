@@ -292,6 +292,8 @@ body {
 }
 .breadcrumb > li {
   float: left;
+}
+.breadcrumb > li.home {
   width: 20px;
 }
 .breadcrumb > li.active {
@@ -305,9 +307,6 @@ body {
     text-overflow:ellipsis;
     width: 150px;
     white-space: nowrap;
-  }
-  .breadcrumb > li.home {
-    width: auto;
   }
 }
 
