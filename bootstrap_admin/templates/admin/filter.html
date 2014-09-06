@@ -1,0 +1,9 @@
+{% load i18n %}
+<h3 class="h5"><span class="glyphicon glyphicon-asterisk"></span> {% blocktrans with filter_title=title %} By {{ filter_title }} {% endblocktrans %}</h3>
+<ul class="filter-list">
+  {% for choice in choices %}
+    <li{% if choice.selected %} class="selected"{% endif %}>
+      <a href="{{ choice.query_string|iriencode }}">{% if choice.selected %}<span class="glyphicon glyphicon-ok"></span> {% endif %}{{ choice.display }}</a>
+    </li>
+  {% endfor %}
+</ul>

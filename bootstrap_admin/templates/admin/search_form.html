@@ -1,0 +1,23 @@
+{% load i18n admin_static %}
+
+{% if show_result_count %}
+  <span class="popover-search-info" style="display:none">{% blocktrans count counter=cl.result_count %}{{ counter }} result{% plural %}{{ counter }} results{% endblocktrans %} / <a href="?{% if cl.is_popup %}_popup=1{% endif %}">{% blocktrans with full_result_count=cl.full_result_count %}{{ full_result_count }} total{% endblocktrans %}</a></span>
+{% endif %}
+
+<div id="toolbar" class="pull-left">
+  <form id="changelist-search" action="" method="get">
+    <div><!-- DIV needed for valid HTML -->
+      <div class="input-group input-group-sm">
+        <input type="text" class="form-control popover-dismiss" name="{{ search_var }}" value="{{ cl.query }}" id="searchbar" placeholder='{% trans 'Search' %} "{{ cl.opts.verbose_name_plural|capfirst }}"' data-container="body" data-toggle="popover" data-placement="top" />
+        <span class="input-group-btn">
+          <button type="submit" class="btn btn-default" title="{% trans 'Search' %}">
+            <span class="glyphicon glyphicon-search"></span>
+          </button>
+        </span>
+      </div>
+      {% for pair in cl.params.items %}
+          {% ifnotequal pair.0 search_var %}<input type="hidden" name="{{ pair.0 }}" value="{{ pair.1 }}"/>{% endifnotequal %}
+      {% endfor %}
+    </div>
+  </form>
+</div>

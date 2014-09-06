@@ -1,0 +1,26 @@
+{% load i18n bootstrap_admin_template_tags %}
+<div class="actions">
+  {% for field in action_form.visible_fields %}
+    <div class="input-group" title="{{ field.label }}">
+      {{ field|add_class:'form-control' }}
+      <span class="input-group-btn">
+        <button type="submit" class="btn btn-default" title="{% trans "Run the selected action" %}" name="index" value="{{ action_index|default:0 }}">{% trans "Go" %}</button>
+      </span>
+    </div>
+  {% endfor %}
+  {% for field in action_form.hidden_fields %}{{field}}{% endfor %}
+
+  {% if actions_selection_counter %}
+    <div class="info-actions">
+      <script type="text/javascript">var _actions_icnt="{{ cl.result_list|length|default:"0" }}";</script>
+      <span class="action-counter label label-info">{{ selection_note }}</span>
+      {% if cl.result_count != cl.result_list|length %}
+        <span class="all label label-info">{{ selection_note_all }}</span>
+        <span class="question label label-primary">
+            <a href="javascript:;" title="{% trans "Click here to select the objects across all pages" %}"><span class="glyphicon glyphicon-check"></span> {% blocktrans with cl.result_count as total_count %}Select all {{ total_count }} {{ module_name }}{% endblocktrans %}</a>
+        </span>
+        <span class="clear label label-warning"><a href="javascript:;"><span class="glyphicon glyphicon-unchecked"></span> {% trans "Clear selection" %}</a></span>
+      {% endif %}
+    </div>
+  {% endif %}
+</div>

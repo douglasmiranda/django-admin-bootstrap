@@ -61,7 +61,7 @@
                 <img src="{% static "bootstrap_admin/img/logo-140x60.png" %}" alt="{{ site_header|default:_('Django administration') }}">
               </a>
             {% endblock branding %}
-
+            {% block filters %}{% endblock filters %}
             {% render_menu_app_list %}
           </div>
         {% endblock sidebar_menu %}
@@ -132,9 +132,12 @@
 
           {% block messages %}
             {% if messages %}
-            <ul class="messagelist">{% for message in messages %}
-              <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message|capfirst }}</li>
-            {% endfor %}</ul>
+                {% for message in messages %}
+                  <div role="alert" class="messagelist alert alert-{% if message.tags == 'info' %}success{% else %}{{ message.tags }}{% endif %} fade in">
+                    <button data-dismiss="alert" class="close" type="button"><span aria-hidden="true">×</span><span class="sr-only">{% trans "Close" %}</span></button>
+                    {{ message|capfirst }}
+                  </div>
+                {% endfor %}
             {% endif %}
           {% endblock messages %}
 
