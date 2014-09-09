@@ -186,6 +186,13 @@
   color: #fff;
 }
 
+/* Fields, Widgets */
+p.datetime {
+  display: inline-block;
+  margin: -8px;
+  padding: 8px;
+  width: auto;
+}
 
 /* Responsive */
 @media (max-width:1200px) {
