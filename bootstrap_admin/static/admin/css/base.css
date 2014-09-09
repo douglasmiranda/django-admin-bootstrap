@@ -311,7 +311,7 @@ body {
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 767px) {
   .breadcrumb > li {
     max-width: 100px;
   }
