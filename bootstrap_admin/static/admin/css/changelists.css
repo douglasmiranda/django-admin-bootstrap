@@ -18,6 +18,9 @@
 #result_list td .vTextField {
   min-width: 100px;
 }
+#result_list .action-checkbox-column {
+  width: 40px;
+}
 #result_list .action-checkbox-column,
 #result_list .action-checkbox {
   padding-left: 15px;
@@ -232,15 +235,13 @@ p.datetime {
     width: 100%;
   }
   .place-info-actions {
-    border-bottom: 1px solid #ddd;
     display: block;
-    height: 36px;
+    height: 35px;
     width: 100%;
   }
   .place-info-actions .progressbar-selected-rows {
-    background: rgba(240, 173, 78, 0.09);
     border-bottom: 1px solid #f0ad4e;
-    height: 36px;
+    height: 35px;
     width: 0;
     transition: width 0.3s ease-in-out 0.3s;
   }
