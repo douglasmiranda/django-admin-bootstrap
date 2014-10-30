@@ -105,4 +105,4 @@ def render_menu_app_list(context):
     # Sort the models alphabetically within each sapp.
     for app in app_list:
         app['models'].sort(key=lambda x: x['name'])
-    return {'app_list': app_list}
+    return {'app_list': app_list, 'current_url': context.get('request').path}

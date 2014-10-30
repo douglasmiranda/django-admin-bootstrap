@@ -130,55 +130,50 @@ body {
   background-color: transparent;
   color: #fff;
 }
-.sidebar-menu .nav-sidebar a.section {
-  background: #333;
-  border-left: 2px solid #2a6496;
+.sidebar-menu .nav-sidebar a {
+  border-left: 2px solid #393939;
   color: #fff;
-  height: 28px;
-  padding: 5px;
+  height: 43px;
+  padding: 12px 5px 12px 20px;
   text-transform: uppercase;
-  transition: border .3s ease-in-out, color .3s ease-in-out;
+  transition: border 0.4s ease-in-out 0s, color 0.3s ease-in-out 0s, background-color 0.4s ease-in-out 0s;
 }
-.sidebar-menu .nav-sidebar a.section:hover {
+.sidebar-menu .nav-sidebar a:hover {
   background: #333;
   color: #ccc;
   border-color: #428bca;
 }
+.sidebar-menu .nav-sidebar a.section {
+  padding-left: 5px;
+}
+.sidebar-menu .nav-sidebar.has-active-menu {
+  background: #333;
+  border: 1px solid #444;
+}
+.sidebar-menu .active a:after {
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid #f5f5f5;
+  border-top: 10px solid transparent;
+  content: "";
+  height: 0;
+  position: absolute;
+  right: 0;
+  top: 11px;
+  width: 0;
+}
 .sidebar-menu .nav-sidebar .active a {
   color: #428bca;
-  background-color: #f5f5f5;
+  border-color: #333;
+  background-color: #333;
 }
 .sidebar-menu .nav-sidebar .active a:hover {
+  border-color: #428bca;
   color: #2a6496;
 }
-.sidebar-menu .nav-sidebar .glyphicon-chevron-right {
-  background: #428bca;
-  color: #ffffff;
-  padding: 7px 5px;
-  position: absolute;
-  right: -24px;
-  top: 0;
-  transition: right .3s ease-in-out;
+.sidebar-menu .nav-sidebar .padding-left a {
+  padding-left: 24px;
 }
-.sidebar-menu .nav-sidebar li:hover .glyphicon-chevron-right {
-  right: 1px;
-}
-.sidebar-menu .nav-sidebar.show-models li:hover .glyphicon-chevron-right {
-  right: -23px;
-}
-.sidebar-menu .nav-sidebar .glyphicon-chevron-left {
-  display: none;
-}
-.sidebar-menu .nav-sidebar.show-models {
-  background: #393939;
-  bottom: 0;
-  margin-bottom: 0;
-  overflow-y: auto;
-  position: fixed;
-  top: 0;
-  width: inherit;
-  z-index: 1;
-}
+
 .sidebar-menu .nav-sidebar li {
   display: none;
 }
@@ -186,17 +181,7 @@ body {
 .sidebar-menu .nav-sidebar.show-models li {
   display: block;
 }
-.sidebar-menu .show-models .glyphicon-chevron-left {
-  display: inline;
-  margin-left: -3px;
-}
-.sidebar-menu .nav-sidebar.show-models .section {
-  height: auto;
-  padding-left: 5px;
-  text-overflow:unset;
-  white-space:normal;
-  word-wrap:break-word;
-}
+
 .show-hide-sidebar-menu {
   background-color: transparent;
   border: 1px solid transparent;

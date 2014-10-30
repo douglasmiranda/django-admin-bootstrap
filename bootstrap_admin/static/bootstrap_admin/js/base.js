@@ -52,11 +52,11 @@
     }
     // list models
     $('.nav-sidebar li:first-child a').on('click', function () {
-      var nav_sidebar = $(this).closest('.nav-sidebar');
-      if (nav_sidebar.data('status') == 'open') {
-        nav_sidebar.removeClass('show-models').data('status', 'closed');
+      var $nav_sidebar = $(this).closest('.nav-sidebar');
+      if ($nav_sidebar.hasClass('show-models')) {
+        $nav_sidebar.removeClass('show-models');
       } else {
-        nav_sidebar.addClass('show-models').data('status', 'open');
+        $nav_sidebar.addClass('show-models');
       }
       return false;
     });
