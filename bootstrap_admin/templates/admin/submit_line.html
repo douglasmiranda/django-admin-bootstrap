@@ -1,0 +1,39 @@
+{% load i18n admin_urls %}
+
+<div class="submit-row list-group">
+  {% if show_save %}
+    <button type="submit" title="{% trans 'Save' %}" class="list-group-item active" name="_save">
+      <span class="glyphicon glyphicon-floppy-disk"></span>
+      <span class="text">{% trans 'Save' %}</span>
+    </button>
+  {% endif %}
+
+  {% if show_save_as_new %}
+    <button type="submit" class="list-group-item" title="{% trans 'Save as new' %}" name="_saveasnew">
+      <span class="glyphicon glyphicon-plus"></span>
+      <span class="text">{% trans 'Save as new' %}</span>
+    </button>
+  {%endif%}
+
+  {% if show_save_and_add_another %}
+    <button type="submit" class="list-group-item" title="{% trans 'Save and add another' %}" name="_addanother">
+      <span class="glyphicon glyphicon-plus"></span>
+      <span class="text">{% trans 'Save and add another' %}</span>
+    </button>
+  {% endif %}
+
+  {% if show_save_and_continue %}
+    <button type="submit" class="list-group-item" title="{% trans 'Save and continue editing' %}" name="_continue">
+      <span class="glyphicon glyphicon-pencil"></span>
+      <span class="text">{% trans 'Save and continue editing' %}</span>
+    </button>
+  {% endif %}
+
+  {% if show_delete_link %}
+    {% url opts|admin_urlname:'delete' original.pk|admin_urlquote as delete_url %}
+    <a title="{% trans "Delete" %}" class="list-group-item deletelink" href="{% add_preserved_filters delete_url %}">
+      <span class="glyphicon glyphicon-trash"></span>
+      <span class="text">{% trans "Delete" %}</span>
+    </a>
+  {% endif %}
+</div>

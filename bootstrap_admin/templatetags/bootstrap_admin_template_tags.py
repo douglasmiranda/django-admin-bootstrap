@@ -24,8 +24,24 @@ def get_label(field, custom_classes=''):
 @register.filter()
 def add_class(field, custom_classes=''):
     classes = css_classes_for_field(field, custom_classes)
-    field.field.widget.attrs.update({'class': classes})
+    try:
+        # For widgets like SelectMultiple, checkboxselectmultiple
+        field.field.widget.widget.attrs.update({'class': classes})
+    except:
+        field.field.widget.attrs.update({'class': classes})
     return field
+
+
+@register.filter()
+def widget_type(field):
+    if isinstance(field, dict):
+        return 'adminreadonlyfield'
+    try:
+        # For widgets like SelectMultiple, checkboxselectmultiple
+        widget_type = field.field.widget.widget.__class__.__name__.lower()
+    except:
+        widget_type = field.field.widget.__class__.__name__.lower()
+    return widget_type
 
 
 @register.filter()

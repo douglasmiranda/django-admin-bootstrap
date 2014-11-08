@@ -1,4 +1,191 @@
-/* Calendar component */
+/* change_form */
+.form-panel .errornote {
+  color: #a94442;
+  font-weight: bold;
+}
+.form-expand {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  z-index: 1;
+}
+
+.form-row,
+.form-panel {
+  position: relative;
+}
+.form-row .add-another,
+.form-row .related-lookup {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.form-row label {
+  font-weight: normal;
+}
+.form-row label.required {
+  font-weight: bold;
+}
+
+.list-group {
+  margin-bottom: 10px;
+}
+.submit-row .list-group-item {
+  width: 100%;
+  text-align: left;
+}
+.submit-row button:hover,
+.submit-row button:focus {
+  background-color: #f5f5f5;
+  color: #555;
+}
+.submit-row.list-group.affix {
+  padding-right: 15px;
+  top: 15px;
+}
+.object-tools {
+  padding:0;
+}
+.object-tools .btn {
+  overflow: hidden;
+  text-overflow:ellipsis;
+}
+.object-tools li:only-child a {
+  border-radius: 4px !important;
+}
+
+.form-buttons {
+  padding-right: 0;
+}
+.form-buttons.contracted .text {
+  display: none;
+}
+.form-buttons.contracted .list-group-item {
+  text-align: center;
+}
+.form-buttons.contracted .btn-default,
+.form-buttons.contracted .list-group-item {
+  padding: 10px 0;
+}
+.form-buttons.contracted .object-tools {
+  width: 100%;
+}
+
+.form-buttons .affix {
+  margin-right: 15px;
+  top: 15px;
+}
+.form-buttons.contracted .affix {
+  margin-right: 0;
+  right: 15px;
+}
+.form-buttons.contracted .affix .btn-default,
+.form-buttons.contracted .affix .list-group-item {
+  padding: 15px;
+}
+
+.inline li{
+  margin-right: 5px;
+}
+.inline li, .inline label, .clearable-file-input label{
+  display: inline;
+}
+
+.form-row > div > ul {
+  padding-left: 0;
+  list-style: none;
+}
+
+/*m2m filter: filter_vertical, filter_horizontal*/
+.selector {
+  background: #f9f9f9;
+  border-bottom: 1px solid #ddd;
+  border-top: 1px solid #ddd;
+  margin: 0 -15px;
+  position: relative;
+  overflow: auto;
+}
+.selector h2 {
+  font-size: 18px;
+  margin: 10px 15px;
+}
+.selector .selector-available {
+  float: left;
+}
+.selector .selector-available,
+.selector .selector-chosen {
+  width: 40%;
+}
+.selector .selector-chooser {
+  background: #f4f4f4;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  float: left;
+  height: 100%;
+  left: 40%;
+  list-style: none;
+  margin: 0;
+  padding:9.5em 10px 0 10px;
+  position: absolute;
+  text-align: center;
+  width: 20%;
+}
+.selector .selector-chosen {
+  float: right;
+}
+.selector .selector-chosen select {
+  height: 19.12em !important;
+}
+.selector select {
+  border: 0;
+  border-bottom: 1px solid #eee;
+  height: 17.2em;
+  padding: 5px 15px;
+  width: 100%;
+}
+.selector .selector-filter {
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  margin: 0;
+  position: relative;
+}
+.selector .selector-filter input {
+  border: 0 none;
+  padding: 5px 5px 0 38px;
+  width: 100%;
+}
+.selector .selector-filter label {
+  left: 15px;
+  position: absolute;
+  top: 2px;
+}
+.selector .selector-clearall,
+.selector .selector-chooseall {
+  display: block;
+  margin: 10px;
+  text-align: center;
+}
+
+.selector.stacked .selector-available,
+.selector.stacked .selector-chooser,
+.selector.stacked .selector-chosen {
+  float: none;
+  width: 100%;
+}
+.selector.stacked .selector-chooser {
+  border: 0;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding: 10px;
+  position: unset;
+}
+.selector.stacked .selector-chooser > li {
+  display: inline-block;
+  text-align: center;
+  width: 50%;
+}
+
+/* Calendar widget */
 
 p.datetime {
   color: #666;
@@ -141,5 +328,29 @@ p.datetime span.datetimeshortcuts {
   .calendarbox .calendar-cancel,
   .calendarbox .calendar {
     width: 90%;
+  }
+  .form-buttons .affix {
+    position: relative;
+  }
+}
+
+@media (max-width: 992px) {
+  .selector .selector-available,
+  .selector .selector-chooser,
+  .selector .selector-chosen {
+    float: none;
+    width: 100%;
+  }
+  .selector .selector-chooser {
+    border: 0;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+    position: unset;
+  }
+  .selector .selector-chooser > li {
+    display: inline-block;
+    text-align: center;
+    width: 50%;
   }
 }

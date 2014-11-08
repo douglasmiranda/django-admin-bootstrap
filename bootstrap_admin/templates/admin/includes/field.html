@@ -1,0 +1,68 @@
+{% load bootstrap_admin_template_tags %}
+<div class="form-row form-group{% if field.errors %} has-error{% endif %} {% if field.field.name %} field-{{ field.field.name }}{% endif %}">
+    {% if field.is_checkbox %}
+      <div class="checkbox">
+        <label>
+          {{ field.field }} {{ field.field.label }}
+        </label>
+
+        {% for error in field.field.errors %}
+          <p class="help-block error">{{ error }}</p>
+        {% endfor %}
+
+        {% if field.field.help_text %}
+          <p class="help-block">
+            {{ field.field.help_text|safe }}
+          </p>
+        {% endif %}
+      </div>
+    {% else %}
+      <div>
+        {% with field.field|widget_type as widget_type %}
+          {% if widget_type == 'adminsplitdatetime' %}
+            {{ field.label_tag }}
+            {% if field.is_readonly %}
+              <p>{{ field.contents|linebreaksbr }}</p>
+            {% else %}
+              {{ field.field }}
+            {% endif %}
+
+            {% for error in field.field.errors %}
+              <p class="help-block error">{{ error }}</p>
+            {% endfor %}
+
+            {% if field.field.help_text %}
+              <p class="help-block">
+                {{ field.field.help_text|safe }}
+              </p>
+            {% endif %}
+          {% else %}
+            {# only show the label for visible fields #}
+            {% if not field.field.is_hidden %}
+              {{ field.label_tag }}
+            {% endif %}
+              {% if field.is_readonly %}
+                <p>{{ field.contents|linebreaksbr }}</p>
+              {% else %}
+                {% if widget_type == 'adminradioselect' or widget_type == 'checkboxselectmultiple' or widget_type == 'readonlypasswordhashwidget' %}
+                  {{ field.field }}
+                {% else %}
+                  {{ field.field|add_class:"form-control" }}
+                {% endif %}
+              {% endif %}
+
+              {% for error in field.field.errors %}
+                <p class="help-block error">{{ error }}</p>
+              {% endfor %}
+
+              {% if field.field.help_text %}
+                <p class="help-block">
+                  {{ field.field.help_text|safe }}
+                </p>
+              {% endif %}
+          {% endif %}
+        {% endwith %}
+      </div>
+    {% endif %}
+</div>
+
