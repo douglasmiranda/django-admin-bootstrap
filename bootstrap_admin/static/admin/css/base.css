@@ -150,6 +150,9 @@ body {
   background: #333;
   border: 1px solid #444;
 }
+.sidebar-menu .nav-sidebar.has-active-menu a {
+  border-left: 2px solid #333;
+}
 .sidebar-menu .active a:after {
   border-bottom: 10px solid transparent;
   border-right: 10px solid #f5f5f5;
@@ -166,9 +169,10 @@ body {
   border-color: #333;
   background-color: #333;
 }
-.sidebar-menu .nav-sidebar .active a:hover {
+.sidebar-menu .nav-sidebar .active a:hover,
+.sidebar-menu .nav-sidebar.has-active-menu a:hover {
   border-color: #428bca;
-  color: #2a6496;
+  color: #428bca;
 }
 .sidebar-menu .nav-sidebar .padding-left a {
   padding-left: 24px;
