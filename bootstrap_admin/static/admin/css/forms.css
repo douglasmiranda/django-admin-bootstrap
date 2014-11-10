@@ -137,6 +137,7 @@
   float: right;
 }
 .selector .selector-chosen select {
+  background: #fff;
   height: 19.12em !important;
 }
 .selector select {

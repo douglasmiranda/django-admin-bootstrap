@@ -77,7 +77,6 @@
 }
 #changelist .results {
   border-top: 1px solid #dddddd;
-  overflow-x: auto;
 }
 
 #changelist .toplinks {
