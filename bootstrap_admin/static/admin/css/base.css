@@ -286,6 +286,9 @@ body {
   display: inline;
   float: none;
 }
+.breadcrumb > li + li:before {
+  padding:0 0 0 7px;
+}
 
 @media (max-width: 768px) {
   .breadcrumb > li {
