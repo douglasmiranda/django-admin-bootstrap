@@ -2,9 +2,11 @@
 <div class="form-row form-group{% if field.errors %} has-error{% endif %} {% if field.field.name %} field-{{ field.field.name }}{% endif %}">
     {% if field.is_checkbox %}
       <div class="checkbox">
-        <label>
-          {{ field.field }} {{ field.field.label }}
-        </label>
+        {% if not is_tabular %}
+          <label>
+            {{ field.field }} {{ field.field.label }}
+          </label>
+        {% endif %}
 
         {% for error in field.field.errors %}
           <p class="help-block error">{{ error }}</p>
@@ -20,7 +22,9 @@
       <div>
         {% with field.field|widget_type as widget_type %}
           {% if widget_type == 'adminsplitdatetime' %}
-            {{ field.label_tag }}
+            {% if not is_tabular %}
+              {{ field.label_tag }}
+            {% endif %}
             {% if field.is_readonly %}
               <p>{{ field.contents|linebreaksbr }}</p>
             {% else %}
@@ -39,12 +43,14 @@
           {% else %}
             {# only show the label for visible fields #}
             {% if not field.field.is_hidden %}
-              {{ field.label_tag }}
+              {% if not is_tabular %}
+                {{ field.label_tag }}
+              {% endif %}
             {% endif %}
               {% if field.is_readonly %}
                 <p>{{ field.contents|linebreaksbr }}</p>
               {% else %}
-                {% if widget_type == 'adminradioselect' or widget_type == 'checkboxselectmultiple' or widget_type == 'readonlypasswordhashwidget' %}
+                {% if widget_type == 'adminradioselect' or widget_type == 'checkboxselectmultiple' or widget_type == 'readonlypasswordhashwidget' or widget_type == 'adminfilewidget' %}
                   {{ field.field }}
                 {% else %}
                   {{ field.field|add_class:"form-control" }}

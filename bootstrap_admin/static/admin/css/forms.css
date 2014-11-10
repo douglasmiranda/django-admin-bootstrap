@@ -54,6 +54,9 @@
   border-radius: 4px !important;
 }
 
+.form-fields {
+  padding-left: 0;
+}
 .form-buttons {
   padding-right: 0;
 }
@@ -183,6 +186,118 @@
   display: inline-block;
   text-align: center;
   width: 50%;
+}
+
+/* EDIT INLINE */
+
+.inline-group {
+  background: #f9f9f9;
+  border-bottom: 1px solid #ddd;
+  border-top: 2px solid #ddd;
+  margin: 5px -15px;
+  padding: 0 15px;
+  position: relative;
+}
+.inline-group h2 {
+  background: #f5f5f5;
+  margin: 0 -15px;
+  padding: 5px 15px;
+}
+.inline-group h3 {
+  background: #d9edf7;
+  border-bottom: 1px solid #bce8f1;
+  border-top: 1px solid #bce8f1;
+  margin: 0 -15px 5px;
+  overflow: auto;
+  padding: 7px 15px 5px;
+}
+.inline-group h3 input,
+.inline-group h3 label {
+  margin: 0;
+}
+.inline-group h3 .btn-group {
+  margin-left: 10px;
+  margin-top: -10px;
+}
+.inline-group .btn {
+  border: 1px solid #bce8f1;
+}
+.inline-group .btn:hover {
+  background: #f4f4f4;
+}
+.inline-group .delete input {
+  position: relative;
+  top: 2px;
+}
+.inline-group .delete {
+  padding: 0;
+}
+.inline-group .btn label {
+  font-weight: normal;
+  padding: 5px 6px 2px 0;
+}
+.inline-group .btn label:hover {
+  color: #d9534f;
+  cursor: pointer;
+}
+.inline-group .btn input {
+  margin-left: 6px;
+}
+.inline-group a.btn {
+  padding: 5px 6px 2px;
+}
+.inline-group a.btn:hover {
+  color: #428bca;
+}
+.inline-group .add-row {
+  margin: 5px 0;
+  float: right;
+}
+.inline-group .empty-form {
+  display: none;
+}
+
+.inline-group._tabular {
+  padding: 0;
+  overflow: auto;
+}
+.inline-group .tabular h2 {
+  margin: 0;
+}
+.inline-group .tabular tr td:first-child,
+.inline-group .tabular tr th:first-child {
+  padding-left: 15px;
+}
+.inline-group .tabular thead th {
+  background: #d9edf7;
+  border-bottom: 1px solid #bce8f1 !important;
+  /*border-top: 1px solid #bce8f1;*/
+}
+.inline-group .tabular td.original {
+  max-width: 200px;
+  overflow: hidden;
+  word-wrap: break-word;;
+}
+.inline-group td.original p {
+  margin: 0;
+}
+.inline-group .tabular .form-row {
+  position: unset;
+  margin: 0;
+  min-width: 150px;
+}
+.inline-group .tabular .row1 {
+  background: #fff;
+}
+.inline-group .add-row {
+  float: none;
+  text-align: right;
+}
+.inline-group .tabular .table {
+  margin: 0;
+}
+.inline-group .tabular .delete {
+  padding: 8px;
 }
 
 /* Calendar widget */
