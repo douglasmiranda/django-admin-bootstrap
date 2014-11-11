@@ -4,10 +4,15 @@ body {
 .main a {
   text-decoration: none;
 }
+.popup {
+  padding-top: 10px;
+}
 .popup #content {
   width: 100%;
   margin-left: 0;
 }
+.popup .main-header,
+.popup .breadcrumb,
 .popup .show-hide-sidebar-menu {
   display: none;
 }
@@ -15,6 +20,7 @@ body {
   margin-left: 15px;
   padding-left: 0;
 }
+
 #overlay {
   background: #f5f5f5;
   width: 100%;
