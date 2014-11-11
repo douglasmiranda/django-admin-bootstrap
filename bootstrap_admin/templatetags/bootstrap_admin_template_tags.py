@@ -8,6 +8,8 @@ from django.conf import settings
 from django import template
 register = template.Library()
 
+MAX_LENGTH_BOOTSTRAP_COLUMN = 12
+
 
 def css_classes_for_field(field, custom_classes):
     required = 'required' if field.field.required else ''
@@ -122,3 +124,9 @@ def render_menu_app_list(context):
     for app in app_list:
         app['models'].sort(key=lambda x: x['name'])
     return {'app_list': app_list, 'current_url': context.get('request').path}
+
+
+@register.filter()
+def class_for_field_boxes(line):
+    size_column = MAX_LENGTH_BOOTSTRAP_COLUMN / len(line.fields)
+    return 'col-sm-{0}'.format(size_column or 1)  # if '0' replace with 1

@@ -10,6 +10,9 @@
   z-index: 1;
 }
 
+.form-row {
+  clear: both;
+}
 .form-row,
 .form-panel {
   position: relative;
@@ -25,6 +28,15 @@
 }
 .form-row label.required {
   font-weight: bold;
+}
+.field-boxes {
+  overflow: hidden;
+}
+.field-boxes .checkbox {
+  padding-top: 20px;
+}
+.form-row.field-box {
+  clear: unset;
 }
 
 .list-group {
@@ -97,6 +109,23 @@
 .form-row > div > ul {
   padding-left: 0;
   list-style: none;
+}
+
+.form-fields .collapse {
+  display: block;
+}
+.form-fields .collapsed .form-row {
+  display: none;
+}
+.form-fields h2 {
+  font-size: 18px;
+}
+.form-fields .collapse h2 {
+  background: #f9f9f9;
+  border-bottom: 1px solid #ddd;
+  border-top: 2px solid #ddd;
+  margin: 10px -15px 10px;
+  padding: 5px 15px;
 }
 
 /*m2m filter: filter_vertical, filter_horizontal*/

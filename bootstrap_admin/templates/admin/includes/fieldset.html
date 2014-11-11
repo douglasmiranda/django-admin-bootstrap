@@ -5,9 +5,17 @@
     <div class="description">{{ fieldset.description|safe }}</div>
   {% endif %}
   {% for line in fieldset %}
-    {% for field in line %}
-      {% include "admin/includes/field.html" %}
-    {% endfor %}
+    {% if not line.fields|length_is:'1' %}
+      <div class="field-boxes row">
+        {% for field in line %}
+          {% include "admin/includes/field.html" with line=line css_field_box=line|class_for_field_boxes %}
+        {% endfor %}
+      </div>
+    {% else %}
+      {% for field in line %}
+        {% include "admin/includes/field.html" with line=line %}
+      {% endfor %}
+    {% endif %}
   {% endfor %}
 </fieldset>
 

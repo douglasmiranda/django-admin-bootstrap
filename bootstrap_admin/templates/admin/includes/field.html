@@ -1,5 +1,5 @@
 {% load bootstrap_admin_template_tags %}
-<div class="form-row form-group{% if field.errors %} has-error{% endif %} {% if field.field.name %} field-{{ field.field.name }}{% endif %}">
+<div class="form-row form-group{% if line.fields|length_is:'1' and line.errors %} has-error{% endif %}{% if not line.has_visible_field %} hidden{% endif %}{% for field in line %}{% if field.field.name %} field-{{ field.field.name }}{% endif %}{% endfor %}{% if not line.fields|length_is:'1' %} field-box {{ css_field_box }}{% endif %}">
     {% if field.is_checkbox %}
       <div class="checkbox">
         {% if not is_tabular %}
