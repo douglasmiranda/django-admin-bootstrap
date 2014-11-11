@@ -1,38 +1,33 @@
-Responsible Skin for Django Admin
-=================================
+WARNING
+=======
 
-.. image:: https://pypip.in/download/bootstrap_admin/badge.png
-    :target: https://pypi.python.org/pypi/bootstrap_admin/
-    :alt: Downloads
+I'm working on a new interface for django-admin-bootstrap. Click on the image below so you take a look. =]
 
-django-admin-bootstrap is a **Custom Responsible Skin for Django Admin
-1.5.\* and 1.6.\***. I hope you like and help me make it better.
+If you want to install this new version, (which is under development), install from master branch (See section INSTALL below) and give me a feedback.
+
+If you want to install the old (and current) version, just install with pip.
+(See the `old README <https://github.com/douglasmiranda/django-wysiwyg-redactor>`_)
 
 Screenshots
 -----------
 
-.. image:: https://raw.github.com/douglasmiranda/django-admin-bootstrap/master/static/screenshot-github.jpg
+.. image:: https://raw.githubusercontent.com/douglasmiranda/django-admin-bootstrap/master/screenshots/screenshot.png
+    :target: https://github.com/douglasmiranda/django-admin-bootstrap/tree/master/screenshots
+    :alt: See Screenshots
 
-PS: the wysiwyg editor you see on the screenshot is the `django-wysiwyg-redactor <https://github.com/douglasmiranda/django-wysiwyg-redactor>`_
+`More screenshots <https://github.com/douglasmiranda/django-wysiwyg-redactor>`_
 
-Features
---------
+What's new (for now)
+--------------------
 
--  a bit of responsiveness
--  search directly from the apps list
--  sidebar logs for specific app (on app index)
--  django-mptt custom templates
--  django-reversion and django-reversion-compare custom templates
+-  Completely new interface
+-  Django 1.7 (only and higher)
+-  Bootstrap 3
+-  Sidebar menu with apps (and filters on change_list)
 
-Install
--------
 
-**NOTE:** I'm assuming you use `pip <http://www.pip-installer.org/>`_ to
-install the Python Packages.
-
-from latest version on pypi ::
-
-    $ pip install bootstrap-admin
+INSTALL: Please help-me test the master branch
+----------------------------------------------
 
 from github master branch ::
 
@@ -45,89 +40,20 @@ or clone the master branch in your machine ::
 And don't forget to add *bootstrap\_admin* in **INSTALLED\_APPS** before
 the *django.contrib.admin*.
 
-Example: :: 
+Example:
 
-   INSTALLED_APPS = (     
-       # ...       
-       'bootstrap_admin',       
-       'django.contrib.admin',      
-       # ...   
+.. code-block:: python
+
+    INSTALLED_APPS = (
+        # ...
+        'bootstrap_admin', # always before 
+        'django.contrib.admin',      
+        # ...   
     )
 
-Contributing
-------------
-
-1. Fork it!
-2. Create your feature branch: ``git checkout -b my-new-feature``
-3. Commit your changes: ``git commit -am 'Add some feature'``
-4. Push to the branch: ``git push origin my-new-feature``
-5. Submit a pull request =]
-
-See the `full list <https://github.com/douglasmiranda/django-admin-bootstrap/blob/master/AUTHORS.rst>`_ of contributors.
-
-`Open an
-issue <https://github.com/douglasmiranda/django-admin-bootstrap/issues/new>`_
-if you find a bug or want something more.
-
-History
--------
--  0.3.0 Nov 29, 2013
-
-   -   Fix: Fix to allow use inline forms with non editable custom pk in models ( pull #36 )
-   -   Add/Fix: custom django-reversion and django-reversion-compare templates and other fixes ( pull #35 )
-   -   Add: .sortoptions styling in changelist. ( pull #34 )
-
--  0.2.9 Nov 13, 2013
-
-   -   Fix: Use "/" divider in breadcrumbs where "&rsaquo;" remains. ( pull #33 )
-
--  0.2.8 Nov 07, 2013
-
-   -   Fix: Forgot to add README.rst on MANIFEST.in (shame on me)
-
--  0.2.7 Nov 07, 2013
-
-   -   Fix: bug when retrieving message.tags ( pull #32 )
-
--  0.2.6 Nov 05, 2013
-
-   -   django-mptt templates ( pull #30 )
-
--  0.2.5 Oct 14, 2013
-
-   -  Enhancement: Separate field template to allow easy customizations.
-      ( pull #26 )
-
--  0.2.4 Oct 13, 2013
-
-   -  Fix: Do not add span8 class to inputs of CheckboxSelectMultiple. (
-      pull #24 )
-
--  0.2.3 Oct 7, 2013
-
-   -  Fix: Style for errors list on tabular inline.
-   -  Fix: issue #22
-
--  0.2.2 Aug 11, 2013
-
-   -  Fix: "shaking" effect that nav-bar causes when is affixed on top.
-   -  Fix: search input width (responsive)
-   -  Fix: adding overflow ellipsis on the form search input
-   -  Fix: margin for "add-another" option
-
--  0.2.1 May 23, 2013
-
-   -  Fix: the issue #17 (about the MANIFEST.in)
-
--  0.2.0 May 14, 2013
-
-   -  Final touches
-   -  Show the search input properly considering the permissions
-   -  Fix: z-index nav-bar bug
-
--  previous versions
-
-   -  Has some bugs, you can use, but I recommend the latest
-      version.
-
-
+    # For Sidebar Menu (List of apps and models)
+    from django.conf import global_settings
+    TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
+        'django.core.context_processors.request',
+    )
+    BOOTSTRAP_ADMIN_SIDEBAR_MENU = True
