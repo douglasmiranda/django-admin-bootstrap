@@ -287,6 +287,9 @@
   margin: 0;
   min-width: 150px;
 }
+.inline-group .tabular .form-row > div {
+  position: relative;
+}
 .inline-group .tabular .row1 {
   background: #fff;
 }
@@ -299,6 +302,10 @@
 }
 .inline-group .tabular .delete {
   padding: 8px;
+}
+.tabular .form-row .related-lookup {
+  right: 5px;
+  top: 5px;
 }
 
 /* Calendar widget */
@@ -448,6 +455,9 @@ p.datetime span.datetimeshortcuts {
   .form-buttons .affix {
     position: relative;
   }
+  .form-buttons {
+    padding-left: 0;
+  }
 }
 
 @media (max-width: 992px) {
@@ -461,8 +471,9 @@ p.datetime span.datetimeshortcuts {
     border: 0;
     border-top: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
+    left: 0;
     padding: 10px;
-    position: unset;
+    position: relative;
   }
   .selector .selector-chooser > li {
     display: inline-block;
