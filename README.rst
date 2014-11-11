@@ -15,7 +15,7 @@ Screenshots
     :target: https://github.com/douglasmiranda/django-admin-bootstrap/tree/master/screenshots
     :alt: See Screenshots
 
-`More screenshots <https://github.com/douglasmiranda/django-wysiwyg-redactor>`_
+`More screenshots <https://github.com/douglasmiranda/django-admin-bootstrap/tree/master/screenshots>`_
 
 What's new (for now)
 --------------------
