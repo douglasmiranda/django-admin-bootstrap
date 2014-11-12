@@ -4,8 +4,9 @@
   font-weight: bold;
 }
 .form-expand {
+  padding: 7px;
   position: absolute;
-  right: 5px;
+  right: -30px;
   top: 5px;
   z-index: 1;
 }
@@ -481,11 +482,25 @@ p.datetime span.datetimeshortcuts {
   .calendarbox .calendar {
     width: 90%;
   }
-  .form-buttons .affix {
-    position: relative;
+  .form-expand {
+    display: none;
+  }
+  .form-fields {
+    padding: 0;
+  }
+  .form-fields .panel {
+    margin-bottom: 0;
   }
   .form-buttons {
     padding-left: 0;
+    padding-bottom: 10px;
+  }
+  .form-buttons .affix {
+    position: relative;
+    margin-right: 0;
+  }
+  .form-buttons.contracted .affix {
+    right: 0;
   }
 }
 
