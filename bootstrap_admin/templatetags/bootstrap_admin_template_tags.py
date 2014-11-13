@@ -61,8 +61,8 @@ def render_menu_app_list(context):
 
     if (dependencie not in settings.TEMPLATE_CONTEXT_PROCESSORS):
         raise ImproperlyConfigured(
-            "bootstrap_admin: in order to use the 'sidebar menu' requires the \
-            '%s' to be added to settings.TEMPLATE_CONTEXT_PROCESSORS."
+            "bootstrap_admin: in order to use the 'sidebar menu' requires" +
+            " the '%s' to be added to settings.TEMPLATE_CONTEXT_PROCESSORS."
             % dependencie
         )
 
