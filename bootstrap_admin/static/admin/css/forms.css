@@ -177,6 +177,10 @@
   padding: 5px 15px;
   width: 100%;
 }
+.selector select option {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .selector .selector-filter {
   background: #fff;
   border-bottom: 1px solid #eee;
