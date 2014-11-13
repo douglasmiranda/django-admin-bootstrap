@@ -1,12 +1,22 @@
 {% extends "admin/base_site.html" %}
 {% load i18n %}
 
-{% block breadcrumbs %}<div class="breadcrumbs"><a href="{% url 'admin:index' %}">{% trans 'Home' %}</a></div>{% endblock %}
+{% block extrahead %}
+  <style>
+    .row {
+      padding: 100px;
+    }
+  </style>
+{% endblock extrahead %}
 
-{% block content %}
+{% block sidebar_menu %}{% endblock %}
+{% block breadcrumbs %}{% endblock %}
+{% block main_header %}{% endblock %}
 
-<p>{% trans "Thanks for spending some quality time with the Web site today." %}</p>
+{% block content_container %}
 
-<p><a href="{% url 'admin:index' %}">{% trans 'Log in again' %}</a></p>
+  <p class="alert alert-info">{% trans "Thanks for spending some quality time with the Web site today." %}</p>
 
-{% endblock %}
+  <p><a href="{% url 'admin:index' %}" class="btn btn-primary">{% trans 'Log in again' %}</a></p>
+
+{% endblock content_container %}

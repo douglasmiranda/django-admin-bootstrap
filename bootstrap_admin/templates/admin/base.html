@@ -69,58 +69,60 @@
 
       {% block content_container %}
         <div id="content" class="col-xs-9 col-xs-offset-6 col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main {% block coltype %}colM{% endblock %}">
-          <div class="main-header">
-            <button type="button" class="show-hide-sidebar-menu">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            {% block pretitle %}{% endblock %}
-            {% block content_title %}
-              <h1>
-              {% if title %}
-                {{ title }}
-              {% else %}
-                {{ site_header|default:_('Django administration') }}
-              {% endif %}
-              </h1>
-            {% endblock %}
-            <div id="user-tools" class="btn-group">
-              <div class="btn-group">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                  {% if user.is_active and user.is_staff %}
-                    {% block welcome-msg %}
-                      {% firstof user.get_short_name user.get_username %}
-                    {% endblock %}
-                  {% endif %}
-                  <span class="caret"></span>
-                </button>
+          {% block main_header %}
+            <div class="main-header">
+              <button type="button" class="show-hide-sidebar-menu">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              {% block pretitle %}{% endblock %}
+              {% block content_title %}
+                <h1>
+                {% if title %}
+                  {{ title }}
+                {% else %}
+                  {{ site_header|default:_('Django administration') }}
+                {% endif %}
+                </h1>
+              {% endblock %}
+              <div id="user-tools" class="btn-group">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    {% if user.is_active and user.is_staff %}
+                      {% block welcome-msg %}
+                        {% firstof user.get_short_name user.get_username %}
+                      {% endblock %}
+                    {% endif %}
+                    <span class="caret"></span>
+                  </button>
 
-                {% url 'django-admindocs-docroot' as docsroot %}
-                <ul class="dropdown-menu pull-right" role="menu">
-                  {% if docsroot %}
-                    <li class="hidden-sm">
-                      <a href="{{ docsroot }}">{% trans 'Documentation' %}</a>
-                    </li>
-                  {% endif %}
-                  {% if user.has_usable_password %}
+                  {% url 'django-admindocs-docroot' as docsroot %}
+                  <ul class="dropdown-menu pull-right" role="menu">
+                    {% if docsroot %}
+                      <li class="hidden-sm">
+                        <a href="{{ docsroot }}">{% trans 'Documentation' %}</a>
+                      </li>
+                    {% endif %}
+                    {% if user.has_usable_password %}
+                      <li>
+                        <a href="{% url 'admin:password_change' %}">{% trans 'Change password' %}</a>
+                      </li>
+                    {% endif %}
                     <li>
-                      <a href="{% url 'admin:password_change' %}">{% trans 'Change password' %}</a>
+                      <a href="{% url 'admin:logout' %}">{% trans 'Log out' %}</a>
                     </li>
-                  {% endif %}
-                  <li>
-                    <a href="{% url 'admin:logout' %}">{% trans 'Log out' %}</a>
-                  </li>
-                </ul>
+                  </ul>
+                </div>
+                {% if docsroot %}
+                  <a href="{{ docsroot }}" title="{% trans 'Documentation' %}" class="btn btn-default hidden-sm"><span class="glyphicon glyphicon-book"></span></a>
+                {% endif %}
+                <a href="{% url 'admin:logout' %}" title="{% trans 'Log out' %}" class="btn btn-default hidden-xs">
+                  <span class="glyphicon glyphicon-off"></span>
+                </a>
               </div>
-              {% if docsroot %}
-                <a href="{{ docsroot }}" title="{% trans 'Documentation' %}" class="btn btn-default hidden-sm"><span class="glyphicon glyphicon-book"></span></a>
-              {% endif %}
-              <a href="{% url 'admin:logout' %}" title="{% trans 'Log out' %}" class="btn btn-default hidden-xs">
-                <span class="glyphicon glyphicon-off"></span>
-              </a>
             </div>
-          </div>
+          {% endblock main_header %}
           {% block breadcrumbs %}
             <ol class="breadcrumb">
               <li class="home">
