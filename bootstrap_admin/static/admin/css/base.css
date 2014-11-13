@@ -271,6 +271,10 @@ body {
 .main-header:hover #user-tools {
   opacity: 1;
 }
+/* Some 3rd party packages will change the breadcrumbs, using the django
+   default html. So, if we apply the style to .breadcrumbs, this will
+   maximize the compatibility with bootstrap_admin */
+.breadcrumbs,
 .breadcrumb {
   background: #efefef;
   border-bottom: 2px solid #e5e5e5;
