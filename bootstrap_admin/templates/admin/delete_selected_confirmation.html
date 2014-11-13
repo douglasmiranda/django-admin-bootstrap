@@ -4,46 +4,71 @@
 {% block bodyclass %}{{ block.super }} app-{{ opts.app_label }} model-{{ opts.model_name }} delete-confirmation delete-selected-confirmation{% endblock %}
 
 {% block breadcrumbs %}
-<div class="breadcrumbs">
-<a href="{% url 'admin:index' %}">{% trans 'Home' %}</a>
-&rsaquo; <a href="{% url 'admin:app_list' app_label=opts.app_label %}">{{ opts.app_config.verbose_name }}</a>
-&rsaquo; <a href="{% url opts|admin_urlname:'changelist' %}">{{ opts.verbose_name_plural|capfirst }}</a>
-&rsaquo; {% trans 'Delete multiple objects' %}
-</div>
+<ol class="breadcrumb">
+  <li class="home">
+    <a href="{% url 'admin:index' %}" title="{% trans 'Home' %}"><span class="glyphicon glyphicon-home"></span></a>
+  </li>
+  <li>
+    <a href="{% url 'admin:app_list' app_label=opts.app_label %}">{{ opts.app_config.verbose_name }}</a>
+  </li>
+  <li>
+    <a href="{% url opts|admin_urlname:'changelist' %}">{{ opts.verbose_name_plural|capfirst|escape }}</a>
+  </li>
+  <li class="active">{% trans 'Delete multiple objects' %}</li>
+</ol>
 {% endblock %}
 
 {% block content %}
 {% if perms_lacking or protected %}
     {% if perms_lacking %}
-        <p>{% blocktrans %}Deleting the selected {{ objects_name }} would result in deleting related objects, but your account doesn't have permission to delete the following types of objects:{% endblocktrans %}</p>
-        <ul>
-        {% for obj in perms_lacking %}
-            <li>{{ obj }}</li>
-        {% endfor %}
-        </ul>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          {% blocktrans %}Deleting the selected {{ objects_name }} would result in deleting related objects, but your account doesn't have permission to delete the following types of objects:{% endblocktrans %}
+        </div>
+        <div class="panel-body">
+          <ul>
+            {% for obj in perms_lacking %}
+              <li>{{ obj }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
     {% endif %}
     {% if protected %}
-        <p>{% blocktrans %}Deleting the selected {{ objects_name }} would require deleting the following protected related objects:{% endblocktrans %}</p>
-        <ul>
-        {% for obj in protected %}
-            <li>{{ obj }}</li>
-        {% endfor %}
-        </ul>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          {% blocktrans %}Deleting the selected {{ objects_name }} would require deleting the following protected related objects:{% endblocktrans %}
+        </div>
+        <div class="panel-body">
+          <ul>
+            {% for obj in protected %}
+              <li>{{ obj }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
     {% endif %}
 {% else %}
-    <p>{% blocktrans %}Are you sure you want to delete the selected {{ objects_name }}? All of the following objects and their related items will be deleted:{% endblocktrans %}</p>
-    {% for deletable_object in deletable_objects %}
-        <ul>{{ deletable_object|unordered_list }}</ul>
-    {% endfor %}
-    <form action="" method="post">{% csrf_token %}
-    <div>
-    {% for obj in queryset %}
-    <input type="hidden" name="{{ action_checkbox_name }}" value="{{ obj.pk|unlocalize }}" />
-    {% endfor %}
-    <input type="hidden" name="action" value="delete_selected" />
-    <input type="hidden" name="post" value="yes" />
-    <input type="submit" value="{% trans "Yes, I'm sure" %}" />
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      {% blocktrans %}Are you sure you want to delete the selected {{ objects_name }}? All of the following objects and their related items will be deleted:{% endblocktrans %}
     </div>
-    </form>
+    <div class="panel-body">
+      {% for deletable_object in deletable_objects %}
+        <ul>{{ deletable_object|unordered_list }}</ul>
+      {% endfor %}
+      <hr>
+      <form action="" method="post">{% csrf_token %}
+        <div>
+          {% for obj in queryset %}
+          <input type="hidden" name="{{ action_checkbox_name }}" value="{{ obj.pk|unlocalize }}" />
+          {% endfor %}
+          <input type="hidden" name="action" value="delete_selected" />
+          <input type="hidden" name="post" value="yes" />
+          <input type="submit" class="btn btn-danger" value="{% trans "Yes, I'm sure" %}" />
+        </div>
+      </form>
+    </div>
+  </div>
 {% endif %}
 {% endblock %}
