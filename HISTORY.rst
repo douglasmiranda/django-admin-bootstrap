@@ -1,13 +1,13 @@
 History
 -------
 
--  0.3.? ??? ??, 2014
+-  0.3.1 Nov 17, 2014
 
    -   Completely new interface
    -   Sidebar menu with apps
    -   Support Django 1.7.*
    -   Bootstrap 3
-   -   Better dashboard
+   -   Better dashboard =]
 
 -  0.3.0 Nov 29, 2013
 

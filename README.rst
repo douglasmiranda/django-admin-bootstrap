@@ -1,12 +1,13 @@
-WARNING
-=======
+Django Admin Responsive Theme - Django 1.7
+==========================================
 
-I'm working on a new interface for django-admin-bootstrap. Click on the image below so you take a look. =]
+.. image:: https://pypip.in/download/bootstrap_admin/badge.png
+    :target: https://pypi.python.org/pypi/bootstrap_admin/
+    :alt: Downloads
 
-If you want to install this new version, (which is under development), install from master branch (See section INSTALL below) and give me a feedback.
+Ingredients:
 
-If you want to install the old (and current) version, just install with pip.
-(See the `old README <https://github.com/douglasmiranda/django-admin-bootstrap/blob/master/README-old.rst>`_)
+New design, templates from Django 1.7, Bootstrap 3 and Coffee.
 
 Screenshots
 -----------
@@ -17,17 +18,12 @@ Screenshots
 
 `More screenshots <https://github.com/douglasmiranda/django-admin-bootstrap/tree/master/screenshots>`_
 
-What's new (for now)
---------------------
+INSTALL
+-------
 
--  Completely new interface
--  Django 1.7 (only and higher)
--  Bootstrap 3
--  Sidebar menu with apps (and filters on change_list)
+from pypi (recommended) ::
 
-
-INSTALL: Please help-me test the master branch
-----------------------------------------------
+    $ pip install bootstrap-admin
 
 from github master branch ::
 
@@ -46,14 +42,39 @@ Example:
 
     INSTALLED_APPS = (
         # ...
-        'bootstrap_admin', # always before 
+        'bootstrap_admin', # always before django.contrib.admin
         'django.contrib.admin',      
         # ...   
     )
 
-    # For Sidebar Menu (List of apps and models)
+    # For Sidebar Menu (List of apps and models) (RECOMMENDED)
     from django.conf import global_settings
     TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
         'django.core.context_processors.request',
     )
     BOOTSTRAP_ADMIN_SIDEBAR_MENU = True
+
+
+Contributing
+------------
+
+1. Fork it!
+2. Create your feature branch: ``git checkout -b my-new-feature``
+3. Commit your changes: ``git commit -am 'Add some feature'``
+4. Push to the branch: ``git push origin my-new-feature``
+5. Submit a pull request =]
+
+See the `full list <https://github.com/douglasmiranda/django-admin-bootstrap/blob/master/AUTHORS.rst>`_ of contributors.
+
+`Open an
+issue <https://github.com/douglasmiranda/django-admin-bootstrap/issues/new>`_
+if you find a bug or want something more.
+
+TODO
+----
+
+- Docs
+- Improve Sidebar menu
+
+If you want to install the old version, just install with pip.
+(See the `old README <https://github.com/douglasmiranda/django-admin-bootstrap/blob/master/README-old.rst>`_)
