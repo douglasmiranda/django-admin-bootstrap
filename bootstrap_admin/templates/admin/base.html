@@ -91,9 +91,7 @@
               {% block content_title %}
                 <h1>
                 {% if title %}
-                  {% if not is_displaying_menu %}
-                    <span class="django-admin-title">{{ site_header|default:_('Django administration') }} &raquo;</span>
-                  {% endif %}
+                  <span class="django-admin-title">{{ site_header|default:_('Django administration') }} &raquo;</span>
                   {{ title }}
                 {% else %}
                   {{ site_header|default:_('Django administration') }}
