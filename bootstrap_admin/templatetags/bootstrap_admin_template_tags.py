@@ -1,4 +1,4 @@
-from django.contrib.admin.sites import site
+from django.contrib.admin import site
 from django.apps import apps
 from django.utils.text import capfirst
 from django.core.urlresolvers import reverse, NoReverseMatch
@@ -52,9 +52,22 @@ def placeholder(field, placeholder=''):
     return field
 
 
-@register.inclusion_tag('bootstrap_admin/sidebar_menu.html', takes_context=True)
+def sidebar_menu_setting():
+    return getattr(settings, 'BOOTSTRAP_ADMIN_SIDEBAR_MENU', False)
+
+
+@register.assignment_tag
+def display_sidebar_menu(has_filters=False):
+    if has_filters:
+        # Always display the menu in change_list.html
+        return True
+    return sidebar_menu_setting()
+
+
+@register.inclusion_tag('bootstrap_admin/sidebar_menu.html',
+                        takes_context=True)
 def render_menu_app_list(context):
-    show_global_menu = getattr(settings, 'BOOTSTRAP_ADMIN_SIDEBAR_MENU', False)
+    show_global_menu = sidebar_menu_setting()
     dependencie = 'django.core.context_processors.request'
     if not show_global_menu:
         return {'app_list': ''}

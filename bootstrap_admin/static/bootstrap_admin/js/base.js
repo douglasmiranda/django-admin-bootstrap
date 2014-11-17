@@ -32,16 +32,21 @@
       if (hidden_menu) {
         $('.main').addClass(main_classes).removeClass('col-sm-12');
         $('.sidebar-menu').css('left', '0').data('hidden', false);
+        $('.django-admin-title').hide();
         $.removeCookie('hidden_sidebar_menu', {path: '/'});
       } else {
         $('.main').removeClass(main_classes).addClass('col-sm-12');
         $('.sidebar-menu').css('left', '-50%').data('hidden', true);
+        $('.django-admin-title').fadeIn();
         $.cookie('hidden_sidebar_menu', true, {path: '/'});
       }
     };
     if (!$('body').hasClass('popup')) {
       if ($.cookie('hidden_sidebar_menu')) {
-        show_hide_sidebar_menu();
+        /* always show on change_list.html */
+        if (!$('body').hasClass('change-list')) {
+          show_hide_sidebar_menu();
+        }
       }
       $('.show-hide-sidebar-menu').on('click', function(e){
         show_hide_sidebar_menu();

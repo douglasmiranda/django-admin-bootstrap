@@ -104,7 +104,7 @@ body {
   top: 0;
   z-index: 1000;
 }
-.sidebar-menu .django-admin-title {
+.sidebar-menu .django-admin-logo {
   background: #282829;
   border-bottom: 1px solid #222;
   color: #fff;
@@ -235,12 +235,22 @@ body {
   margin: 0 -15px;
 }
 .main-header h1 {
-  font-size: 26px;
+  font-size: 24px;
+  line-height: 28px;
   margin: 0 0 0 40px;
   overflow: hidden;
   padding: 3px;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+.main-header h1 .django-admin-title {
+  display: none;
+}
+.no-sidebar .main-header h1 {
+  margin-left: 15px;
+}
+.no-sidebar h1 .django-admin-title {
+  display: inline;
 }
 #user-tools {
   opacity: 0.7;
@@ -310,6 +320,9 @@ body {
 }
 
 @media (max-width: 767px) {
+  .main-header h1 {
+    font-size: 18px;
+  }
   .breadcrumb > li {
     max-width: 100px;
   }

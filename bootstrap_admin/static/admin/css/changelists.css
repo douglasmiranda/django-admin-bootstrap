@@ -77,6 +77,7 @@
 }
 #changelist .results {
   border-top: 1px solid #dddddd;
+  width: 100%;
 }
 
 #changelist .toplinks {
@@ -240,7 +241,7 @@ p.datetime {
   }
   .place-info-actions .progressbar-selected-rows {
     border-bottom: 1px solid #f0ad4e;
-    height: 35px;
+    height: 36px;
     width: 0;
     transition: width 0.3s ease-in-out 0.3s;
   }
