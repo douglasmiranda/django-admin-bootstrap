@@ -6,7 +6,7 @@ I'm working on a new interface for django-admin-bootstrap. Click on the image be
 If you want to install this new version, (which is under development), install from master branch (See section INSTALL below) and give me a feedback.
 
 If you want to install the old (and current) version, just install with pip.
-(See the `old README <https://github.com/douglasmiranda/django-wysiwyg-redactor>`_)
+(See the `old README <https://github.com/douglasmiranda/django-admin-bootstrap/blob/master/README-old.rst>`_)
 
 Screenshots
 -----------
