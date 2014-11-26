@@ -1,6 +1,10 @@
 History
 -------
 
+-  0.3.2 Nov 26, 2014
+
+   -   Don't overrride default widget classes
+
 -  0.3.1 Nov 17, 2014
 
    -   Completely new interface
