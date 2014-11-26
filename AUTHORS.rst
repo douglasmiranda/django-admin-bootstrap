@@ -16,3 +16,4 @@ Developers
 * Evan Borgstrom (@borgstrom)
 * James Pic (@jpic)
 * Silvano Nogueira (@snbuback)
+* Emmanuelle Delescolle (@nanuxbe)
