@@ -12,8 +12,9 @@ MAX_LENGTH_BOOTSTRAP_COLUMN = 12
 
 
 def css_classes_for_field(field, custom_classes):
+    orig_class = field.field.widget.attrs.get('class', '')
     required = 'required' if field.field.required else ''
-    classes = field.css_classes('{} {}'.format(custom_classes, required))
+    classes = field.css_classes(' '.join([orig_class, custom_classes, required]))
     return classes
 
 
