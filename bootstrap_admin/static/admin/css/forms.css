@@ -341,6 +341,9 @@
   right: 5px;
   top: 5px;
 }
+.inline-group .checkbox input {
+  margin: 0;
+}
 
 /* Calendar widget */
 

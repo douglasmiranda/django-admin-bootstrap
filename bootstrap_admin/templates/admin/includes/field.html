@@ -6,6 +6,8 @@
           <label>
             {{ field.field }} {{ field.field.label }}
           </label>
+        {% else %}
+          {{ field.field }}
         {% endif %}
 
         {% for error in field.field.errors %}
