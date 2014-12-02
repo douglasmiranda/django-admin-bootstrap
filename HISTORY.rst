@@ -1,6 +1,10 @@
 History
 -------
 
+-  0.3.3 Dec 2, 2014
+
+   -   Very Important Fix: Checkbox Not showing on TabularInline
+
 -  0.3.2 Nov 26, 2014
 
    -   Don't overrride default widget classes
