@@ -432,6 +432,7 @@ p.datetime span.datetimeshortcuts {
 .calendarbox caption {
   margin-top: -17px;
   padding: 0 45px;
+  text-align: center;
 }
 .calendarbox .calendarnav-next {
   float: right;
