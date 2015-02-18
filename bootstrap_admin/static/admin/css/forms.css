@@ -112,8 +112,9 @@
   list-style: none;
 }
 
-.form-fields .collapse {
+#content-main .form-fields .collapse {
   display: block;
+  visibility: visible;
 }
 .form-fields .collapsed .form-row {
   display: none;
