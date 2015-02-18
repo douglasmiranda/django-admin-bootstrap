@@ -219,7 +219,7 @@ fieldset.module > h2:first-child {
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
   padding: 10px;
-  position: unset;
+  position: initial;
 }
 .selector.stacked .selector-chooser > li {
   display: inline-block;
