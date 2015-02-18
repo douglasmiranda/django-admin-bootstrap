@@ -17,3 +17,4 @@ Developers
 * James Pic (@jpic)
 * Silvano Nogueira (@snbuback)
 * Emmanuelle Delescolle (@nanuxbe)
+* Petar (@pbojinov)
