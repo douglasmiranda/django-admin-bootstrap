@@ -37,7 +37,7 @@
   padding-top: 20px;
 }
 .form-row.field-box {
-  clear: unset;
+  clear: none;
 }
 
 .list-group {
