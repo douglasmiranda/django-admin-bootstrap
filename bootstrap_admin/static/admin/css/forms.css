@@ -122,6 +122,9 @@
 .form-fields h2 {
   font-size: 18px;
 }
+fieldset.module > h2:first-child {
+    margin-top: 0;
+}
 .form-fields .collapse h2 {
   background: #f9f9f9;
   border-bottom: 1px solid #ddd;
