@@ -28,7 +28,7 @@
   $(document).ready(function(){
     var show_hide_sidebar_menu = function () {
       hidden_menu = $('#sidebar-menu').data('hidden');
-      main_classes = 'col-xs-9 col-xs-offset-6 col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2';
+      main_classes = 'col-xs-6 col-xs-offset-6 col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2';
       if (hidden_menu) {
         $('.main').addClass(main_classes).removeClass('col-sm-12');
         $('.sidebar-menu').css('left', '0').data('hidden', false);
