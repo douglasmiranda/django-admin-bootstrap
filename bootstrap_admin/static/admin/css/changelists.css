@@ -236,7 +236,7 @@ p.datetime {
   }
   .place-info-actions {
     display: block;
-    height: 35px;
+    height: 36px;
     width: 100%;
   }
   .place-info-actions .progressbar-selected-rows {
