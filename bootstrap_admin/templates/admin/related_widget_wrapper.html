@@ -1,5 +1,6 @@
 {% load i18n admin_static %}
 <div class="related-widget-wrapper input-group">
+    {{ widget }}
     {% block links %}
         {% if can_change_related %}
         <a class="related-widget-wrapper-link change-related input-group-addon" id="change_id_{{ name }}"
@@ -23,5 +24,4 @@
         </a>
         {% endif %}
     {% endblock %}
-    {{ widget }}
 </div>
