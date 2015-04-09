@@ -8,7 +8,7 @@ Responsive Theme for Django Admin (Django 1.7)
 Ingredients
 -----------
 
-New design, templates from Django 1.7, Bootstrap 3 and Coffee.
+New design, templates from Django 1.7+, Bootstrap 3 and Coffee.
 
 Screenshots
 -----------
@@ -48,7 +48,7 @@ Example:
         # ...   
     )
 
-    # For Sidebar Menu (List of apps and models) (RECOMMENDED)
+    # For Sidebar Menu in Django 1.7 only (List of apps and models) (RECOMMENDED)
     from django.conf import global_settings
     TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
         'django.core.context_processors.request',
