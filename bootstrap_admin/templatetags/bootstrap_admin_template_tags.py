@@ -6,6 +6,14 @@ from django.core.exceptions import ImproperlyConfigured
 from django.utils import six
 from django.conf import settings
 from django import template
+from django import VERSION as DJANGO_VERSION
+
+# Depending on you python version, reduce has been moved to functools
+try:
+    from functools import reduce
+except ImportError:
+    pass
+
 register = template.Library()
 
 MAX_LENGTH_BOOTSTRAP_COLUMN = 12
@@ -69,15 +77,36 @@ def display_sidebar_menu(has_filters=False):
                         takes_context=True)
 def render_menu_app_list(context):
     show_global_menu = sidebar_menu_setting()
-    dependencie = 'django.core.context_processors.request'
     if not show_global_menu:
         return {'app_list': ''}
 
-    if (dependencie not in settings.TEMPLATE_CONTEXT_PROCESSORS):
+    if DJANGO_VERSION < (1, 8):
+        dependencie = 'django.core.context_processors.request'
+        processors = settings.TEMPLATE_CONTEXT_PROCESSORS
+        dependency_str = 'settings.TEMPLATE_CONTEXT_PROCESSORS'
+    else:
+        dependencie = 'django.template.context_processors.request'
+        implemented_engines = getattr(settings, 'BOOTSTRAP_ADMIN_ENGINES', 
+            ['django.template.backends.django.DjangoTemplates'])
+        dependency_str = "the 'context_processors' 'OPTION' of one of the " + \
+            "following engines: %s" % implemented_engines
+        filtered_engines = [engine for engine in settings.TEMPLATES 
+            if engine['BACKEND'] in implemented_engines]
+        if len(filtered_engines) == 0:
+            raise ImproperlyConfigured(
+                "bootstrap_admin: No compatible template engine found" +
+                "bootstrap_admin requires one of the following engines: %s"
+                % implemented_engines
+            )
+        processors = reduce(lambda x, y: x.extend(y), [
+            engine.get('OPTIONS', {}).get('context_processors', []) 
+            for engine in filtered_engines])
+
+    if dependencie not in processors:
         raise ImproperlyConfigured(
             "bootstrap_admin: in order to use the 'sidebar menu' requires" +
-            " the '%s' to be added to settings.TEMPLATE_CONTEXT_PROCESSORS."
-            % dependencie
+            " the '%s' to be added to %s"
+            % (dependencie, dependency_str)
         )
 
     # Code adapted from django.contrib.admin.AdminSite
