@@ -1,6 +1,10 @@
 History
 -------
 
+-  Apr 09, 2015
+
+   -   Django 1.8 Compatibility
+
 -  0.3.5 Mar 11, 2015
 
    -   Fix wrong bootstrap column calculations fix for xs-sized devices #77 
