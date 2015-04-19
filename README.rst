@@ -56,6 +56,11 @@ Example:
     BOOTSTRAP_ADMIN_SIDEBAR_MENU = True
 
 
+Extensions
+----------
+
+`FeinCMS <https://github.com/django-admin-bootstrap/django-admin-bootstrap-feincms>`_
+
 Contributing
 ------------
 
