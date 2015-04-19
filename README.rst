@@ -1,4 +1,4 @@
-Responsive Theme for Django Admin (Django 1.7)
+Responsive Theme for Django Admin (Django 1.7+)
 ==============================================
 
 .. image:: https://pypip.in/download/bootstrap_admin/badge.png
@@ -13,11 +13,11 @@ New design, templates from Django 1.7+, Bootstrap 3 and Coffee.
 Screenshots
 -----------
 
-.. image:: https://raw.githubusercontent.com/douglasmiranda/django-admin-bootstrap/master/screenshots/screenshot.png
-    :target: https://github.com/douglasmiranda/django-admin-bootstrap/tree/master/screenshots
+.. image:: https://raw.githubusercontent.com/django-admin-bootstrap/django-admin-bootstrap/master/screenshots/screenshot.png
+    :target: https://github.com/django-admin-bootstrap/django-admin-bootstrap/tree/master/screenshots
     :alt: See Screenshots
 
-`More screenshots <https://github.com/douglasmiranda/django-admin-bootstrap/tree/master/screenshots>`_
+`More screenshots <https://github.com/django-admin-bootstrap/django-admin-bootstrap/tree/master/screenshots>`_
 
 INSTALL
 -------
@@ -28,11 +28,11 @@ from pypi (recommended) ::
 
 from github master branch ::
 
-    $ pip install git+https://github.com/douglasmiranda/django-admin-bootstrap
+    $ pip install git+https://github.com/django-admin-bootstrap/django-admin-bootstrap
 
 or clone the master branch in your machine ::
 
-    $ git clone https://github.com/douglasmiranda/django-admin-bootstrap
+    $ git clone https://github.com/django-admin-bootstrap/django-admin-bootstrap
 
 And don't forget to add *bootstrap\_admin* in **INSTALLED\_APPS** before
 the *django.contrib.admin*.
@@ -65,10 +65,10 @@ Contributing
 4. Push to the branch: ``git push origin my-new-feature``
 5. Submit a pull request =]
 
-See the `full list <https://github.com/douglasmiranda/django-admin-bootstrap/blob/master/AUTHORS.rst>`_ of contributors.
+See the `full list <https://github.com/django-admin-bootstrap/django-admin-bootstrap/blob/master/AUTHORS.rst>`_ of contributors.
 
 `Open an
-issue <https://github.com/douglasmiranda/django-admin-bootstrap/issues/new>`_
+issue <https://github.com/django-admin-bootstrap/django-admin-bootstrap/issues/new>`_
 if you find a bug or want something more.
 
 TODO
@@ -78,4 +78,4 @@ TODO
 - Improve Sidebar menu
 
 If you want to install the old version, just install with pip.
-(See the `old README <https://github.com/douglasmiranda/django-admin-bootstrap/blob/master/README-old.rst>`_)
+(See the `old README <https://github.com/django-admin-bootstrap/django-admin-bootstrap/blob/master/README-old.rst>`_)
