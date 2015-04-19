@@ -226,6 +226,15 @@ fieldset.module > h2:first-child {
   text-align: center;
   width: 50%;
 }
+.widget_type__filteredselectmultiple .input-group {
+  width: 100%;
+}
+.widget_type__filteredselectmultiple .add-related {
+  position: absolute;
+  right: 0;
+  top: -28px;
+  width: auto;
+}
 
 /* EDIT INLINE */
 

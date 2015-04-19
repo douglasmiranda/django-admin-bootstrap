@@ -21,8 +21,8 @@
         {% endif %}
       </div>
     {% else %}
-      <div>
-        {% with field.field|widget_type as widget_type %}
+      {% with field.field|widget_type as widget_type %}
+        <div class="widget_type__{{ widget_type }}">
           {% if widget_type == 'adminsplitdatetime' %}
             {% if not is_tabular %}
               {{ field.label_tag }}
@@ -69,8 +69,8 @@
                 </p>
               {% endif %}
           {% endif %}
-        {% endwith %}
-      </div>
+        </div>
+      {% endwith %}
     {% endif %}
 </div>
 
