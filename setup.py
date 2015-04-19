@@ -8,7 +8,7 @@ f.close()
 
 setup(
     name='bootstrap_admin',
-    version='0.3.5',
+    version='0.3.6',
     description='Responsive Theme for Django Admin (Django 1.7)',
     long_description=readme,
     author='Douglas Miranda',
