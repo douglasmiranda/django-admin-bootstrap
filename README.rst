@@ -1,7 +1,7 @@
 Responsive Theme for Django Admin (Django 1.7+)
-==============================================
+===============================================
 
-.. image:: https://pypip.in/download/bootstrap_admin/badge.png
+.. image:: https://img.shields.io/pypi/dm/bootstrap_admin.svg
     :target: https://pypi.python.org/pypi/bootstrap_admin/
     :alt: Downloads
 
