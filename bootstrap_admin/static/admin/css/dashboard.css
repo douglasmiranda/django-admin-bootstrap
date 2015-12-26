@@ -102,9 +102,7 @@
 @media (max-width: 768px) {
   #apps .app-name a,
   #apps .model-name a {
-    display: block;
     white-space: normal;
-    width: 200px;
     word-wrap: break-word;
   }
 }
