@@ -1,0 +1,59 @@
+p.datetime {
+  line-height: 20px;
+  margin: 0;
+  padding: 0;
+  color: #666;
+  font-weight: bold;
+}
+
+.datetime span {
+  white-space: nowrap;
+  font-weight: normal;
+  font-size: 11px;
+  color: #ccc;
+}
+
+.datetime input, .form-row .datetime input.vDateField, .form-row .datetime input.vTimeField {
+  min-width: 0;
+  margin-left: 5px;
+  margin-bottom: 4px;
+}
+
+table p.datetime {
+  font-size: 11px;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.datetimeshortcuts .clock-icon, .datetimeshortcuts .date-icon {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  height: 16px;
+  width: 16px;
+  overflow: hidden;
+}
+
+.datetimeshortcuts .clock-icon {
+  background: url("../img/icon-clock.svg") 0 0 no-repeat;
+}
+
+.datetimeshortcuts a:focus .clock-icon,
+.datetimeshortcuts a:hover .clock-icon {
+  background-position: 0 -16px;
+}
+
+.datetimeshortcuts .date-icon {
+  background: url("../img/icon-calendar.svg") 0 0 no-repeat;
+  top: -1px;
+}
+
+.datetimeshortcuts a:focus .date-icon,
+.datetimeshortcuts a:hover .date-icon {
+  background-position: 0 -16px;
+}
+
+.timezonewarning {
+  font-size: 11px;
+  color: #999;
+}

@@ -18,3 +18,4 @@ Developers
 * Silvano Nogueira (@snbuback)
 * Emmanuelle Delescolle (@nanuxbe)
 * Petar (@pbojinov)
+* Sergii Lapin (@Seha16)

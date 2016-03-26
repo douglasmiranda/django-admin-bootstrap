@@ -65,12 +65,26 @@ def sidebar_menu_setting():
     return getattr(settings, 'BOOTSTRAP_ADMIN_SIDEBAR_MENU', False)
 
 
-@register.assignment_tag
+@register.simple_tag
 def display_sidebar_menu(has_filters=False):
     if has_filters:
         # Always display the menu in change_list.html
         return True
     return sidebar_menu_setting()
+
+
+@register.simple_tag
+def jquery_vendor_path():
+    if DJANGO_VERSION < (1, 9):
+        return 'admin/js/jquery.js'
+    return 'admin/js/vendor/jquery/jquery.js'
+
+
+@register.simple_tag
+def datetime_widget_css_path():
+    if DJANGO_VERSION < (1, 9):
+        return ''
+    return 'admin/css/datetime_widget.css'
 
 
 @register.inclusion_tag('bootstrap_admin/sidebar_menu.html',
@@ -86,11 +100,11 @@ def render_menu_app_list(context):
         dependency_str = 'settings.TEMPLATE_CONTEXT_PROCESSORS'
     else:
         dependencie = 'django.template.context_processors.request'
-        implemented_engines = getattr(settings, 'BOOTSTRAP_ADMIN_ENGINES', 
+        implemented_engines = getattr(settings, 'BOOTSTRAP_ADMIN_ENGINES',
             ['django.template.backends.django.DjangoTemplates'])
         dependency_str = "the 'context_processors' 'OPTION' of one of the " + \
             "following engines: %s" % implemented_engines
-        filtered_engines = [engine for engine in settings.TEMPLATES 
+        filtered_engines = [engine for engine in settings.TEMPLATES
             if engine['BACKEND'] in implemented_engines]
         if len(filtered_engines) == 0:
             raise ImproperlyConfigured(
@@ -99,7 +113,7 @@ def render_menu_app_list(context):
                 % implemented_engines
             )
         processors = reduce(lambda x, y: x.extend(y), [
-            engine.get('OPTIONS', {}).get('context_processors', []) 
+            engine.get('OPTIONS', {}).get('context_processors', [])
             for engine in filtered_engines])
 
     if dependencie not in processors:
