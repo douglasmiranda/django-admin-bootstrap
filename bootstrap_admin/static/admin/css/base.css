@@ -1,6 +1,9 @@
 body {
   background: #f5f5f5;
 }
+select {
+  -webkit-appearance: none;
+}
 .main a {
   text-decoration: none;
 }
