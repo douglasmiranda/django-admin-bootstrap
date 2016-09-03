@@ -18,6 +18,14 @@
 {% block content_container %}
   <div id="content-main">
     <div class="login-container">
+      {% if user.is_authenticated %}
+        <div role="alert" class="alert alert-warning">
+        {% blocktrans trimmed %}
+            You are authenticated as {{ username }}, but are not authorized to
+            access this page. Would you like to login to a different account?
+        {% endblocktrans %}
+        </div>
+      {% endif %}
       <form action="{{ app_path }}" method="post" id="login-form" class="form form-horizontal" role="form">{% csrf_token %}
         <a href="{% url 'admin:index' %}">
           <img alt="{{ site_header|default:_('Django administration') }}" src="{% static "bootstrap_admin/img/logo-140x60.png" %}" class="logo-admin">
