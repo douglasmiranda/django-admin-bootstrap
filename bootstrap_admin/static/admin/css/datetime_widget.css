@@ -9,7 +9,6 @@ p.datetime {
 .datetime span {
   white-space: nowrap;
   font-weight: normal;
-  font-size: 11px;
   color: #ccc;
 }
 
