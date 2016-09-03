@@ -185,5 +185,5 @@ def render_menu_app_list(context):
 
 @register.filter()
 def class_for_field_boxes(line):
-    size_column = MAX_LENGTH_BOOTSTRAP_COLUMN / len(line.fields)
+    size_column = MAX_LENGTH_BOOTSTRAP_COLUMN // len(line.fields)
     return 'col-sm-{0}'.format(size_column or 1)  # if '0' replace with 1
