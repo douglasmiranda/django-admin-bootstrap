@@ -232,10 +232,14 @@ fieldset.module > h2:first-child {
 .widget_type__filteredselectmultiple .add-related {
   position: absolute;
   right: 0;
-  top: -28px;
+  top: -29px;
   width: auto;
 }
-
+.widget_type__filteredselectmultiple .add-related {
+  border-right: 1px solid #ccc;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 0;
+}
 /* EDIT INLINE */
 
 .inline-group {
