@@ -1,4 +1,5 @@
-{% load admin_static bootstrap_admin_template_tags %}{% display_sidebar_menu cl.has_filters as is_displaying_menu %}<!DOCTYPE html>
+{% load i18n static admin_static bootstrap_admin_template_tags  %}<!DOCTYPE html>
+{% get_current_language as LANGUAGE_CODE %}{% get_current_language_bidi as LANGUAGE_BIDI %}
 <html lang="{{ LANGUAGE_CODE|default:"en-us" }}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
 <head>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -53,8 +54,8 @@
   <![endif]-->
 </head>
 {% load i18n %}
-
-<body class="{% if is_popup %}popup {% endif %}{% block bodyclass %}{% endblock %}{% if not is_displaying_menu %} no-sidebar{% endif %}">
+{% display_sidebar_menu cl.has_filters as is_displaying_menu %}
+<body class="{% if is_popup %}popup {% endif %}{% block bodyclass %}{% endblock %}{% if not is_displaying_menu %} no-sidebar{% endif %}" data-admin-utc-offset="{% now "Z" %}">
 
   <div id="overlay">
     <div class="spinner">
