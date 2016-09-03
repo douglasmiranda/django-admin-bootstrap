@@ -142,8 +142,8 @@
     (function ($) {
       $(document).ready(function(){
         $('.vManyToManyRawIdAdminField, .vForeignKeyRawIdAdminField').addClass('form-control');
-        $('.form-row input[type="checkbox"]').closest('li')
-                                             .addClass('checkbox');
+        //$('.form-row input[type="checkbox"]').closest('li').addClass('checkbox'); // <-- this line both didn't work, and caused huge delays in load time
+        $('.form-row input[type="checkbox"]').parent().addClass('checkbox');
         $('.radiolist li').addClass('radio');
 
         $('.form-expand').on('click', function () {
