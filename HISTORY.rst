@@ -1,6 +1,13 @@
 History
 -------
 
+- 0.3.6 Sep 4, 2016
+
+   -   Better compatibility with latest Django
+   -   Python 3 fix #86
+   -   Upgrade to Bootstrap v3.3.7
+   -   Fix some minor bugs
+
 - 0.3.6 Apr 19, 2015
 
    -   Django 1.8 Compatibility #80
