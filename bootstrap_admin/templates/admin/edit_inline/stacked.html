@@ -1,4 +1,4 @@
-{% load i18n admin_static %}
+{% load i18n static %}
 <div class="inline-group" id="{{ inline_admin_formset.formset.prefix }}-group">
   <h2 class="h4">{{ inline_admin_formset.opts.verbose_name_plural|capfirst }}</h2>
   {{ inline_admin_formset.formset.management_form }}

@@ -1,4 +1,4 @@
-{% load i18n admin_static %}
+{% load i18n static %}
 
 {% if show_result_count %}
   <span class="popover-search-info" style="display:none">{% blocktrans count counter=cl.result_count %}{{ counter }} result{% plural %}{{ counter }} results{% endblocktrans %} / <a href="?{% if cl.is_popup %}_popup=1{% endif %}">{% blocktrans with full_result_count=cl.full_result_count %}{{ full_result_count }} total{% endblocktrans %}</a></span>
