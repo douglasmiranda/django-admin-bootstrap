@@ -1,7 +1,7 @@
 History
 -------
 
-- 0.3.6 Sep 4, 2016
+- 0.3.7 Sep 4, 2016
 
    -   Better compatibility with latest Django
    -   Python 3 fix #86
