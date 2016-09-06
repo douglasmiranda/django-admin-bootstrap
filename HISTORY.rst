@@ -1,6 +1,10 @@
 History
 -------
 
+- 0.3.7.1 Sep 6, 2016
+
+   -   Fix template tag on Django 1.8.
+
 - 0.3.7 Sep 4, 2016
 
    -   Better compatibility with latest Django
