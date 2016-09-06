@@ -1,10 +1,6 @@
 Responsive Theme for Django Admin (Django 1.7+)
 ===============================================
 
-.. image:: https://img.shields.io/pypi/dm/bootstrap_admin.svg
-    :target: https://pypi.python.org/pypi/bootstrap_admin/
-    :alt: Downloads
-
 Ingredients
 -----------
 
@@ -58,7 +54,7 @@ For Sidebar Menu in Django 1.7 only (List of apps and models) (RECOMMENDED):
     )
     BOOTSTRAP_ADMIN_SIDEBAR_MENU = True
 
-For Sidebar Menu in Django 1.8 be sure to have the correct `TEMPLATES settings <https://docs.djangoproject.com/en/1.8/ref/templates/upgrading/>`_ with the correct request template processor loaded `'django.template.context_processors.request'` :
+For Sidebar Menu in Django 1.8+ be sure to have the correct `TEMPLATES settings <https://docs.djangoproject.com/en/1.8/ref/templates/upgrading/>`_ with the correct request template processor loaded `'django.template.context_processors.request'` :
 
 .. code-block:: python
   
