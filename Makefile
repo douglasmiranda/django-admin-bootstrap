@@ -1,5 +1,6 @@
 clean:
 	@find . -name "*.pyc" -delete
+	@rm -R dist/
 
 release:
 	@sed -ic -e s/`cat VERSION`/$(version)/ setup.py bootstrap_admin/__init__.py
