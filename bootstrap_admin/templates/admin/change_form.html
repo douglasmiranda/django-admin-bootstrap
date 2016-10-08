@@ -86,7 +86,7 @@
             {% block admin_change_form_document_ready %}
               <script type="text/javascript"
                       id="django-admin-form-add-constants"
-                      src="{% static 'admin/js/change_form.js' %}"
+                      src="{% static 'change_form.js' %}"
                       {% if adminform and add %}
                           data-model-name="{{ opts.model_name }}"
                       {% endif %}>
@@ -144,7 +144,6 @@
         $('.vManyToManyRawIdAdminField, .vForeignKeyRawIdAdminField').addClass('form-control');
         $('.form-row input[type="checkbox"]').parent().addClass('checkbox');
         $('.radiolist li').addClass('radio');
-
         $('.form-expand').on('click', function () {
           $form_fields = $('.form-fields');
           $form_buttons = $('.form-buttons');
