@@ -1,0 +1,14 @@
+{% if widget.value %}
+  <div class="form-group">
+    <label class="col-sm-2 control-label">{{ current_label }}</label>
+    <div class="col-sm-10">
+      <a href="{{ widget.href }}">{{ widget.value }}</a>
+    </div>
+  </div>
+{% endif %}
+<div class="form-group url-change-input">
+  <label class="col-sm-2 control-label">{{ change_label }}</label>
+  <div class="col-sm-10">
+    {% include "django/forms/widgets/input.html" %}
+  </div>
+</div>

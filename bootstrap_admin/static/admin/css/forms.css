@@ -226,6 +226,13 @@ fieldset.module > h2:first-child {
   text-align: center;
   width: 50%;
 }
+div[class^='widget_type'], div[class*=' widget_type'] {
+  position: relative;
+}
+div[class^='widget_type'] .form-group, div[class*=' widget_type'] .form-group {
+  display: inline-block;
+  width: 100%;
+}
 .widget_type__filteredselectmultiple .input-group {
   width: 100%;
 }
@@ -239,6 +246,33 @@ fieldset.module > h2:first-child {
   border-right: 1px solid #ccc;
   border-top-right-radius: 5px;
   border-bottom-left-radius: 0;
+}
+.widget_type__foreignkeyrawidwidget .related-lookup {
+  width: 15px;
+  height: 16px;
+  background-image: url(../img/search.svg);
+}
+.widget_type__select .add-related,
+.widget_type__select .change-related {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.widget_type__select .change-related {
+  right: 20px;
+}
+.widget_type__adminurlfieldwidget {
+  display: inline-block;
+  width: 100%;
+}
+.form-group .form-group > label {
+  text-align: right;
+}
+.widget_type__adminfilewidget .checkbox{
+  margin: 0 !important;
+}
+.checkbox > .clear {
+  margin-left: 0 !important;
 }
 /* EDIT INLINE */
 
