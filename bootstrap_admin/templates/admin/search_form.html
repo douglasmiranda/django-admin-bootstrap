@@ -8,7 +8,7 @@
   <form id="changelist-search" action="" method="get">
     <div><!-- DIV needed for valid HTML -->
       <div class="input-group input-group-sm">
-        <input type="text" class="form-control popover-dismiss" name="{{ search_var }}" value="{{ cl.query }}" id="searchbar" placeholder='{% trans 'Search' %} "{{ cl.opts.verbose_name_plural|capfirst }}"' data-container="body" data-toggle="popover" data-placement="top" />
+        <input type="text" class="form-control popover-dismiss" name="{{ search_var }}" value="{{ cl.query }}" id="searchbar" placeholder='{% trans 'Search' %} "{{ cl.opts.verbose_name_plural|capfirst }}"' data-container="body" data-toggle="popover" data-placement="top" autofocus />
         <span class="input-group-btn">
           <button type="submit" class="btn btn-default" title="{% trans 'Search' %}">
             <span class="glyphicon glyphicon-search"></span>

@@ -10,7 +10,3 @@
     <p class="alert alert-danger" role="alert">{% trans "Enter a username and password." %}</p>
   {% endif %}
 {% endblock %}
-
-{% block after_field_sets %}
-<script type="text/javascript">document.getElementById("id_username").focus();</script>
-{% endblock %}
