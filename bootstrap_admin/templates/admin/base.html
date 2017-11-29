@@ -7,7 +7,7 @@
   <title>{% block title %}{% endblock %}</title>
 
   {% block bootstrap_admin_css %}
-    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap_admin/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   {% endblock bootstrap_admin_css %}
 
   <link rel="stylesheet" type="text/css" href="{% block stylesheet %}{% static 'admin/css/base.css' %}{% endblock %}" />
@@ -175,7 +175,8 @@
   </div>
 
 {% block bootstrap_admin_js %}
-  <script src="{% static 'bootstrap_admin/js/bootstrap.min.js' %}"></script>
+  <script>if (typeof jQuery === 'undefined' && django && django.jQuery) {jQuery = django.jQuery;}</script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script src="{% static 'bootstrap_admin/js/base.js' %}"></script>
 {% endblock bootstrap_admin_js %}
 
