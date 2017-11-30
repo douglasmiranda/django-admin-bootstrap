@@ -247,11 +247,13 @@ div[class^='widget_type'] .form-group, div[class*=' widget_type'] .form-group {
   border-top-right-radius: 5px;
   border-bottom-left-radius: 0;
 }
+.widget_type__manytomanyrawidwidget .related-lookup,
 .widget_type__foreignkeyrawidwidget .related-lookup {
   width: 15px;
   height: 16px;
   background-image: url(../img/search.svg);
 }
+.widget_type__selectmultiple .add-related,
 .widget_type__select .add-related,
 .widget_type__select .change-related {
   position: absolute;
@@ -264,6 +266,12 @@ div[class^='widget_type'] .form-group, div[class*=' widget_type'] .form-group {
 .widget_type__adminurlfieldwidget {
   display: inline-block;
   width: 100%;
+}
+.form-group .form-group {
+  margin-bottom: 5px;
+}
+.form-group .form-group:last-child {
+  margin-bottom: 0;
 }
 .form-group .form-group > label {
   text-align: right;
@@ -310,10 +318,6 @@ div[class^='widget_type'] .form-group, div[class*=' widget_type'] .form-group {
 }
 .inline-group .btn:hover {
   background: #f4f4f4;
-}
-.inline-group .delete input {
-  position: relative;
-  top: 2px;
 }
 .inline-group .delete {
   padding: 0;
