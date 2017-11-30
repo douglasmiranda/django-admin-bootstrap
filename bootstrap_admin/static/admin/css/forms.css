@@ -239,7 +239,7 @@ div[class^='widget_type'] .form-group, div[class*=' widget_type'] .form-group {
 .widget_type__filteredselectmultiple .add-related {
   position: absolute;
   right: 0;
-  top: -29px;
+  top: -3px;
   width: auto;
 }
 .widget_type__filteredselectmultiple .add-related {
