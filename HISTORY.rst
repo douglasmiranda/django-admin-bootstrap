@@ -1,6 +1,20 @@
 History
 -------
 
+- 0.3.8 Dec 1, 2017
+
+   -   Now supporting Django 1.11 (end support for older versions)
+   -   Ability to specify custom classes for admin inline fields
+   -   Removing (almost all) javascript code from templates
+   -   Using CDN for bootstrap files
+   -   Fix widgets not rendering correctly:
+       -   related lookup, add and change links
+       -   split datetime
+       -   raw id fields
+       -   file field
+       -   url field
+   -   Now sidebar menu is enabled by default
+
 - 0.3.7.1 Sep 6, 2016
 
    -   Fix template tag on Django 1.8.
