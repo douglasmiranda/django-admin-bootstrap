@@ -40,6 +40,7 @@ It is enabled by default. But if you remove `django.template.context_processors.
 Just disable it:
 
 .. code-block:: python
+
     BOOTSTRAP_ADMIN_SIDEBAR_MENU = False
 
 
