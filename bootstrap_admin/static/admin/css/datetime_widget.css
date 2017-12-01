@@ -1,4 +1,4 @@
-p.datetime {
+.datetime {
   line-height: 20px;
   margin: 0;
   padding: 0;
@@ -18,7 +18,7 @@ p.datetime {
   margin-bottom: 4px;
 }
 
-table p.datetime {
+table .datetime {
   font-size: 11px;
   margin-left: 0;
   padding-left: 0;

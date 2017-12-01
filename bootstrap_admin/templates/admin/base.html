@@ -11,10 +11,7 @@
   {% endblock bootstrap_admin_css %}
 
   <link rel="stylesheet" type="text/css" href="{% block stylesheet %}{% static 'admin/css/base.css' %}{% endblock %}" />
-  {% datetime_widget_css_path as datetime_widget_css %}
-  {% if datetime_widget_css %}
-    <link rel="stylesheet" type="text/css" href="{% static datetime_widget_css %}" />
-  {% endif %}
+  <link rel="stylesheet" type="text/css" href="{% static 'admin/css/datetime_widget.css' %}" />
 
 {% block extrastyle %}{% endblock %}
 
@@ -26,13 +23,8 @@
 {% endif %}
 
 {% block jquery %}
-  {% jquery_vendor_path as jquery_path  %}
-  {% if jquery_path %}
-    <script type="text/javascript" src="{% static jquery_path %}"></script>
-  {% else %}
-    <script type="text/javascript" src="{% static "admin/js/jquery.js" %}"></script>
-  {% endif %}
-    <script type="text/javascript" src="{% static "admin/js/jquery.init.js" %}"></script>
+  <script type="text/javascript" src="{% static "admin/js/vendor/jquery/jquery.js" %}"></script>
+  <script type="text/javascript" src="{% static "admin/js/jquery.init.js" %}"></script>
 {% endblock jquery %}
   <script>
     (function ($) {
