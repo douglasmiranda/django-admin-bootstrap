@@ -1,7 +1,6 @@
 from django.contrib.admin import site
 from django.apps import apps
 from django.utils.text import capfirst
-from django.core.urlresolvers import reverse, NoReverseMatch
 from django.core.exceptions import ImproperlyConfigured
 from django.utils import six
 from django.conf import settings
@@ -14,7 +13,22 @@ try:
 except ImportError:
     pass
 
+
+# Depending on your django version, `reverse` and `NoReverseMatch` has been moved.
+# From django 2.0 they've been moved to `django.urls`
+try:
+    from django.urls import reverse, NoReverseMatch
+except ImportError:
+    from django.core.urlresolvers import reverse, NoReverseMatch
+
 register = template.Library()
+
+# From django 1.9 `assignment_tag` is deprecated in favour of `simple_tag`
+try:
+    simple_tag = register.simple_tag
+except AttributeError:
+    simple_tag = register.assignment_tag
+
 
 MAX_LENGTH_BOOTSTRAP_COLUMN = 12
 
@@ -65,7 +79,7 @@ def sidebar_menu_setting():
     return getattr(settings, 'BOOTSTRAP_ADMIN_SIDEBAR_MENU', True)
 
 
-@register.assignment_tag
+@simple_tag
 def display_sidebar_menu(has_filters=False):
     if has_filters:
         # Always display the menu in change_list.html
