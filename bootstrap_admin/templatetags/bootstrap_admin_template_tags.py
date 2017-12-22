@@ -1,7 +1,7 @@
 from django.contrib.admin import site
 from django.apps import apps
 from django.utils.text import capfirst
-from django.core.urlresolvers import reverse, NoReverseMatch
+from django.urls import reverse, NoReverseMatch
 from django.core.exceptions import ImproperlyConfigured
 from django.utils import six
 from django.conf import settings
@@ -65,7 +65,7 @@ def sidebar_menu_setting():
     return getattr(settings, 'BOOTSTRAP_ADMIN_SIDEBAR_MENU', True)
 
 
-@register.assignment_tag
+@register.simple_tag
 def display_sidebar_menu(has_filters=False):
     if has_filters:
         # Always display the menu in change_list.html
