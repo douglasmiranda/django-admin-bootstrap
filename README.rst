@@ -1,7 +1,17 @@
-Responsive Django Admin With Sidebar Menu (Django 1.11)
-=======================================================
+Responsive Django Admin
+=======================
 
 If you're looking for a version compatible with Django 1.8 just install **0.3.7.1**.
+
+Features
+--------
+
+* Responsive
+* Sidebar Menu
+* Easy install / setup
+* Support Django **1.11** and **2.0**
+* Bootstrap 3
+
 
 Screenshots
 -----------
