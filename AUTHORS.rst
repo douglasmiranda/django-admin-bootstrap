@@ -9,6 +9,7 @@ Project Lead
 Developers
 ----------
 
+* ygneo
 * (@ejnens)
 * Stéphane Angel (@twidi)
 * Gustavo Soares (@gustavosoares)
