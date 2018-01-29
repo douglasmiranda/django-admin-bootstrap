@@ -1,6 +1,11 @@
 History
 -------
 
+- 0.3.9 Jan 28, 2018
+
+   -   Now supporting Django 2.0
+   -   Fixing StackedInline collapsible
+
 - 0.3.8 Dec 1, 2017
 
    -   Now supporting Django 1.11 (end support for older versions)
