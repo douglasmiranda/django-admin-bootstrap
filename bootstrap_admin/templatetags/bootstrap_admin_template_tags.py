@@ -145,6 +145,7 @@ def sidebar_menu_list(sidebar_menu_callback, request):
                     'name': item['name'],
                     'app_label': app['app_label'],
                     'admin_url': item['link'],
+                    'object_name': item['object_name'],
                 })
 
         result.append({
