@@ -1,15 +1,19 @@
-{% load i18n %}
+{% load i18n bootstrap_admin_template_tags %}
 {% if app_list %}
+
   {% for app in app_list %}
-    <ul class="nav nav-sidebar app-{{ app.app_label }} module{% if app.app_url in current_url %} has-active-menu show-models{% endif %}">
+    <ul class="nav nav-sidebar app-{{ app.app_label }} module{% if app.app_url in current_url or app|has_active_menu:current_url %} has-active-menu show-models{% endif %}">
       <li {% if app.app_url == current_url %} class="active"{% endif %}>
         <a href="{{ app.app_url }}" class="section" title="{% blocktrans with name=app.name %}Models in the {{ name }} application{% endblocktrans %}">
           {{ app.name }}
         </a>
       </li>
       {% for model in app.models %}
-        <li {% if model.admin_url in current_url %}class="active"{% endif %}>
-          <a href="{% firstof model.admin_url model.add_url '#' %}" title="{% if not model.admin_url and not model.add_url %}{% trans "You don't have permission to edit anything." %}{% endif %}">{{ model.name }}</a>
+        <li class="model model-{{ model.object_name|lower }}{% if model.admin_url in current_url %} active{% endif %}">
+          <a href="{% firstof model.admin_url model.add_url '#' %}"
+             title="{% if not model.admin_url and not model.add_url %}{% trans 'You don\'t have permission to edit anything.' %}{% endif %}">
+              {{ model.name }}
+          </a>
         </li>
       {% endfor %}
     </ul>
