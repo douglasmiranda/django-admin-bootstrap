@@ -4,11 +4,13 @@ CONTRIBUTORS
 Project Lead
 ------------
 
-* Douglas Miranda (@douglasmiranda / <douglasmirandasilva@gmail.com>)
+* Douglas Miranda (@douglasmiranda / <douglascoding@gmail.com>)
 
 Developers
 ----------
 
+* Gilson Paulino (@gilsonbp)
+* Cristóbal Mackenzie (@cmackenziek)
 * ygneo
 * (@ejnens)
 * Stéphane Angel (@twidi)
