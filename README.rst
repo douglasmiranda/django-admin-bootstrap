@@ -30,18 +30,18 @@ from pypi (recommended) ::
 
     $ pip install bootstrap-admin
 
-And don't forget to add *bootstrap\_admin* in **INSTALLED\_APPS** before
-the *django.contrib.admin*.
+And don't forget to add **bootstrap\_admin** in ``INSTALLED_APPS`` before
+the ``django.contrib.admin``.
 
 Example:
 
 .. code-block:: python
 
-    INSTALLED_APPS = (  
-        # ...  
+    INSTALLED_APPS = (
+        # ...
         'bootstrap_admin', # always before django.contrib.admin  
-        'django.contrib.admin',  
-        # ...  
+        'django.contrib.admin',
+        # ...
     )  
 
 CUSTOMIZE
@@ -61,7 +61,7 @@ Just disable it:
 Branding - Overriding logo
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you want to use your own logo, you can achieve this by overriding the login.html and base_site.html, just like in Django Admin.
+If you want to use your own logo, you can achieve this by overriding the **login.html** and **base_site.html**, just like in Django Admin.
 
 First, make sure the ``TEMPLATES`` setting in your settings.py is properly configured:
 
@@ -84,7 +84,7 @@ I'm assuming ``BASE_DIR`` is:
 
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-This pattern of creating a global templates folder could be useful for you to use for your `base.html` and other global templates.
+This pattern of creating a global templates folder could be useful for you to use for your **base.html** and other global templates.
 
 More info: https://docs.djangoproject.com/en/2.1/ref/templates/api/#configuring-an-engine
 
