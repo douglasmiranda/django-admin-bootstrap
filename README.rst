@@ -50,7 +50,7 @@ CUSTOMIZE
 Sidebar Menu
 ^^^^^^^^^^^^
 
-It is enabled by default. But if you remove `django.template.context_processors.request` from your `context_processors`.
+It is enabled by default. But if you remove ``django.template.context_processors.request`` from your ``context_processors``.
 
 Just disable it:
 
@@ -63,7 +63,7 @@ Branding - Overriding logo
 
 If you want to use your own logo, you can achieve this by overriding the login.html and base_site.html, just like in Django Admin.
 
-First, make sure the `TEMPLATES` setting in your settings.py is properly configured:
+First, make sure the ``TEMPLATES`` setting in your settings.py is properly configured:
 
 .. code-block:: python
 
@@ -78,7 +78,7 @@ First, make sure the `TEMPLATES` setting in your settings.py is properly configu
 
 `DIRS`: You must set the location of your templates, an absolute path.
 
-I'm assuming `BASE_DIR` is:
+I'm assuming ``BASE_DIR`` is:
 
 .. code-block:: python
 
@@ -108,8 +108,8 @@ Let me show you a project structure as an example:
     │   └── wsgi.py
     ├── manage.py
 
-You can see I created a global `templates/` folder, 
-with another directory inside `admin/` containing `login.html` and `base_site.html`.
+You can see I created a global **templates/** folder, 
+with another directory inside **admin/** containing **login.html** and **base_site.html**.
 
 Their respective contents are:
 
