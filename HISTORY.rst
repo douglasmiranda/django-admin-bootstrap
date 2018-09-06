@@ -1,6 +1,11 @@
 History
 -------
 
+- 0.4.0 Aug 31, 2018
+
+   -   Better documentation and package info
+   -   More convenient way to branding
+
 - 0.3.9 Jan 28, 2018
 
    -   Now supporting Django 2.0

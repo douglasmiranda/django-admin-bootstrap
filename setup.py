@@ -8,7 +8,7 @@ f.close()
 
 setup(
     name='bootstrap_admin',
-    version='0.3.9',
+    version='0.4.0',
     description='Responsive Theme for Django Admin With Sidebar Menu (Django 1.11)',
     long_description=readme,
     author='Douglas Miranda',
@@ -26,6 +26,12 @@ setup(
         'License :: OSI Approved :: BSD License',
         'Operating System :: OS Independent',
         'Programming Language :: Python',
+        'Programming Language :: Python :: 2',
+        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
     ],
     keywords='django,admin,skin,theme,bootstrap,responsive',
 )
