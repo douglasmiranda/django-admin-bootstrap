@@ -1,6 +1,6 @@
 {% load i18n %}
-<h3 class="h5"><span class="glyphicon glyphicon-asterisk"></span> {% blocktrans with filter_title=title %} By {{ filter_title }} {% endblocktrans %}</h3>
-<ul class="filter-list">
+<h3 class="h5" role="button" data-toggle="collapse" href="#{{ title|cut:" " }}" ><span class="glyphicon glyphicon-asterisk"></span> {% blocktrans with filter_title=title %} By {{ filter_title }} {% endblocktrans %}</h3>
+<ul class="filter-list panel-collapse collapse" id="{{ title|cut:" " }}">
   {% for choice in choices %}
     <li{% if choice.selected %} class="selected"{% endif %}>
       <a href="{{ choice.query_string|iriencode }}">{% if choice.selected %}<span class="glyphicon glyphicon-ok"></span> {% endif %}{{ choice.display }}</a>
