@@ -316,8 +316,16 @@ div[class^='widget_type'] .form-group, div[class*=' widget_type'] .form-group {
 }
 
 /* autocomplete select2 */
-.select2-container--admin-autocomplete.select2-container {
+.related-widget-wrapper .select2-container--admin-autocomplete.select2-container {
   width: 100% !important;
+}
+.related-widget-wrapper .select2-container--admin-autocomplete.select2-container--focus .select2-selection,
+.related-widget-wrapper .select2-container--admin-autocomplete.select2-container--open .select2-selection {
+  border-color: #ccc;
+}
+.related-widget-wrapper .select2-container--admin-autocomplete .select2-selection--single,
+.related-widget-wrapper .select2-container--admin-autocomplete .select2-selection--multiple {
+  min-height: 34px;
 }
 .has-error .select2-container--admin-autocomplete .select2-selection--single {
   border-color: #843534;
