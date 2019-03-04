@@ -158,6 +158,7 @@ select {
 .sidebar-menu .nav-sidebar.has-active-menu {
   background: #333;
   border: 1px solid #444;
+  border-left: 0;
 }
 .sidebar-menu .nav-sidebar.has-active-menu a {
   border-left: 2px solid #333;
