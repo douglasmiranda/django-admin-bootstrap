@@ -104,7 +104,7 @@
   margin-right: 5px;
 }
 .inline li, .inline label, .clearable-file-input label{
-  display: inline;
+  display: inline-block;
 }
 
 .form-row > div > ul {
