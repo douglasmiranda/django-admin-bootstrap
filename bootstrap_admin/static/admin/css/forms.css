@@ -275,6 +275,9 @@ div[class^='widget_type'] .form-group, div[class*=' widget_type'] .form-group {
   height: 16px;
   background-image: url(../img/search.svg);
 }
+.widget_type__autocompleteselect .add-related,
+.widget_type__autocompleteselect .delete-related,
+.widget_type__autocompleteselect .change-related,
 .widget_type__selectmultiple .add-related,
 .widget_type__select .delete-related,
 .widget_type__select .add-related,
@@ -283,10 +286,12 @@ div[class^='widget_type'] .form-group, div[class*=' widget_type'] .form-group {
   top: 0;
   right: 0;
 }
+.widget_type__autocompleteselect .change-related,
 .widget_type__select .change-related {
   right: 40px;
 }
 
+.widget_type__autocompleteselect .add-related,
 .widget_type__select .add-related {
   right: 20px;
 }
@@ -309,6 +314,12 @@ div[class^='widget_type'] .form-group, div[class*=' widget_type'] .form-group {
 .checkbox > .clear {
   margin-left: 0 !important;
 }
+
+/* autocomplete select2 */
+.select2-container--admin-autocomplete.select2-container {
+  width: 100% !important;
+}
+
 /* EDIT INLINE */
 
 .inline-group {
