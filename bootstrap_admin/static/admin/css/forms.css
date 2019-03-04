@@ -34,7 +34,8 @@
   overflow: hidden;
 }
 .field-boxes .checkbox {
-  padding-top: 20px;
+  padding-top: 25px;
+  margin-bottom: 5px;
 }
 .form-row.field-box {
   clear: none;
