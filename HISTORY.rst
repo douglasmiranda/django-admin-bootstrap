@@ -1,6 +1,16 @@
 History
 -------
 
+- 0.4.1 Mar 04, 2019
+
+   -  Fix sidebar menu too small in some screens #129
+   -  Sidebar Filters are now collapsable #133
+   -  Fix misaligned icons for related field
+   -  Fix style of autocomplete widget
+   -  Fix errors not highlighted for multiple fields per line
+   -  Fix misaligned Checkboxes
+   -  Small CSS fixes
+
 - 0.4.0 Aug 31, 2018
 
    -   Better documentation and package info
