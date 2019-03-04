@@ -276,6 +276,7 @@ div[class^='widget_type'] .form-group, div[class*=' widget_type'] .form-group {
   background-image: url(../img/search.svg);
 }
 .widget_type__selectmultiple .add-related,
+.widget_type__select .delete-related,
 .widget_type__select .add-related,
 .widget_type__select .change-related {
   position: absolute;
@@ -283,6 +284,10 @@ div[class^='widget_type'] .form-group, div[class*=' widget_type'] .form-group {
   right: 0;
 }
 .widget_type__select .change-related {
+  right: 40px;
+}
+
+.widget_type__select .add-related {
   right: 20px;
 }
 .widget_type__adminurlfieldwidget {
