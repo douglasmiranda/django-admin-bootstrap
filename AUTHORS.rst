@@ -9,7 +9,7 @@ Project Lead
 Developers
 ----------
 
-* (@mindfuucker)
+* R.J. van Lierop(@mindfuucker)
 * Gilson Paulino (@gilsonbp)
 * Cristóbal Mackenzie (@cmackenziek)
 * ygneo
