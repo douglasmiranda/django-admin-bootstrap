@@ -102,6 +102,7 @@
               {% endblock %}
               <div id="user-tools" class="btn-group">
                 <div class="btn-group">
+                  {% block user_tools_items %}
                   <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                     {% if user.is_active and user.is_staff %}
                       {% block welcome-msg %}
@@ -127,6 +128,7 @@
                       <a href="{% url 'admin:logout' %}">{% trans 'Log out' %}</a>
                     </li>
                   </ul>
+                  {% endblock user_tools_items %}
                 </div>
                 {% if docsroot %}
                   <a href="{{ docsroot }}" title="{% trans 'Documentation' %}" class="btn btn-default hidden-sm"><span class="glyphicon glyphicon-book"></span></a>

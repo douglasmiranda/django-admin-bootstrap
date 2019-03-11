@@ -1,8 +1,10 @@
+import django
 from django.contrib.admin import site
 from django.apps import apps
 from django.utils.text import capfirst
 from django.core.exceptions import ImproperlyConfigured
 from django.utils import six
+from django.utils.module_loading import import_string
 from django.conf import settings
 from django import template
 from django import VERSION as DJANGO_VERSION
@@ -87,12 +89,96 @@ def display_sidebar_menu(has_filters=False):
     return sidebar_menu_setting()
 
 
+@register.filter()
+def has_active_menu(app, current_url):
+    return current_url in [item['admin_url'] for item in app['models']]
+
+
+def sidebar_menu_list(sidebar_menu_callback, request):
+    """
+    Adapted from https://github.com/maykinmedia/django-admin-index
+    """
+
+    show_remaining_apps = getattr(settings, 'BOOTSTRAP_ADMIN_SHOW_REMAINING_APPS', False) or \
+        (getattr(settings, 'BOOTSTRAP_ADMIN_SHOW_REMAINING_APPS_TO_SUPERUSERS', True) and request.user.is_superuser)
+
+    sidebar_menu_callback_func = import_string(sidebar_menu_callback)
+    sidebar_menu_items = sidebar_menu_callback_func(request)
+
+    # Convert to convienent dict
+    model_dicts = {}
+
+    if django.VERSION < (1, 9):
+        from .compat.django18 import get_app_list
+        original_app_list = get_app_list(site, request)
+    else:
+        original_app_list = site.get_app_list(request)
+
+    for app in original_app_list:
+        for model in app['models']:
+            key = '{}.{}'.format(app['app_label'], model['object_name'].lower())  # noqa
+            model_dict = model.copy()
+            model_dict.update({
+                'app_label': app['app_label'],
+                'app_name': app['name'],
+                'app_url': app['app_url'],
+                'has_module_perms': app['has_module_perms'],
+            })
+            model_dicts[key] = model_dict
+
+    # Create new list based on our groups, using the model_dicts constructed above.
+    added = []
+    result = []
+    app_list = sidebar_menu_items
+
+    for app in app_list:
+        models = []
+        for item in app['items']:
+            if 'model' in item:
+                key = item['model']
+                o = model_dicts.get(key)
+                if o:
+                    models.append(o)
+                    added.append(key)
+            elif 'link' in item:
+                models.append({
+                    'name': item['name'],
+                    'app_label': app['app_label'],
+                    'admin_url': item['link'],
+                    'object_name': item['object_name'],
+                })
+
+        result.append({
+            'name': app['name'],
+            'app_label': app['app_label'],
+            'models': models,
+        })
+
+    if show_remaining_apps:
+        other = [model_dicts[k] for k in model_dicts if k not in added]
+        if other:
+            result.append({
+                'name': ('Miscellaneous'),
+                'app_label': 'misc',
+                'models': sorted(other, key=lambda m: m['name'])
+            })
+
+    return result
+
+
 @register.inclusion_tag('bootstrap_admin/sidebar_menu.html',
                         takes_context=True)
 def render_menu_app_list(context):
     show_global_menu = sidebar_menu_setting()
     if not show_global_menu:
         return {'app_list': ''}
+
+    sidebar_menu_callback = getattr(settings, 'BOOTSTRAP_ADMIN_SIDEBAR_MENU_CALLBACK', None)
+    if sidebar_menu_callback:
+        return {
+            'app_list': sidebar_menu_list(sidebar_menu_callback, context.get('request')),
+            'current_url': context.get('request').path,
+        }
 
     if DJANGO_VERSION < (1, 8):
         dependencie = 'django.core.context_processors.request'
@@ -180,6 +266,7 @@ def render_menu_app_list(context):
     # Sort the models alphabetically within each sapp.
     for app in app_list:
         app['models'].sort(key=lambda x: x['name'])
+
     return {'app_list': app_list, 'current_url': context.get('request').path}
 
 
