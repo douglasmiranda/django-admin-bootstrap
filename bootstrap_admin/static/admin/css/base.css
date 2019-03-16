@@ -6,6 +6,7 @@ select {
 }
 .main a {
   text-decoration: none;
+  word-break: break-all;
 }
 .popup {
   padding-top: 10px;
