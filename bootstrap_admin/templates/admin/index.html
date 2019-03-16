@@ -63,7 +63,11 @@
                 <td class="model-{{ model.object_name|lower }} actions">
                   <div class="btn-group btn-group-justified btn-group-actions">
                     <a href="{% if model.add_url %}{{ model.add_url }}{% endif %}" role="button" class="addlink btn {% if not model.add_url %}disabled{% endif %}" data-toggle="tooltip" data-placement="left" title="{% trans 'Add' %}"><span class="glyphicon glyphicon-plus"></span></a>
+                    {% if model.view_only %}
+                    <a href="{{ model.admin_url }}" role="button" class="viewlink btn {% if not model.admin_url %}disabled{% endif %}" title="{% trans 'View' %}" data-toggle="tooltip" data-placement="left"><span class="glyphicon glyphicon-eye-open"></span></a>
+                    {% else %}
                     <a href="{% if model.admin_url %}{{ model.admin_url }}{% endif %}" role="button" class="changelink btn {% if not model.admin_url %}disabled{% endif %}" title="{% trans 'Change' %}" data-toggle="tooltip" data-placement="left"><span class="glyphicon glyphicon-pencil"></span></a>
+                    {% endif %}
                     <a href="#" class="btn search-in-model" data-toggle="tooltip" data-placement="left" title="{% trans 'Search' %}" data-model-name="{{ model.name }}" data-url-model-name="{{ model.admin_url }}"><span class="glyphicon glyphicon-search"></span></a>
                   </div>
                 </td>
