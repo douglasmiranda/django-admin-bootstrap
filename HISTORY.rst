@@ -1,6 +1,13 @@
 History
 -------
 
+- 0.4.2 Mar 17, 2019
+
+   -  Using context var app_list from Django Admin and not from our custom template tag.
+   -  Custom template tag and custom template for sidebar removed, it's more simple now.
+   -  available_apps now provides us a way to render the app list everywhere on Django Admin.
+   -  For more: #54 #140 #141
+
 - 0.4.1 Mar 04, 2019
 
    -  Fix sidebar menu too small in some screens #129
