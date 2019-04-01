@@ -40,6 +40,9 @@
 .form-row.field-box {
   clear: none;
 }
+.form-row a {
+  word-break: break-all;
+}
 
 .list-group {
   margin-bottom: 10px;
