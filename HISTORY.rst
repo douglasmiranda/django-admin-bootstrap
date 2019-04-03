@@ -1,6 +1,13 @@
 History
 -------
 
+- 0.4.3 Apr 02, 2019
+
+   -  Change "Recent Actions" to "Apps" on the apps table
+   -  Fix string not being able to translate because of title-case 
+   -  Instead of "My Actions" show the name/username of the current user
+   -  Avoiding the overflow of links in forms; Not applying to .main a anymore because it can touch in links you don't want break-all
+
 - 0.4.2 Mar 17, 2019
 
    -  Using context var app_list from Django Admin and not from our custom template tag.
