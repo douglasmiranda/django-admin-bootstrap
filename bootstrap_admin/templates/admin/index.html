@@ -18,8 +18,8 @@
           <button class="btn btn-default" title="{% trans "Apps" %}">
             <span class="glyphicon glyphicon-star-empty"></span>
           </button>
-          <a href="#timeline" class="btn btn-default" title="{% trans "Recent Actions" %}">
-            <span class="glyphicon glyphicon-tasks"></span> {% trans "Recent Actions" %}
+          <a href="#timeline" class="btn btn-default" title="{% trans "Apps" %}">
+            <span class="glyphicon glyphicon-tasks"></span> {% trans "Apps" %}
           </a>
         </div>
       </div>
@@ -81,7 +81,7 @@
         <div id="content-related" class="recent-actions panel-body">
           <div class="module" id="recent-actions-module">
             <div class="page-header">
-              <h2 id="timeline" class="h3">{% trans 'Recent Actions' %} <small>({% trans 'My Actions' %})</small></h2>
+              <h2 id="timeline" class="h3">{% trans 'Recent actions' %} <small>({% firstof user.get_short_name user.get_username %})</small></h2>
             </div>
             {% load log %}
             {% get_admin_log 10 as admin_log for_user user %}
