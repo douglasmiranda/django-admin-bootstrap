@@ -9,6 +9,7 @@ Project Lead
 Developers
 ----------
 
+* 逆寒刀 (@children1987)
 * Dillon Lareau (@dlareau)
 * R.J. van Lierop(@mindfuucker)
 * Gilson Paulino (@gilsonbp)
