@@ -83,13 +83,13 @@
                   </li>
                   {% for model in app.models %}
                     <li {% if model.admin_url in current_url %}class="active"{% endif %}>
-                      <a href="{% firstof model.admin_url model.add_url '#' %}" title="{% if not model.admin_url and not model.add_url %}{% trans "You don't have permission to edit anything." %}{% endif %}">{{ model.name }}</a>
+                      <a href="{% firstof model.admin_url model.add_url '#' %}" title="{% if not model.admin_url and not model.add_url %}{% trans "You don't have permission to view or edit anything." %}{% endif %}">{{ model.name }}</a>
                     </li>
                   {% endfor %}
                 </ul>
               {% endfor %}
             {% else %}
-              <p class="permission-warning">{% trans "You don't have permission to edit anything." %}</p>
+              <p class="permission-warning">{% trans "You don't have permission to view or edit anything." %}</p>
             {% endif %}
 
             </div>
