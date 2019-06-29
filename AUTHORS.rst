@@ -9,6 +9,7 @@ Project Lead
 Developers
 ----------
 
+* Lionel Sausin (@ls-initiatives)
 * 逆寒刀 (@children1987)
 * Dillon Lareau (@dlareau)
 * R.J. van Lierop(@mindfuucker)
