@@ -1,18 +1,5 @@
-from django.contrib.admin import site
-from django.apps import apps
-from django.utils.text import capfirst
-from django.core.exceptions import ImproperlyConfigured
-from django.utils import six
 from django.conf import settings
 from django import template
-from django import VERSION as DJANGO_VERSION
-
-# Depending on you python version, reduce has been moved to functools
-try:
-    from functools import reduce
-except ImportError:
-    pass
-
 
 # Depending on your django version, `reverse` and `NoReverseMatch` has been moved.
 # From django 2.0 they've been moved to `django.urls`
