@@ -9,7 +9,7 @@ Features
 * Responsive
 * Sidebar Menu
 * Easy install / setup
-* Support Django **1.11** and **2.1**
+* Support Django **1.11**, **2.1**, **2.2** and **3.0**
 * Bootstrap 3
 * Python 3
 
