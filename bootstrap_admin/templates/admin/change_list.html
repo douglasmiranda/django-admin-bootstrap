@@ -129,11 +129,11 @@
           <div class="panel-footer" id="panel-footer">
             <span class="info pull-left">
               {{ cl.result_count }}
-              {% ifequal cl.result_count 1 %}
+              {% if cl.result_count == 1 %}
                 {{ cl.opts.verbose_name }}
               {% else %}
                 {{ cl.opts.verbose_name_plural }}
-              {% endifequal %}
+              {% endif %}
             </span>
             <div class="right-buttons">
               <a href="#panel-heading" class="btn btn-default btn-xs" role="button">
