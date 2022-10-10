@@ -105,8 +105,17 @@ select {
   padding: 0 20px;
   position: fixed;
   top: 0;
+  z-index: 1001;
+}
+
+.btn-group {
   z-index: 1000;
 }
+
+.form-buttons {
+  z-index: 2;
+}
+
 .sidebar-menu .django-admin-logo {
   background: #282829;
   border-bottom: 1px solid #222;
@@ -268,6 +277,7 @@ select {
   border-radius: 0;
   border-top: medium none;
   height: 35px;
+
 }
 #user-tools .glyphicon {
   margin-top: 4px;
@@ -275,12 +285,17 @@ select {
 #user-tools .dropdown-menu {
   border-color: #adadad;
   border-radius: 0;
-  top: 32px;
+  margin: 0;
+  left: 0;
+  width: 100% ;
+  min-width: auto;
 }
+
 #user-tools .dropdown-toggle {
   background: #ffffff;
   box-shadow: none;
   z-index: 1001;
+
 }
 .main-header:hover #user-tools {
   opacity: 1;
@@ -331,3 +346,15 @@ select {
     max-width: 100px;
   }
 }
+
+.ellipsis {
+
+    width: auto;
+    max-width:120px;
+    margin: 0;
+
+    overflow: hidden;
+    white-space: nowrap; /* Don't forget this one */
+    text-overflow: ellipsis;
+}
+
